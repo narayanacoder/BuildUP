@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Break the ivory tower',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -48,42 +48,6 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
-
-  @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-}
-
-var _t = 'LEARN';
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  Widget build(BuildContext context) {
-    return Column(
-//      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.share),
-          color: Colors.green[500],
-          tooltip: 'Learn',
-          onPressed: () {
-            setState(() {
-              _t = 'LEARN-1';
-            });
-          },
-        ),
-        Text('$_t')
-      ],
-    );
-  }
-}
-
-var learn =  FloatingActionButton(
-//  onPressed: _MyHomePageState._incrementCounter,
-  tooltip: 'Increment',
-  child: Icon(Icons.add),
-);
-
 
 dynamic _getIconImage(int icon) {
   switch(icon) {
