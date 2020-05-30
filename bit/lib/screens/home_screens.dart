@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   void initState() {
     //TODO: implement initState
     super.initState();
-    _tabController = new TabController(length: 5, vsync: this, initialIndex: 0);
+    _tabController = new TabController(length: 4, vsync: this, initialIndex: 0);
   }
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           controller: _tabController,
           children: <Widget>[
             SingleChildScrollView(child: ExploreScreen()),
-            Container(),
             Container(),
             Container(),
             Container(),
@@ -73,21 +72,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   FontAwesomeIcons.lightbulb,
                   size: 25,
                 ),
-                text: "INNOVATE",
-              ),
-              Tab(
-                icon: Icon(
-                  FontAwesomeIcons.globeAmericas,
-                  size: 25,
-                ),
-                text: "LOCAL",
+                text: "CONTRIBUTE",
               ),
               Tab(
                 icon: Icon(
                   Icons.favorite_border,
                   size: 25,
                 ),
-                text: "SAVED",
+                text: "COLLECTION",
               ),
               Tab(
                 icon: Icon(
