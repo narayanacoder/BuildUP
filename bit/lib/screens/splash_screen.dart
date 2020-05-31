@@ -102,37 +102,29 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               Positioned(
                   top: -140,
                   left:-2,
-                  child: FadeAnimation(1,ClipPath(
-                      clipper: CurvedRectangleClipper(),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.bottomLeft,
-                                  end: Alignment.topCenter,
-                                  colors: [Color(0xff0062ff).withOpacity(0.7), Colors.deepPurple.withOpacity(0.18), Colors.purple.withOpacity(0.01)])),
-                          padding: EdgeInsets.only(
-                            right: width + 10,
-                            top: 50,
+                  child: FadeAnimation(1,Container(
+                      padding: EdgeInsets.only(
+                        right: width + 10,
+                        top: 50,
+                      ),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                            height: 420,
                           ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              SizedBox(
-                                height: 420,
-                              ),
-                              Row(),
-                            ]),
-                      )
+                          Row(),
+                        ]),
                   ))),
                   Positioned(
-                      top: 52,
-                      right: 28,
+                      top: 50,
+                      right: -165,
                       child: FadeAnimation(1, Container(
-                          width: 260,
-                          height: 240,
+                          width: 540,
+                          height: 505,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('images/cooperate.png'),
+                                image: AssetImage('images/cooperateBackground.png'),
                                 fit: BoxFit.cover,
                               )
                           )
@@ -211,11 +203,28 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 }
 
 
+/*
+Deprecated code, may reuse elsewhere.
+Use example:
+
+ClipPath(
+    clipper: CurvedRectangleClipper(),
+    child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topCenter,
+                colors: [Color(0xff0062ff).withOpacity(0.7), Colors.deepPurple.withOpacity(0.18), Colors.purple.withOpacity(0.01)])),
+        padding: EdgeInsets.only(
+          right: 50,
+          top: 50,
+           ),
+      child: (YOUR WIDGET)
+ */
 class CurvedRectangleClipper extends CustomClipper<Path> {
   final double offset = 130;
   @override
   Path getClip(Size size) {
-    // TODO: implement getClip
     Path path = Path();
     path.lineTo(0, size.height - offset);
     var firstEndpoint = Offset(offset, size.height);
