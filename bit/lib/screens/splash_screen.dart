@@ -93,54 +93,42 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         .of(context)
         .size
         .width;
-
     return Scaffold(
-        backgroundColor: Color(0xff161616),
+        backgroundColor: Colors.black,
         body: Container(
             width: double.infinity,
             child: Stack(
                 children: <Widget>[
+              Positioned(
+                  top: -140,
+                  left:-2,
+                  child: FadeAnimation(1,Container(
+                      padding: EdgeInsets.only(
+                        right: width + 10,
+                        top: 50,
+                      ),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                            height: 420,
+                          ),
+                          Row(),
+                        ]),
+                  ))),
                   Positioned(
-                      top: -50,
-                      left: 0,
+                      top: 50,
+                      right: -165,
                       child: FadeAnimation(1, Container(
-                          width: width,
-                          height: 400,
+                          width: 540,
+                          height: 505,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('images/one.png'),
+                                image: AssetImage('images/cooperateBackground.png'),
                                 fit: BoxFit.cover,
                               )
                           )
                       ))
-                  ),
-                  Positioned(
-                      top: -100,
-                      left: 0,
-                      child: FadeAnimation(1.3, Container(
-                          width: width,
-                          height: 400,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('images/one.png'),
-                                fit: BoxFit.cover,
-                              )
-                          )
-                      ))
-                  ),
-                  Positioned(
-                      top: -150,
-                      left: 0,
-                      child: FadeAnimation(1.6, Container(
-                          width: width,
-                          height: 400,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('images/one.png'),
-                                fit: BoxFit.cover,
-                              )
-                          )
-                      )),
                   ),
                   Container(
                     padding: EdgeInsets.all(20.0),
@@ -153,7 +141,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                           SizedBox(height: 15,),
                           FadeAnimation(1.3, Text("Let us help you take care of each other. \nWe'll do our best.",
                             style: TextStyle(color: Colors.white.withOpacity(.7), height: 1.4, fontSize: 20),)),
-                            SizedBox(height: 180,),
+                            SizedBox(height: 80,),
                             FadeAnimation(1.6, AnimatedBuilder(
                               animation: _scaleController,
                               builder: (context, child) => Transform.scale(
@@ -203,7 +191,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                                 ),
                               ))
                             )),
-                        SizedBox(height: 60,),
+                        SizedBox(height: 0,),
                       ],
                     )
                   ),
@@ -211,5 +199,52 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             )
         )
     );
+  }
+}
+
+
+/*
+Deprecated code, may reuse elsewhere.
+Use example:
+
+ClipPath(
+    clipper: CurvedRectangleClipper(),
+    child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topCenter,
+                colors: [Color(0xff0062ff).withOpacity(0.7), Colors.deepPurple.withOpacity(0.18), Colors.purple.withOpacity(0.01)])),
+        padding: EdgeInsets.only(
+          right: 50,
+          top: 50,
+           ),
+      child: (YOUR WIDGET)
+ */
+class CurvedRectangleClipper extends CustomClipper<Path> {
+  final double offset = 130;
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - offset);
+    var firstEndpoint = Offset(offset, size.height);
+    path.arcToPoint(firstEndpoint, radius: Radius.circular(-offset),clockwise: false);
+
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, offset);
+    path.lineTo(offset, offset);
+
+    var secondEndPoint = Offset(0,0);
+
+    path.arcToPoint(secondEndPoint, radius: Radius.circular(-offset),clockwise: true);
+    path.lineTo(0, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) {
+    // TODO: implement shouldReclip
+    return true;
   }
 }

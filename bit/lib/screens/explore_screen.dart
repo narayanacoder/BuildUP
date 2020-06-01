@@ -1,10 +1,37 @@
 import 'package:bit/models/category.dart';
 import 'package:bit/models/top_submissions.dart';
+import 'package:bit/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ExploreScreen extends StatelessWidget {
+class ExploreScreen extends StatefulWidget {
+  @override
+  _ExploreScreenState createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProviderStateMixin{
+
+  bool _isExplore = true;
+
+  void togglePage() {
+    setState(() {
+      _isExplore = !_isExplore;
+    });
+  }
+
+  @override
+  void initState() {
+    //TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    return (_isExplore ? ExploreWidget() : ProjectsWidget(context, togglePage));
+  }
+
+
+  Container ExploreWidget() {
     final Shader linearGradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -16,64 +43,64 @@ class ExploreScreen extends StatelessWidget {
         )
     );
     return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 16, left:16, right: 16, bottom: 4),
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[200],
-                  offset: Offset(0.0, 1.0),
-                  blurRadius: 4
-                )
-              ]
-            ),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: "Browse submissions",
-                  alignLabelWithHint: true,
-                border: InputBorder.none,
-                hintStyle: TextStyle(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 1.0,
-                ),
-                  prefixIcon: Icon(Icons.search)
-              ),
-            )
-          ),
-          Container( //TODO: use Expanded?
-            height: 550.0,
-            child: ListView(
-              children: <Widget>[
-                buildFilterWidget(),
-                Container(
-                  height: 90,
-                  padding: EdgeInsets.only(top: 24, left: 16),
-                  child:
-                    Text(
-                      "We may be apart, but we are stronger together.",
-                      style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.normal,
-                          fontFamily: 'roboto',
-                          foreground: Paint()..shader = linearGradient,
-                      ),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
+            children: <Widget>[
+              Container(
+                  margin: EdgeInsets.only(top: 16, left:16, right: 16, bottom: 4),
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey[200],
+                            offset: Offset(0.0, 1.0),
+                            blurRadius: 4
+                        )
+                      ]
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: "Browse submissions",
+                        alignLabelWithHint: true,
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1.0,
+                        ),
+                        prefixIcon: Icon(Icons.search)
                     ),
-                ),
-                buildCategoryWidget(),
-                buildTopRatedWidget(),
-                buildFooter(),
+                  )
+              ),
+              Container( //TODO: use Expanded?
+                  height: 550.0,
+                  child: ListView(
+                      children: <Widget>[
+                        buildExploreFilterWidget(),
+                        Container(
+                          height: 90,
+                          padding: EdgeInsets.only(top: 24, left: 16),
+                          child:
+                          Text(
+                            "We may be apart, but we are stronger together.",
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'roboto',
+                              foreground: Paint()..shader = linearGradient,
+                            ),
+                          ),
+                        ),
+                        buildCategoryWidget(),
+                        buildTopRatedWidget(),
+                        buildFooter(),
+                      ]
+                  )
+              )
             ]
-          )
         )
-       ]
-    )
     );
   }
 
@@ -207,10 +234,15 @@ class ExploreScreen extends StatelessWidget {
                                           ),
                                           Row(
                                             children: <Widget>[
-                                              Text('🔥'),
+//                                              Text('🔥'), can use emojis too, comment for later
+                                              Icon(
+                                                FontAwesomeIcons.solidHeart,
+                                                size: 12,
+                                                color: Colors.redAccent,
+                                              ),
                                               SizedBox(width: 2,),
                                               Text(
-                                                  submission.numLikes,
+                                                  " " + submission.numLikes,
                                                   style: TextStyle(
                                                       fontSize: 11,
                                                       fontWeight: FontWeight.bold,
@@ -231,7 +263,7 @@ class ExploreScreen extends StatelessWidget {
                 )
             ),
             OutlineButton(
-              onPressed: () {},
+              onPressed: () { togglePage(); },
               color: Colors.black,
               padding: EdgeInsets.only(left: 32, right: 32),
               borderSide: BorderSide(color: Colors.white),
@@ -321,7 +353,7 @@ class ExploreScreen extends StatelessWidget {
               );
   }
 
-  Container buildFilterWidget() {
+  Container buildExploreFilterWidget() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
