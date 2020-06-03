@@ -122,8 +122,9 @@ class loginContent extends StatelessWidget {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintStyle: TextStyle(color: Colors.grey.withOpacity(.8)),
-                      hintText: "Password"
+                      hintText: "Password",
                   ),
+                  obscureText: true,
                 ),
               ),
             ],
