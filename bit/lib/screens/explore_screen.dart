@@ -3,7 +3,6 @@ import 'package:bit/models/top_submissions.dart';
 import 'package:bit/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bit/api/api_submissions.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -161,20 +160,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     );
   }
 
-  StatefulWidget TopRatedWidget(BuildContext context, togglePage, String searchInit) {
-    return new FutureBuilder<SubmissionsList>(future: fetchSubmissionsPost(), builder: (context, snapshot){
-      if(snapshot.hasData) {
-        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit);
-      } else if (snapshot.hasError){
-        print(snapshot.error);
-        return new Container();
-      } else {
-        print("failed to get submissions for unknown reasons");
-        return new Container();
-      }
-    });
-  }
-
+  
   Container buildTopRatedWidget() {
     return Container(
         height: 354,
