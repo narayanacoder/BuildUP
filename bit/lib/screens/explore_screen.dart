@@ -3,6 +3,7 @@ import 'package:bit/models/top_submissions.dart';
 import 'package:bit/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bit/api/api_submissions.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class ExploreScreen extends StatefulWidget {
 class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProviderStateMixin{
 
   bool _isExplore = true;
+  String searchText= "";
 
   void togglePage() {
     setState(() {
@@ -19,15 +21,20 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     });
   }
 
+  void setSearchAndToggle(String text){
+    setState(() { searchText = text; _isExplore = !_isExplore; });
+  }
+
   @override
   void initState() {
     //TODO: implement initState
     super.initState();
+    _isExplore = true;
   }
 
   @override
   Widget build(BuildContext context) {
-    return (_isExplore ? ExploreWidget() : ProjectsWidget(context, togglePage));
+    return (_isExplore ? ExploreWidget() : ProjectsWidget(context, togglePage, searchText));
   }
 
 
@@ -61,6 +68,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                       ]
                   ),
                   child: TextField(
+                    onChanged: (text) { setSearchAndToggle(text); },
                     decoration: InputDecoration(
                         hintText: "Browse submissions",
                         alignLabelWithHint: true,
@@ -151,6 +159,20 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
           ],
         )
     );
+  }
+
+  StatefulWidget TopRatedWidget(BuildContext context, togglePage, String searchInit) {
+    return new FutureBuilder<SubmissionsList>(future: fetchSubmissionsPost(), builder: (context, snapshot){
+      if(snapshot.hasData) {
+        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit);
+      } else if (snapshot.hasError){
+        print(snapshot.error);
+        return new Container();
+      } else {
+        print("failed to get submissions for unknown reasons");
+        return new Container();
+      }
+    });
   }
 
   Container buildTopRatedWidget() {
@@ -301,48 +323,51 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                           itemCount: 3,
                           itemBuilder: (BuildContext context, int index){
                             Category category = categories[index];
-                            return Container(
-                              width: 140,
-                              margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.transparent, //TODO: Colors.grey[200]
-                                    offset: Offset(0.0, 4.0),
-                                    blurRadius: 4
-                                  )
-                                ]
+                            return InkWell(
+                              onTap: () => setSearchAndToggle("Covid " + category.categoryName),
+                              child: Container(
+                                width: 140,
+                                margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.transparent, //TODO: Colors.grey[200]
+                                      offset: Offset(0.0, 4.0),
+                                      blurRadius: 4
+                                    )
+                                  ]
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: Container(
+                                        width: double.infinity,
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
+                                            child: Image(
+                                              image: AssetImage(category.imageUrl),
+                                              fit: BoxFit.cover,
+                                            ),
+                                        )
+                                      )
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                      child: Text(
+                                        category.categoryName,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey[800]
+                                        )
+                                      )
+                                    )
+                                  ],
+                                )
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      width: double.infinity,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                          child: Image(
-                                            image: AssetImage(category.imageUrl),
-                                            fit: BoxFit.cover,
-                                          ),
-                                      )
-                                    )
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                    child: Text(
-                                      category.categoryName,
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey[800]
-                                      )
-                                    )
-                                  )
-                                ],
-                              )
                             );
                           }
                         )
@@ -358,44 +383,53 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-            margin: EdgeInsets.only(right: 6),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50.0),
-              color: Colors.white,
-              border: Border.all(
-                color: Colors.grey[300],
-                width: 1.0,
-              )
+          InkWell(
+            onTap: () => setSearchAndToggle("Covid"),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              margin: EdgeInsets.only(right: 6),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50.0),
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.grey[300],
+                  width: 1.0,
+                )
+              ),
+              child: Text("Covid")
             ),
-            child: Text("Covid")
           ),
-          Container(
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-              margin: EdgeInsets.only(right: 6),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50.0),
-                  color: Colors.white,
-                  border: Border.all(
-                    color: Colors.grey[300],
-                    width: 1.0,
-                  )
-              ),
-              child: Text("Parks")
+          InkWell(
+            onTap: () => setSearchAndToggle("Parks"),
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                margin: EdgeInsets.only(right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey[300],
+                      width: 1.0,
+                    )
+                ),
+                child: Text("Parks")
+            ),
           ),
-          Container(
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-              margin: EdgeInsets.only(right: 6),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50.0),
-                  color: Colors.white,
-                  border: Border.all(
-                    color: Colors.grey[300],
-                    width: 1.0,
-                  )
-              ),
-              child: Text("Forest Fires")
+          InkWell(
+            onTap: () => setSearchAndToggle("Forest Fires"),
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                margin: EdgeInsets.only(right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey[300],
+                      width: 1.0,
+                    )
+                ),
+                child: Text("Forest Fires")
+            ),
           )
         ]
       )

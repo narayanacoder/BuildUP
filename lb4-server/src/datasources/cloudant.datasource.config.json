@@ -1,0 +1,10 @@
+{
+  "name": "Cloudant-cfc-2020",
+  "connector": "cloudant",
+  "url": "xxx",
+  "database": "cloudantcfc2020db",
+  "username": "xxx",
+  "password": "xxx",
+  "modelIndex": "loopback__model__cloudantcfc2020",
+  "globalLimit": 1000
+}

@@ -12,7 +12,7 @@ class Submission{
 
 List<Submission> submissions = [
   Submission(
-    imageUrl: "images/cafe.jpg",
+      imageUrl: "images/cafe.jpg",
       submissionName: "Cafe Space Organizer",
       numLikes: "18221",
       country: "Canada",
