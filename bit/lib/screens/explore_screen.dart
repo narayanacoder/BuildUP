@@ -3,6 +3,7 @@ import 'package:bit/models/top_submissions.dart';
 import 'package:bit/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bit/api/api_submissions.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
   bool _isExplore = true;
   String searchText= "";
+  List<SubmissionItem> topSubmissions;
 
   void togglePage() {
     setState(() {
@@ -24,11 +26,16 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     setState(() { searchText = text; _isExplore = !_isExplore; });
   }
 
+  void setTopSubmissions(List<SubmissionItem> submissions){
+      topSubmissions = submissions;
+  }
+
   @override
   void initState() {
     //TODO: implement initState
     super.initState();
     _isExplore = true;
+    topSubmissions = [];
   }
 
   @override
@@ -101,7 +108,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                           ),
                         ),
                         buildCategoryWidget(),
-                        buildTopRatedWidget(),
+                        TopRatedWidget(setTopSubmissions),
                         buildFooter(),
                       ]
                   )
@@ -160,7 +167,21 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     );
   }
 
-  
+  StatefulWidget TopRatedWidget(setTopSubmissions) {
+    return new FutureBuilder<SubmissionsList>(future: fetchTopSubmissionsPost(3), builder: (context, snapshot){
+      if(snapshot.hasData) {
+        setTopSubmissions(snapshot.data.submissionItems);
+        return buildTopRatedWidget();
+      } else if (snapshot.hasError){
+        print(snapshot.error);
+        return new Container();
+      } else {
+        print("failed to get submissions for unknown reasons");
+        return new Container();
+      }
+    });
+  }
+
   Container buildTopRatedWidget() {
     return Container(
         height: 354,
@@ -194,7 +215,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                         scrollDirection: Axis.horizontal,
                         itemCount: 3,
                         itemBuilder: (BuildContext context, int index){
-                          Submission submission = submissions[index];
+                          SubmissionItem submission = topSubmissions[index];
                           return Container(
                               width: 160,
                               margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 12) : EdgeInsets.only(right: 16, top: 4, bottom: 12),
@@ -211,7 +232,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
                                             child: Image(
-                                              image: AssetImage(submission.imageUrl),
+                                              image: AssetImage(submission.uploads[0].imageUrl),
                                               fit: BoxFit.cover,
                                             ),
                                           )
@@ -233,7 +254,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                               )
                                           ),
                                           Text(
-                                            submission.submissionName,
+                                            submission.name,
                                             style: TextStyle(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.bold,
@@ -250,7 +271,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                               ),
                                               SizedBox(width: 2,),
                                               Text(
-                                                  " " + submission.numLikes,
+                                                  " " + submission.numLikes.toString(),
                                                   style: TextStyle(
                                                       fontSize: 11,
                                                       fontWeight: FontWeight.bold,

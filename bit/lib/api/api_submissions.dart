@@ -79,3 +79,15 @@ Future<SubmissionsList> fetchSubmissionsPost() async {
     throw Exception('Failed to load post submissions');
   }
 }
+
+Future<SubmissionsList> fetchTopSubmissionsPost(int count) async {
+  final response =  await http.get('http://10.0.2.2:3000/submissions/highest/numlikes/' + count.toString());
+  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    return SubmissionsList.fromJson((json.decode(response.body)));  //returning JSON array not JSON object.
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post submissions');
+  }
+}
