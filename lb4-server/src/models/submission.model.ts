@@ -49,6 +49,17 @@ export class Submission extends Entity {
   })
   uploads?: any[];
 
+  @property({
+    type: 'number',
+    default: 0,
+  })
+  problemId?: number;
+
+  @property({
+    type: 'array',
+    itemType: 'any',
+  })
+  comments?: any[];
 
   constructor(data?: Partial<Submission>) {
     super(data);
