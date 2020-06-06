@@ -176,6 +176,21 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     Row(
                                       children: <Widget>[
                                         Icon(
+                                          FontAwesomeIcons.shareAlt,
+                                          size: 12,
+                                          color: Colors.blueGrey.withOpacity(0.8),
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Text(
+                                          " Share",
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff171717)
+                                          ),
+                                        ),
+                                        SizedBox(width: 12,),
+                                        Icon(
                                           FontAwesomeIcons.solidHeart,
                                           size: 12,
                                           color: Colors.redAccent,
@@ -185,7 +200,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                           " " + submission.numLikes.toString(),
                                           style: TextStyle(
                                               fontSize: 11,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w600,
                                               color: Color(0xff171717)
                                           ),
                                         ),
