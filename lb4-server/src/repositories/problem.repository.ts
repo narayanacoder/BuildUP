@@ -9,7 +9,7 @@ export class ProblemRepository extends DefaultCrudRepository<
   ProblemRelations
 > {
   constructor(
-    @inject('datasources.Cloudant-cfc-2020') dataSource: CloudantDataSource,
+    @inject('datasources.cloudant') dataSource: CloudantDataSource,
   ) {
     super(Problem, dataSource);
   }

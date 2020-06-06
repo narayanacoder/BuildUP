@@ -7,8 +7,8 @@ import {
 import {repository} from '@loopback/repository';
 
 //import from LB app
-import {SubmissionRepository} from '../repositories';
-import {Submission} from '../models';
+import {SubmissionRepository, ProblemRepository} from '../repositories';
+import {Submission, Problem} from '../models';
 
 /**
  * This class will be bound to the application as a `LifeCycleObserver` during
@@ -23,6 +23,7 @@ export class AddDataObserver implements LifeCycleObserver {
   */
  constructor(
   @repository('SubmissionRepository') private submissionRepo: SubmissionRepository,
+  @repository('ProblemRepository') private problemRepo: ProblemRepository,
 ) {}
 
   /**
@@ -34,6 +35,7 @@ export class AddDataObserver implements LifeCycleObserver {
     let count: number = (await this.submissionRepo.count()).count;
     if (count !== 0) return;
 
+    //submissions --------------------
     let submissionsArr = [];
     submissionsArr.push(new Submission({
       name: "Cafe Space Organizer",
@@ -42,7 +44,9 @@ export class AddDataObserver implements LifeCycleObserver {
       country: "Canada",
       author: "Lisa Simmons",
       uploads: [{type:"ImageUrl", imageUrl: "images/cafe.jpg"}],
-      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Cafe", "Restaurant", "local business", "Space", "Social Distancing"]
+      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Cafe", "Restaurant", "local business", "Space", "Social Distancing"],
+      comments: [{author:"Ben Grady", comment: "Love this idea!"}, {author:"Jill Lane", comment: "Every cafe should implement this."}],
+      problemId: 111,
     }));
     submissionsArr.push(new Submission({
       name: "Online Queue System",
@@ -83,6 +87,51 @@ export class AddDataObserver implements LifeCycleObserver {
 
     for(var submissionItem of submissionsArr){
       this.submissionRepo.create(submissionItem);
+    };
+
+
+    //problems ------------------
+    let problemsArr = [];
+    problemsArr.push(new Problem({
+      problemId: 111,
+      name: "Small restaurant looking to increase engagement",
+      description: "Restaurant in need of support and ideas to make customers feel safe to visit a tight-spaced resturant environment.",
+      numLikes: 3871,
+      country: "Canada",
+      author: "Jake Evans",
+      uploads: [{type:"ImageUrl", imageUrl: "images/restaurantProblem.jpg"}],
+      keywords: ["COVID", "Restaurant", "Canada"]
+    }));
+    problemsArr.push(new Problem({
+      name: "Social Distancing at Local Day Care Center",
+      description: "Local day care center looking for ideas to keep young ones safe and help them understand the need to social distance.",
+      numLikes: 7883,
+      country: "Australia",
+      author: "Megg Myers",
+      uploads: [{type:"ImageUrl", imageUrl: "images/dayCareProblem.jpg"}],
+      keywords: ["COVID", "DayCare", "Australia"]
+    }));
+    problemsArr.push(new Problem({
+      name: "Indoor playgrounds for children need help",
+      description: "Recently re-opened children's play area but have no customers, how can we make this area safe for our children.",
+      numLikes: 3631,
+      country: "Germany",
+      author: "Ben Simon",
+      uploads: [{type:"ImageUrl", imageUrl: "images/playgroundProblem.jpg"}],
+      keywords: ["COVID", "Kids", "Germany"]
+    }));
+    problemsArr.push(new Problem({
+      name: "Curb side pick-up for busy resturant with line-ups",
+      description: "Our restaurant can tend to get very busy, but with only curb-side pickup being allowed. The lineups outside are getting really long.",
+      numLikes: 2644,
+      country: "Germany",
+      author: "Lily Day",
+      uploads: [{type:"ImageUrl", imageUrl: "images/curbSideProblem.jpg"}],
+      keywords: ["COVID", "Restaurant", "Germany"]
+    }));
+
+    for(var problemItem of problemsArr){
+      this.problemRepo.create(problemItem);
     };
 
   }

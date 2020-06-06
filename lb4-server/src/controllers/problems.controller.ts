@@ -5,6 +5,7 @@ import {
   FilterExcludingWhere,
   repository,
   Where,
+  FilterBuilder
 } from '@loopback/repository';
 import {
   post,
@@ -169,5 +170,29 @@ export class ProblemsController {
   })
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.problemRepository.deleteById(id);
+  }
+
+  @get('/problems/highest/numlikes/{limit}', {
+    responses: {
+      '200': {
+        description: 'Array of top problems ranked based on number of likes',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'array',
+              items: getModelSchemaRef(Problem, {includeRelations: true}),
+            },
+          },
+        },
+      },
+    },
+  })
+  async findProblemsHighestNumLikes(
+    @param.path.number('limit') limit: number,
+  ): Promise<Problem[]> {
+    let filter: FilterBuilder<Problem> = new FilterBuilder<Problem>({order: ['numLikes DESC'], where:{"numLikes": {gt: 0}}, limit: limit});
+      
+    const res = await this.problemRepository.find(filter.filter);
+    return res;
   }
 }
