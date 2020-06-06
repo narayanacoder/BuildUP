@@ -192,7 +192,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                         SizedBox(width: 12,),
                                         Icon(
                                           FontAwesomeIcons.solidHeart,
-                                          size: 12,
+                                          size: 14,
                                           color: Colors.redAccent,
                                         ),
                                         SizedBox(width: 2,),
