@@ -17,6 +17,20 @@ class UploadItem {
   }
 }
 
+class CommentItem {
+  String author;
+  String comment;
+
+  CommentItem({this.author,this.comment});
+
+  factory CommentItem.fromJson(Map<String, dynamic> json) {
+    return CommentItem(
+      author: json['author'],
+      comment: json['comment'],
+    );
+  }
+}
+
 class SubmissionItem {
   final int id;
   String name;
@@ -27,12 +41,14 @@ class SubmissionItem {
   List<String> keywords;
   List<UploadItem> uploads;
   int problemId;
+  List<CommentItem> comments;
 
-  SubmissionItem({this.id,this.name, this.description, this.numLikes, this.country, this.author, this.keywords, this.uploads, this.problemId});
+  SubmissionItem({this.id,this.name, this.description, this.numLikes, this.country, this.author, this.keywords, this.uploads, this.problemId, this.comments});
 
   factory SubmissionItem.fromJson(Map<String, dynamic> json) {
     List<String> keywords = List<String>.from(json['keywords'].map((i) => i.toString().toLowerCase()));
     List<UploadItem> uploads = List<UploadItem>.from(json['uploads'].map((i) => UploadItem.fromJson(i)));
+    List<CommentItem> comments = List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i)));
     return SubmissionItem(
       id: json['id'],
       name: json['name'],
@@ -43,6 +59,7 @@ class SubmissionItem {
       keywords: keywords,
       uploads: uploads,
       problemId: json['problemId'],
+      comments: comments,
     );
   }
 }
