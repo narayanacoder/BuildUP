@@ -48,7 +48,7 @@ class SubmissionItem {
   factory SubmissionItem.fromJson(Map<String, dynamic> json) {
     List<String> keywords = List<String>.from(json['keywords'].map((i) => i.toString().toLowerCase()));
     List<UploadItem> uploads = List<UploadItem>.from(json['uploads'].map((i) => UploadItem.fromJson(i)));
-    List<CommentItem> comments = List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i)));
+    List<CommentItem> comments = json['comments'] != null ? List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i))) : null;
     return SubmissionItem(
       id: json['id'],
       name: json['name'],

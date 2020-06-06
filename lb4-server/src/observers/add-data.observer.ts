@@ -94,7 +94,7 @@ export class AddDataObserver implements LifeCycleObserver {
     let problemsArr = [];
     problemsArr.push(new Problem({
       problemId: 111,
-      name: "Small restaurant looking to increase engagement",
+      name: "Small Restaurant Engagement",
       description: "Restaurant in need of support and ideas to make customers feel safe to visit a tight-spaced resturant environment.",
       numLikes: 3871,
       country: "Canada",

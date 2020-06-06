@@ -4,6 +4,7 @@ import 'package:bit/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
+import 'package:bit/api/api_problems.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   bool _isExplore = true;
   String searchText= "";
   List<SubmissionItem> topSubmissions;
+  List<ProblemItem> topProblems;
 
   void togglePage() {
     setState(() {
@@ -28,6 +30,10 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
   void setTopSubmissions(List<SubmissionItem> submissions){
       topSubmissions = submissions;
+  }
+
+  void setTopProblems(List<ProblemItem> problems){
+    topProblems = problems;
   }
 
   @override
@@ -109,6 +115,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                         ),
                         buildCategoryWidget(),
                         TopRatedWidget(setTopSubmissions),
+                        ProblemsWidget(setTopProblems),
                         buildFooter(),
                       ]
                   )
@@ -121,7 +128,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   Container buildFooter() {
     return Container(
         height: 200,
-        color: Color(0xfff4f4f4),
+        color: Color(0xffffffff),
         padding: EdgeInsets.only(bottom: 46, top: 28, left: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,7 +303,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
               color: Colors.black,
               padding: EdgeInsets.only(left: 32, right: 32),
               borderSide: BorderSide(color: Colors.white),
-              child: const Text('Explore More', style: TextStyle(fontSize: 14, color: Colors.white)),
+              child: const Text('View all solutions', style: TextStyle(fontSize: 14, color: Colors.white)),
             ),
           ],
         )
@@ -442,4 +449,143 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
       )
     );
   }
+
+
+  StatefulWidget ProblemsWidget(setTopProblems) {
+    return new FutureBuilder<ProblemsList>(future: fetchTopProblemsPost(3), builder: (context, snapshot){
+      if(snapshot.hasData) {
+        setTopProblems(snapshot.data.problemItems);
+        return buildProblemsWidget();
+      } else if (snapshot.hasError){
+        print(snapshot.error);
+        return new Container();
+      } else {
+        print("failed to get submissions for unknown reasons");
+        return new Container();
+      }
+    });
+  }
+
+  Container buildProblemsWidget() {
+    return Container(
+        height: 374,
+        color: Color(0xfff4f4f4),
+        padding: EdgeInsets.only(bottom: 46, top: 16, left: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Problems at a glance",
+              style: TextStyle(
+                fontSize: 26,
+                color: Color(0xff171717),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text(
+                "Feel inspired? Want to help? This is the best place to start.",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color(0xff171717),
+                  letterSpacing: 1.0,
+                )
+            ),
+            Expanded(
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    height: double.infinity,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 3,
+                        itemBuilder: (BuildContext context, int index){
+                          ProblemItem problem = topProblems[index];
+                          return Container(
+                              width: 160,
+                              margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 12) : EdgeInsets.only(right: 16, top: 4, bottom: 12),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color(0xfff4f4f4),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Container(
+                                          width: double.infinity,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
+                                            child: Image(
+                                              image: AssetImage(problem.uploads[0].imageUrl),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          )
+                                      )
+                                  ),
+                                  Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                      child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                                problem.country,
+                                                style: TextStyle(
+                                                  letterSpacing: 1,
+                                                  color: Color(0xff171717),
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w600,
+                                                )
+                                            ),
+                                            Text(
+                                                problem.name,
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xff171717)
+                                                )
+                                            ),
+                                            Row(
+                                              children: <Widget>[
+//                                              Text('🔥'), can use emojis too, comment for later
+                                                Icon(
+                                                  FontAwesomeIcons.solidHeart,
+                                                  size: 12,
+                                                  color: Colors.redAccent,
+                                                ),
+                                                SizedBox(width: 2,),
+                                                Text(
+                                                  " " + problem.numLikes.toString(),
+                                                  style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color(0xff171717)
+                                                  ),
+                                                ),
+                                                SizedBox(width: 8,),
+                                              ],
+                                            )
+                                          ]
+                                      )
+                                  )
+                                ],
+                              )
+                          );
+                        }
+                    )
+                )
+            ),
+            OutlineButton(
+              onPressed: () { togglePage(); },
+              color: Color(0xff171717),
+              padding: EdgeInsets.only(left: 32, right: 32),
+              borderSide: BorderSide(color: Color(0xff171717)),
+              child: const Text('View All Problems', style: TextStyle(fontSize: 14, color: Color(0xff171717))),
+            ),
+          ],
+        )
+    );
+  }
+
+
 }
