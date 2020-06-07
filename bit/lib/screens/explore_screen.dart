@@ -1,10 +1,11 @@
 import 'package:bit/models/category.dart';
-import 'package:bit/models/top_submissions.dart';
+//import 'package:bit/models/top_submissions.dart';
 import 'package:bit/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
 import 'package:bit/api/api_problems.dart';
+import 'package:bit/utilities/constants.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProviderStateMixin{
 
-  bool _isExplore = true;
+  ExplorePage_Tab currentTab = ExplorePage_Tab.explore_tab;
   String searchText= "";
   bool _isSolutions = true;
 
@@ -22,13 +23,13 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
   void togglePage(isSol) {
     setState(() {
-      _isExplore = !_isExplore;
+      currentTab = ExplorePage_Tab.projects_tab;
       _isSolutions = isSol;
     });
   }
 
   void setSearchAndToggle(String text){
-    setState(() { searchText = text; _isExplore = !_isExplore; });
+    setState(() { searchText = text; currentTab = ExplorePage_Tab.projects_tab; });
   }
 
   void setTopSubmissions(List<SubmissionItem> submissions){
@@ -43,13 +44,22 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   void initState() {
     //TODO: implement initState
     super.initState();
-    _isExplore = true;
+    currentTab = ExplorePage_Tab.explore_tab;
     topSubmissions = [];
   }
 
   @override
   Widget build(BuildContext context) {
-    return (_isExplore ? ExploreWidget() : ProjectsWidget(context, togglePage, searchText, _isSolutions));
+    switch (currentTab) {
+      case ExplorePage_Tab.explore_tab:
+        return ExploreWidget();
+        break;
+      case ExplorePage_Tab.projects_tab:
+        return ProjectsWidget(context, togglePage, searchText, _isSolutions);
+        break;
+      default:
+        return ExploreWidget();
+    }
   }
 
 
