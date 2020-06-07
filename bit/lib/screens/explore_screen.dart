@@ -15,12 +15,15 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
   bool _isExplore = true;
   String searchText= "";
+  bool _isSolutions = true;
+
   List<SubmissionItem> topSubmissions;
   List<ProblemItem> topProblems;
 
-  void togglePage() {
+  void togglePage(isSol) {
     setState(() {
       _isExplore = !_isExplore;
+      _isSolutions = isSol;
     });
   }
 
@@ -46,7 +49,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return (_isExplore ? ExploreWidget() : ProjectsWidget(context, togglePage, searchText));
+    return (_isExplore ? ExploreWidget() : ProjectsWidget(context, togglePage, searchText, _isSolutions));
   }
 
 
@@ -299,7 +302,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                 )
             ),
             OutlineButton(
-              onPressed: () { togglePage(); },
+              onPressed: () { togglePage(true); },
               color: Colors.black,
               padding: EdgeInsets.only(left: 32, right: 32),
               borderSide: BorderSide(color: Colors.white),
@@ -576,7 +579,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                 )
             ),
             OutlineButton(
-              onPressed: () { togglePage(); },
+              onPressed: () { togglePage(false); },
               color: Color(0xff171717),
               padding: EdgeInsets.only(left: 32, right: 32),
               borderSide: BorderSide(color: Color(0xff171717)),

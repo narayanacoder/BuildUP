@@ -2,34 +2,7 @@ import 'dart:core';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
-class UploadItem {
-  String type;
-  String imageUrl;
-
-  UploadItem({this.type,this.imageUrl});
-
-  factory UploadItem.fromJson(Map<String, dynamic> json) {
-    return UploadItem(
-      type: json['type'],
-      imageUrl: json['imageUrl'],
-    );
-  }
-}
-
-class CommentItem {
-  String author;
-  String comment;
-
-  CommentItem({this.author,this.comment});
-
-  factory CommentItem.fromJson(Map<String, dynamic> json) {
-    return CommentItem(
-      author: json['author'],
-      comment: json['comment'],
-    );
-  }
-}
+import 'package:bit/utilities/common_objects.dart';
 
 class ProblemItem {
   final int id;
@@ -98,6 +71,21 @@ Future<ProblemsList> fetchProblemsPost() async {
   }
 }
 
+Future<CommonContainerList> fetchContainerProblemsPost() async {
+  final response =  await http.get('http://10.0.2.2:3000/problems');
+  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+//  String prettyprint = encoder.convert(response.body);
+//  print(prettyprint);
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    return problemToContainerList(ProblemsList.fromJson((json.decode(response.body))));  //returning JSON array not JSON object.
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post submissions');
+  }
+}
+
 Future<ProblemsList> fetchTopProblemsPost(int count) async {
   final response =  await http.get('http://10.0.2.2:3000/problems/highest/numlikes/' + count.toString());
   JsonEncoder encoder = new JsonEncoder.withIndent('  ');
@@ -108,4 +96,37 @@ Future<ProblemsList> fetchTopProblemsPost(int count) async {
     // If that call was not successful, throw an error.
     throw Exception('Failed to load post submissions');
   }
+}
+
+CommonContainerList problemToContainerList(ProblemsList problemsList) {
+  List<dynamic> containers = problemsList.problems;
+  List<CommonContainer> containerItems = [];
+  int containerCount = 0;
+  bool isProblem = true;
+
+  for(ProblemItem item in problemsList.problemItems) {
+    CommonContainer container = new CommonContainer(
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      numLikes: item.numLikes,
+      country: item.country,
+      author: item.author,
+      keywords: item.keywords,
+      uploads: item.uploads,
+      problemId: item.problemId,
+      comments: item.comments,
+      isProblem: true,
+    );
+    containerItems.add(container);
+  }
+  containerCount = containerItems.length;
+
+  CommonContainerList returnList = new CommonContainerList();
+  returnList.containers = containers;
+  returnList.containerItems = containerItems;
+  returnList.containerCount = containerCount;
+  returnList.isProblem = isProblem;
+
+  return returnList;
 }

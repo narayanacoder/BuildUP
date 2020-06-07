@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 //import 'package:bit/models/all_submissions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
+import 'package:bit/api/api_problems.dart';
+import 'package:bit/utilities/common_objects.dart';
 
-StatefulWidget ProjectsWidget(BuildContext context, togglePage, String searchInit) {
-    return new FutureBuilder<SubmissionsList>(future: fetchSubmissionsPost(), builder: (context, snapshot){
+StatefulWidget ProjectsWidget(BuildContext context, togglePage, String searchInit, bool _isSolutions) {
+    var function = _isSolutions ? fetchContainerSubmissionsPost : fetchContainerProblemsPost;
+    return new FutureBuilder<CommonContainerList>(future: function(), builder: (context, snapshot){
       if(snapshot.hasData) {
-        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit);
+        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit, isSolutions: _isSolutions);
       } else if (snapshot.hasError){
         print(snapshot.error);
         return new Container();
@@ -23,10 +26,12 @@ class ProjectsPageWidget extends StatefulWidget {
     Key key,
     @required this.snapshot,
     @required this.searchInit,
+    @required this.isSolutions
   }) : super(key: key);
 
   final AsyncSnapshot snapshot;
   final String searchInit;
+  final bool isSolutions;
 
   @override
   _ProjectsPageWidget createState() => _ProjectsPageWidget();
@@ -89,7 +94,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
                     padding: EdgeInsets.only(top: 24, left: 16),
                     child:
                     Text(
-                      "Found " + (searchText == "" ? widget.snapshot.data.submissionCount.toString() : ((widget.snapshot.data.submissionItems.where((i) => i.keywords.contains(searchText.toLowerCase()) || i.name.toLowerCase().contains(searchText.toLowerCase())))).length.toString()) + " submissions", //submissions.length.toString()
+                      "Found " + (searchText == "" ? widget.snapshot.data.containerCount.toString() : ((widget.snapshot.data.containerItems.where((i) => i.keywords.contains(searchText.toLowerCase()) || i.name.toLowerCase().contains(searchText.toLowerCase())))).length.toString()) + (widget.isSolutions ? " submissions" : " problems"), //submissions.length.toString()
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.normal,
@@ -124,7 +129,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<SubmissionItem> submissions = snapshot.data.submissionItems;
+    List<CommonContainer> submissions = snapshot.data.containerItems;
     final double width = MediaQuery
         .of(context)
         .size
