@@ -1,11 +1,13 @@
 import 'package:bit/models/category.dart';
 //import 'package:bit/models/top_submissions.dart';
 import 'package:bit/screens/projects_screen.dart';
+import 'package:bit/utilities/common_objects.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
 import 'package:bit/api/api_problems.dart';
 import 'package:bit/utilities/constants.dart';
+import 'package:bit/screens/project_summary_screen.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -17,14 +19,16 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   ExplorePage_Tab currentTab = ExplorePage_Tab.explore_tab;
   String searchText= "";
   bool _isSolutions = true;
+  CommonContainer activeProject;
 
   List<SubmissionItem> topSubmissions;
   List<ProblemItem> topProblems;
 
-  void togglePage(isSol) {
+  void togglePage(ExplorePage_Tab currTab, bool isSol, [CommonContainer container]) {
     setState(() {
-      currentTab = ExplorePage_Tab.projects_tab;
+      currentTab = currTab;
       _isSolutions = isSol;
+      activeProject = container;
     });
   }
 
@@ -57,6 +61,8 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
       case ExplorePage_Tab.projects_tab:
         return ProjectsWidget(context, togglePage, searchText, _isSolutions);
         break;
+      case ExplorePage_Tab.summary_tab:
+        return ProjectSummaryPage(context: context, togglePage: togglePage, container: activeProject);
       default:
         return ExploreWidget();
     }
@@ -287,7 +293,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                               Icon(
                                                 FontAwesomeIcons.solidHeart,
                                                 size: 12,
-                                                color: Colors.redAccent,
+                                                color: Color(0xff0062ff),
                                               ),
                                               SizedBox(width: 2,),
                                               Text(
@@ -312,7 +318,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                 )
             ),
             OutlineButton(
-              onPressed: () { togglePage(true); },
+              onPressed: () { togglePage(ExplorePage_Tab.projects_tab, true); },
               color: Colors.black,
               padding: EdgeInsets.only(left: 32, right: 32),
               borderSide: BorderSide(color: Colors.white),
@@ -427,7 +433,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
             ),
           ),
           InkWell(
-            onTap: () => setSearchAndToggle("Parks"),
+            onTap: () => setSearchAndToggle("Park"),
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 margin: EdgeInsets.only(right: 6),
@@ -564,7 +570,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                                 Icon(
                                                   FontAwesomeIcons.solidHeart,
                                                   size: 12,
-                                                  color: Colors.redAccent,
+                                                  color: Color(0xff0062ff),
                                                 ),
                                                 SizedBox(width: 2,),
                                                 Text(
@@ -589,7 +595,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                 )
             ),
             OutlineButton(
-              onPressed: () { togglePage(false); },
+              onPressed: () { togglePage(ExplorePage_Tab.projects_tab, false); },
               color: Color(0xff171717),
               padding: EdgeInsets.only(left: 32, right: 32),
               borderSide: BorderSide(color: Color(0xff171717)),

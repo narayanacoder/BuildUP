@@ -4,12 +4,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
 import 'package:bit/api/api_problems.dart';
 import 'package:bit/utilities/common_objects.dart';
+import 'package:bit/utilities/constants.dart';
 
 StatefulWidget ProjectsWidget(BuildContext context, togglePage, String searchInit, bool _isSolutions) {
     var function = _isSolutions ? fetchContainerSubmissionsPost : fetchContainerProblemsPost;
     return new FutureBuilder<CommonContainerList>(future: function(), builder: (context, snapshot){
       if(snapshot.hasData) {
-        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit, isSolutions: _isSolutions);
+        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit, isSolutions: _isSolutions, togglePage: togglePage);
       } else if (snapshot.hasError){
         print(snapshot.error);
         return new Container();
@@ -26,12 +27,14 @@ class ProjectsPageWidget extends StatefulWidget {
     Key key,
     @required this.snapshot,
     @required this.searchInit,
-    @required this.isSolutions
+    @required this.isSolutions,
+    @required this.togglePage
   }) : super(key: key);
 
   final AsyncSnapshot snapshot;
   final String searchInit;
   final bool isSolutions;
+  final Function togglePage;
 
   @override
   _ProjectsPageWidget createState() => _ProjectsPageWidget();
@@ -104,7 +107,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
                     ),
                   ),
                   SizedBox(height: 15,),
-                  ProjectsListContainerWidget(snapshot: widget.snapshot, context: context, searchText: searchText),
+                  ProjectsListContainerWidget(snapshot: widget.snapshot, context: context, searchText: searchText, togglePage: widget.togglePage),
               ]
             ),
           ),
@@ -120,11 +123,13 @@ class ProjectsListContainerWidget extends StatelessWidget {
     @required this.snapshot,
     @required this.context,
     @required this.searchText,
+    @required this.togglePage
   }) : super(key: key);
 
   final AsyncSnapshot snapshot;
   final BuildContext context;
   final String searchText;
+  final Function togglePage;
 
 
   @override
@@ -149,15 +154,18 @@ class ProjectsListContainerWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Expanded(
-                            child: Container(
-                                width: double.infinity,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                  child: Image(
-                                    image: AssetImage(submission.uploads[0].imageUrl),
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
+                            child: InkWell(
+                              onTap: () => togglePage(ExplorePage_Tab.summary_tab, true, submission),
+                              child: Container(
+                                  width: double.infinity,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
+                                    child: Image(
+                                      image: AssetImage(submission.uploads[0].imageUrl),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                              ),
                             )
                         ),
                         Container(
@@ -198,7 +206,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                         Icon(
                                           FontAwesomeIcons.solidHeart,
                                           size: 14,
-                                          color: Colors.redAccent,
+                                          color: Color(0xff0062ff),
                                         ),
                                         SizedBox(width: 2,),
                                         Text(
