@@ -75,7 +75,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
               initialValue: widget.searchInit,
               onChanged: (text) { setState(() { searchText = text; }); },
               decoration: InputDecoration(
-                  hintText: "Browse submissions",
+                  hintText: "Browse " + (widget.snapshot.data.isProblem ? "problems" : "submissions"),
                   alignLabelWithHint: true,
                 border: InputBorder.none,
                 hintStyle: TextStyle(
