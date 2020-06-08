@@ -176,7 +176,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                       ],
                     )
                   ]),
-              SizedBox(height: 12,),
+              SizedBox(height: 10,),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
@@ -187,7 +187,21 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                   ),
                 ),
               ),
-              SizedBox(height: 12,),
+              SizedBox(height: 10,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  child: Text(
+                    (widget.container.isProblem ? "Contributor: " : "Innovator: ") + widget.container.author,
+                      style: TextStyle(
+                        color: Color(0xff171717).withOpacity(0.6),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      )
+                  ),
+                ),
+              ),
+              SizedBox(height: 26,),
               Text(
                 widget.container.description,
                 style: TextStyle(
