@@ -129,6 +129,21 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                     Row(
                       children: <Widget>[
                         Icon(
+                          FontAwesomeIcons.bookmark,
+                          size: 12,
+                          color: Colors.blueGrey,
+                        ),
+                        SizedBox(width: 2,),
+                        Text(
+                          " Save",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff171717)
+                          ),
+                        ),
+                        SizedBox(width: 12,),
+                        Icon(
                           FontAwesomeIcons.shareAlt,
                           size: 12,
                           color: Colors.blueGrey.withOpacity(0.8),

@@ -189,6 +189,21 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     Row(
                                       children: <Widget>[
                                         Icon(
+                                          FontAwesomeIcons.bookmark,
+                                          size: 12,
+                                          color: Colors.blueGrey,
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Text(
+                                          " Save",
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color(0xff171717)
+                                          ),
+                                        ),
+                                        SizedBox(width: 12,),
+                                        Icon(
                                           FontAwesomeIcons.shareAlt,
                                           size: 12,
                                           color: Colors.blueGrey.withOpacity(0.8),
@@ -198,7 +213,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                           " Share",
                                           style: TextStyle(
                                               fontSize: 11,
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w400,
                                               color: Color(0xff171717)
                                           ),
                                         ),
@@ -213,7 +228,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                           " " + submission.numLikes.toString(),
                                           style: TextStyle(
                                               fontSize: 11,
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w400,
                                               color: Color(0xff171717)
                                           ),
                                         ),
