@@ -194,7 +194,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                   child: Text(
                     (widget.container.isProblem ? "Contributor: " : "Innovator: ") + widget.container.author,
                       style: TextStyle(
-                        color: Color(0xff171717).withOpacity(0.6),
+                        color: Color(0xff0062ff).withOpacity(0.6),
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                       )
