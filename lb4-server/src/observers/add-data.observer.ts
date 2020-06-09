@@ -110,7 +110,7 @@ export class AddDataObserver implements LifeCycleObserver {
       comments: [
         {author: "Lily Jones", comment: "great idea!", numLikes: 132},
         {author: "Angela Fernando", comment: "Wow, wish I had thought of this.", numLikes: 67},
-        {author: "Cory Miller", comment: "Don't forget  the tables should be 6 feet apart as well.", numLikes: 2},
+        {author: "Cory Miller", comment: "Don't forget! The tables should be 6 feet apart as well.", numLikes: 2},
         {author: "Nick Knight", comment: "Nice, I would never have thought of using shower curtains as partitions.", numLikes: 6},
         {author: "Pepperwood Schmidt", comment: "Maybe some kind of pulley system could be used here to open the curtains safely, or maybe a button?", numLikes: 44},
         {author: "Winston Day", comment: "I like this a lot!", numLikes: 11},
