@@ -19,13 +19,15 @@ class UploadItem {
 class CommentItem {
   String author;
   String comment;
+  int numLikes;
 
-  CommentItem({this.author,this.comment});
+  CommentItem({this.author,this.comment, this.numLikes});
 
   factory CommentItem.fromJson(Map<String, dynamic> json) {
     return CommentItem(
       author: json['author'],
       comment: json['comment'],
+      numLikes: json['numLikes']
     );
   }
 }

@@ -68,14 +68,38 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
           ),
         ),
         subtitle: Text(commentItem.comment),
-        trailing: IconButton(
-          iconSize: 22,
-          icon: Icon(
-            Icons.favorite_border,
-          ),
-          color: Color(0xff0062ff),
-          onPressed: () => print('Like comment'),
-        ),
+        trailing:
+        Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                transform: Matrix4.translationValues(6.0, 0.0, 0.0),
+                child: IconButton(
+                  iconSize: 22,
+                  icon: Icon(
+                    Icons.favorite_border,
+                  ),
+                  color: Color(0xff0062ff),
+                  onPressed: () => print('Like comment'),
+                )
+              ),
+              Text(
+                commentItem.numLikes.toString(),
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff171717)
+                ),
+              ),
+            ]),
+//        IconButton(
+//          iconSize: 22,
+//          icon: Icon(
+//            Icons.favorite_border,
+//          ),
+//          color: Color(0xff0062ff),
+//          onPressed: () => print('Like comment'),
+//        ),
       ),
     );
   }
