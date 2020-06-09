@@ -49,7 +49,7 @@ class CommonContainer {
   factory CommonContainer.fromJson(Map<String, dynamic> json) {
     List<String> keywords = List<String>.from(json['keywords'].map((i) => i.toString().toLowerCase()));
     List<UploadItem> uploads = List<UploadItem>.from(json['uploads'].map((i) => UploadItem.fromJson(i)));
-    List<CommentItem> comments = json['comments'] != null ? List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i))) : null;
+    List<CommentItem> comments = json['comments'] != null ? List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i))) : [];
     bool isProblem = false;
     return CommonContainer(
       id: json['id'],
