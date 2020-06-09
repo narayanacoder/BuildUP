@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
 import 'package:bit/api/api_problems.dart';
 import 'package:bit/utilities/constants.dart';
+import 'package:bit/utilities/utility_helper.dart';
 import 'package:bit/screens/project_summary_screen.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -258,7 +259,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
                                             child: Image(
-                                              image: AssetImage(submission.uploads[0].imageUrl),
+                                              image: AssetImage(getCoverImage(submission.uploads)),
                                               fit: BoxFit.cover,
                                             ),
                                           )
@@ -535,7 +536,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
                                             child: Image(
-                                              image: AssetImage(problem.uploads[0].imageUrl),
+                                              image: AssetImage(getCoverImage(problem.uploads)),
                                               fit: BoxFit.cover,
                                             ),
                                           )

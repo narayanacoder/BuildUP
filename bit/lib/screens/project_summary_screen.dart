@@ -4,6 +4,7 @@ import 'package:bit/api/api_submissions.dart';
 import 'package:bit/api/api_problems.dart';
 import 'package:bit/utilities/common_objects.dart';
 import 'package:bit/utilities/constants.dart';
+import 'package:bit/utilities/utility_helper.dart';
 
 class ProjectSummaryPage extends StatefulWidget {
   const ProjectSummaryPage({
@@ -38,9 +39,8 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
             Container(
               width: double.infinity,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
                   child: Image(
-                      image: AssetImage(widget.container.uploads[0].imageUrl),
+                      image: AssetImage(getCoverImage(widget.container.uploads)),
                       fit: BoxFit.cover,
                     ),
                   )
@@ -206,6 +206,24 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                 widget.container.description,
                 style: TextStyle(
                   height: 1.5,
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    for (UploadItem item in getUploadText(widget.container.uploads) )
+                      Column(
+                        children: <Widget>[
+                          SizedBox(height: 26,),
+                          Text(
+                            item.text,
+                            style: TextStyle(
+                              height: 1.5,
+                            ),
+                          ),
+                        ]
+                      ),
+                  ],
                 ),
               ),
             ],

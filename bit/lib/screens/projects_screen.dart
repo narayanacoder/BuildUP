@@ -5,6 +5,7 @@ import 'package:bit/api/api_submissions.dart';
 import 'package:bit/api/api_problems.dart';
 import 'package:bit/utilities/common_objects.dart';
 import 'package:bit/utilities/constants.dart';
+import 'package:bit/utilities/utility_helper.dart';
 
 StatefulWidget ProjectsWidget(BuildContext context, togglePage, String searchInit, bool _isSolutions) {
     var function = _isSolutions ? fetchContainerSubmissionsPost : fetchContainerProblemsPost;
@@ -161,7 +162,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
                                     child: Image(
-                                      image: AssetImage(submission.uploads[0].imageUrl),
+                                      image: AssetImage(getCoverImage(submission.uploads)),
                                       fit: BoxFit.cover,
                                     ),
                                   )

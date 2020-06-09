@@ -3,13 +3,15 @@
 class UploadItem {
   String type;
   String imageUrl;
+  String text;
 
-  UploadItem({this.type,this.imageUrl});
+  UploadItem({this.type,this.imageUrl, this.text});
 
   factory UploadItem.fromJson(Map<String, dynamic> json) {
     return UploadItem(
       type: json['type'],
       imageUrl: json['imageUrl'],
+      text: json['text']
     );
   }
 }
