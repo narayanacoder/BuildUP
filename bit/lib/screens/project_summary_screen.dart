@@ -5,6 +5,7 @@ import 'package:bit/api/api_problems.dart';
 import 'package:bit/utilities/common_objects.dart';
 import 'package:bit/utilities/constants.dart';
 import 'package:bit/utilities/utility_helper.dart';
+import 'package:bit/components/StackedHorizontalBarChart.dart';
 
 class ProjectSummaryPage extends StatefulWidget {
   const ProjectSummaryPage({
@@ -298,6 +299,29 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
           ),
           child: Column(
             children: [
+              if(widget.container.comments != null && widget.container.comments.length > 0)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child:
+                    Text(
+                      "Review Insights:",
+                      style: TextStyle(
+                        letterSpacing: 1,
+                        color: Color(0xff171717).withOpacity(0.6),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              if(widget.container.comments != null && widget.container.comments.length > 0)
+                SizedBox(
+                  width: 240.0,
+                  height: 130.0,
+                  child: StackedHorizontalBarChart.withSampleData(),
+                ),
+              SizedBox(height: 20.0),
               if(widget.container.comments != null && widget.container.comments.length > 0)
               Align(
                 alignment: Alignment.centerLeft,
