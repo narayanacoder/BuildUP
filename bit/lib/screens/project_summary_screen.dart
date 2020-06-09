@@ -321,7 +321,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                   height: 130.0,
                   child: StackedHorizontalBarChart.withSampleData(),
                 ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 25.0),
               if(widget.container.comments != null && widget.container.comments.length > 0)
               Align(
                 alignment: Alignment.centerLeft,
