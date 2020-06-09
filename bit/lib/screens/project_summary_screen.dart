@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bit/api/api_submissions.dart';
@@ -25,9 +26,13 @@ class ProjectSummaryPage extends StatefulWidget {
 
 class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerProviderStateMixin{
 
+  List<bool> isSelected;
+
+
   @override
   void initState() {
     //TODO: implement initState
+    isSelected = [true, false, false];
     super.initState();
   }
 
@@ -323,7 +328,56 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
           ),
           child: Column(
             children: [
-              if(widget.container.comments != null && widget.container.comments.length > 0)
+              Align(
+              alignment: Alignment.centerLeft,
+              child: ToggleButtons(
+                  borderColor: Color(0xff171717).withOpacity(0.1),
+                  fillColor: Color(0xff0062ff),
+                  borderWidth: 1,
+//                  renderBorder: false,
+                  borderRadius: BorderRadius.circular(6),
+                  selectedBorderColor: Color(0xff0062ff),
+                  selectedColor: Colors.white,
+                  color: Color(0xff171717),
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 6, right: 6),
+                      child: Text(
+                        'All Reviews',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 6, right: 6),
+                      child: Text(
+                        'Sentiment',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 6, right: 6),
+                      child: Text(
+                        'Summary',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                  onPressed: (int index) {
+                    setState(() {
+                      for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
+                        if (buttonIndex == index) {
+                          isSelected[buttonIndex] = true;
+                        } else {
+                          isSelected[buttonIndex] = false;
+                        }
+                      }
+                    });
+                  },
+                  isSelected: isSelected,
+                ),
+              ),
+              SizedBox(height: 25.0),
+              if(isSelected[1] == true)
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
@@ -339,14 +393,13 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                     ),
                   ),
                 ),
-              if(widget.container.comments != null && widget.container.comments.length > 0)
+              if(isSelected[1] == true && widget.container.comments != null && widget.container.comments.length > 0)
                 SizedBox(
                   width: 240.0,
                   height: 130.0,
                   child: StackedHorizontalBarChart.withSampleData(),
                 ),
-              SizedBox(height: 25.0),
-              if(widget.container.comments != null && widget.container.comments.length > 0)
+              if(isSelected[0] == true)
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
@@ -362,10 +415,13 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                   ),
                 ),
               ),
-              SizedBox(height: 16.0),
+              if(isSelected[0] == true)
+                SizedBox(height: 16.0),
+              if(isSelected[0] == true && widget.container.comments != null && widget.container.comments.length > 0)
               if (widget.container.comments != null)
                 for (CommentItem commentItem in widget.container.comments)
                   _buildComment(commentItem)
+              ,SizedBox(height: 60.0),
             ],
           ),
         )
