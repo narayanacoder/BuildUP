@@ -1,6 +1,0 @@
-applications:
-- name: bit-server
-  command: npm start
-  path: .
-  memory: 128M
-  instances: 1

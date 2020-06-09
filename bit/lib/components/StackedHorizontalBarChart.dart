@@ -60,14 +60,14 @@ class StackedHorizontalBarChart extends StatelessWidget {
   /// Create series list with multiple series
   static List<charts.Series<KeyWords, String>> _createSampleData() {
     final PositiveData = [
-      new KeyWords('Hygiene', 70),
+      new KeyWords('Affordable', 70),
       new KeyWords('Safety factor', 95),
       new KeyWords('Distancing', 75),
       new KeyWords('Creative', 45),
     ];
 
     final NegativeData = [
-      new KeyWords('Hygiene', 30),
+      new KeyWords('Affordable', 30),
       new KeyWords('Safety factor', 5),
       new KeyWords('Distancing', 25),
       new KeyWords('Creative', 55),
