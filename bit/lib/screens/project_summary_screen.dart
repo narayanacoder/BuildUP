@@ -37,75 +37,79 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
   }
 
   Widget _buildComment(CommentItem commentItem) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 5),
-      child: ListTile(
-        dense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
-        leading: Container(
-          width: 36.0,
-          height: 36.0,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black45.withOpacity(0.1),
-                offset: Offset(0, 2),
-                blurRadius: 6.0,
-              ),
-            ],
-          ),
-          child: CircleAvatar(
-            child: ClipOval(
-              child: Image(
-                height: 40.0,
-                width: 40.0,
-                image: AssetImage("images/userIcon.png"),
-                fit: BoxFit.cover,
+    return Column(
+      children: [
+        Padding(
+        padding: EdgeInsets.only(bottom: 5),
+        child: ListTile(
+          dense: true,
+          contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+          leading: Container(
+            width: 38.0,
+            height: 38.0,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black45.withOpacity(0.1),
+                  offset: Offset(0, 2),
+                  blurRadius: 6.0,
+                ),
+              ],
+            ),
+            child: CircleAvatar(
+              child: ClipOval(
+                child: Image(
+                  height: 40.0,
+                  width: 40.0,
+                  image: AssetImage("images/userIcon.png"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
-        ),
-        title: Text(
-          commentItem.author,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
+          title: Text(
+            commentItem.author,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        subtitle: Text(commentItem.comment),
-        trailing:
-        Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Container(
-                transform: Matrix4.translationValues(6.0, 0.0, 0.0),
-                child: IconButton(
-                  iconSize: 22,
-                  icon: Icon(
-                    Icons.favorite_border,
+          subtitle: Column(children: [
+            Align(
+                alignment: Alignment.centerLeft,
+                child: Text(commentItem.comment)),
+            Align(
+                alignment: Alignment.centerLeft,
+                child:Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Container(
+                      transform: Matrix4.translationValues(-14.0, 0.0, 0.0),
+                      child: IconButton(
+                        iconSize: 18,
+                        icon: Icon(
+                          Icons.favorite_border,
+                        ),
+                        color: Color(0xff0062ff),
+                        onPressed: () => print('Like comment'),
+                      )
                   ),
-                  color: Color(0xff0062ff),
-                  onPressed: () => print('Like comment'),
-                )
-              ),
-              Text(
-                commentItem.numLikes.toString(),
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff171717)
-                ),
-              ),
-            ]),
-//        IconButton(
-//          iconSize: 22,
-//          icon: Icon(
-//            Icons.favorite_border,
-//          ),
-//          color: Color(0xff0062ff),
-//          onPressed: () => print('Like comment'),
-//        ),
+                  Container(
+                    transform: Matrix4.translationValues(-20.0, 0.0, 0.0),
+                    child: Text(
+                      commentItem.numLikes.toString(),
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xff171717)
+                      ),
+                    ),
+                  ),
+              ])),
+          ]),
+        ),
       ),
+      ],
     );
   }
 
