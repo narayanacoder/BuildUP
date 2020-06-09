@@ -251,10 +251,16 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                 ),
               ),
               SizedBox(height: 26,),
-              Text(
-                widget.container.description,
-                style: TextStyle(
-                  height: 1.5,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  child:
+                  Text(
+                    widget.container.description,
+                    style: TextStyle(
+                      height: 1.5,
+                    ),
+                  ),
                 ),
               ),
               Container(
@@ -292,10 +298,12 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
           ),
           child: Column(
             children: [
+              if(widget.container.comments != null && widget.container.comments.length > 0)
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  child: Text(
+                  child:
+                  Text(
                     "Reviews:",
                     style: TextStyle(
                       letterSpacing: 1,
