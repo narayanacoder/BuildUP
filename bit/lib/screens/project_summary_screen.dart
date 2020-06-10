@@ -321,7 +321,8 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
         ),
         if(getUploadImages(widget.container.uploads).length >= 2)
           buildUploadImagesWidget(),
-        Container(
+        if(widget.container.isProblem == false)
+          Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(horizontal: 24),
           transform: Matrix4.translationValues(0.0, 0.0, 0.0),
