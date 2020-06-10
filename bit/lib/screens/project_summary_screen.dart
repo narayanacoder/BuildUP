@@ -284,6 +284,48 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                   ),
                 ),
               ),
+              if(!widget.container.isProblem && widget.container.problemId != null && widget.container.problemId != 0)
+                SizedBox(height: 16,),
+              if(!widget.container.isProblem && widget.container.problemId != null && widget.container.problemId != 0)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Text(
+                        "Solution for problem:",
+                        style: TextStyle(
+                          color: Color(0xff171717),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                        )
+                    ),
+                  ),
+                ),
+              if(!widget.container.isProblem && widget.container.problemId != null && widget.container.problemId != 0)
+                FutureBuilder(
+                    future: fetchProblemByProblemId(widget.container.problemId),
+                    builder: (BuildContext context, AsyncSnapshot<ProblemItem> response) {
+                      if (!response.hasData){
+                        return new Container();
+                      } else {
+                        return (
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              child: Text(
+                                  (response.data.name),
+                                  style: TextStyle(
+                                    color: Color(0xff0062ff),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                    decoration: TextDecoration.underline,
+                                  )
+                              ),
+                            ),
+                          )
+                        );
+                      }
+                    }
+                ),
               SizedBox(height: 26,),
               Align(
                 alignment: Alignment.centerLeft,

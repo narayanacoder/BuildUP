@@ -95,7 +95,7 @@ Future<SubmissionsList> fetchTopSubmissionsPost(int count) async {
     return SubmissionsList.fromJson((json.decode(response.body)));  //returning JSON array not JSON object.
   } else {
     // If that call was not successful, throw an error.
-    throw Exception('Failed to load post submissions');
+    throw Exception('Failed to load post top submissions');
   }
 }
 

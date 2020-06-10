@@ -195,4 +195,28 @@ export class ProblemsController {
     const res = await this.problemRepository.find(filter.filter);
     return res;
   }
+
+  @get('/problems/problemId/{problemid}', {
+    responses: {
+      '200': {
+        description: 'Array of problems with matching problemid',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'array',
+              items: getModelSchemaRef(Problem, {includeRelations: true}),
+            },
+          },
+        },
+      },
+    },
+  })
+  async getProblemsWithProblemId(
+    @param.path.number('problemid') problemid: number,
+  ): Promise<Problem[]> {
+    let filter: FilterBuilder<Problem> = new FilterBuilder<Problem>({where:{"problemId": {eq: problemid}}});
+      
+    const res = await this.problemRepository.find(filter.filter);
+    return res;
+  }
 }

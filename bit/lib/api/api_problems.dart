@@ -70,7 +70,7 @@ Future<ProblemsList> fetchProblemsPost() async {
     return ProblemsList.fromJson((json.decode(response.body)));  //returning JSON array not JSON object.
   } else {
     // If that call was not successful, throw an error.
-    throw Exception('Failed to load post submissions');
+    throw Exception('Failed to load post problems');
   }
 }
 
@@ -85,7 +85,7 @@ Future<CommonContainerList> fetchContainerProblemsPost() async {
     return problemToContainerList(ProblemsList.fromJson((json.decode(response.body))));  //returning JSON array not JSON object.
   } else {
     // If that call was not successful, throw an error.
-    throw Exception('Failed to load post submissions');
+    throw Exception('Failed to load post problems container');
   }
 }
 
@@ -95,6 +95,19 @@ Future<ProblemsList> fetchTopProblemsPost(int count) async {
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.
     return ProblemsList.fromJson((json.decode(response.body)));  //returning JSON array not JSON object.
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post top problems');
+  }
+}
+
+Future<ProblemItem> fetchProblemByProblemId(int problemId) async {
+  final response =  await http.get('http://10.0.2.2:3000/problems/problemId/' + problemId.toString());
+  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    ProblemsList list = ProblemsList.fromJson((json.decode(response.body)));
+    return list.problemItems[0];  //returning JSON array not JSON object.
   } else {
     // If that call was not successful, throw an error.
     throw Exception('Failed to load post submissions');
