@@ -116,6 +116,16 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
 
   @override
   Widget build(BuildContext context) {
+    final Shader linearGradient = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xff0062ff), Color(0xff33b1ff)],
+    ).createShader(
+        Rect.fromCircle(
+          center: Offset(28, 270),
+          radius: 28 / 0.8,
+        )
+    );
     return Column(
       children: <Widget>[
         Stack(
@@ -496,8 +506,41 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
             ],
           ),
         ),
-//        if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
-//          buildImpactWidget()
+        if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              child:
+              Padding(
+                padding: const EdgeInsets.only(left:24),
+                child: Row(
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.medal,
+                      size: 14,
+                      color: Color(0xff0062ff),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left:6),
+                      child: Text(
+                        "Solution Impact:",
+                        style: TextStyle(
+                          letterSpacing: 1,
+                          fontFamily: 'roboto',
+                          foreground: Paint()..shader = linearGradient,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                      ),
+                  ),
+                    )],
+                ),
+              ),
+            ),
+          ),
+        if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
+          buildImpactTextWidget(),
+        if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
+          buildImpactWidget(),
       ],
     );
   }
@@ -505,7 +548,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
   Container buildUploadImagesWidget() {
     return Container(
         height: 300,
-        padding: EdgeInsets.only(bottom: 30, top: 0, left: 24),
+        padding: EdgeInsets.only(bottom: 0, top: 0, left: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -653,6 +696,31 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
             ),
           ],
         )
+    );
+  }
+
+  Container buildImpactTextWidget() {
+    return Container(
+        padding: EdgeInsets.only(bottom: 40, top: 10, left: 24),
+      child: Column(
+        children: [
+          for (UploadItem item in getUploadText(widget.container.impact))
+            Column(
+                children: <Widget>[
+                  SizedBox(height: 8,),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      item.text,
+                      style: TextStyle(
+                        height: 1.2,
+                      ),
+                    ),
+                  ),
+                ]
+            ),
+        ],
+      ),
     );
   }
 }
