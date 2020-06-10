@@ -8,6 +8,11 @@ export class Problem extends Submission {
   })
   deadline?: string;
 
+  @property({
+    type: 'array',
+    itemType: 'any',
+  })
+  impact?: any[];
 
   constructor(data?: Partial<Problem>) {
     super(data);

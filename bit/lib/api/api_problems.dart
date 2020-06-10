@@ -15,14 +15,16 @@ class ProblemItem {
   List<UploadItem> uploads;
   int problemId;
   List<CommentItem> comments;
+  List<UploadItem> impact;
   //TODO: add deadline field.
 
-  ProblemItem({this.id,this.name, this.description, this.numLikes, this.country, this.author, this.keywords, this.uploads, this.problemId, this.comments});
+  ProblemItem({this.id,this.name, this.description, this.numLikes, this.country, this.author, this.keywords, this.uploads, this.problemId, this.comments, this.impact});
 
   factory ProblemItem.fromJson(Map<String, dynamic> json) {
     List<String> keywords = List<String>.from(json['keywords'].map((i) => i.toString().toLowerCase()));
     List<UploadItem> uploads = List<UploadItem>.from(json['uploads'].map((i) => UploadItem.fromJson(i)));
     List<CommentItem> comments = json['comments'] != null ? List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i))) : null;
+    List<UploadItem> impact = json['impact'] != null ? List<UploadItem>.from(json['impact'].map((i) => UploadItem.fromJson(i))) : null;
     return ProblemItem(
       id: json['id'],
       name: json['name'],
@@ -34,6 +36,7 @@ class ProblemItem {
       uploads: uploads,
       problemId: json['problemId'],
       comments: comments,
+      impact: impact,
     );
   }
 }
@@ -117,6 +120,7 @@ CommonContainerList problemToContainerList(ProblemsList problemsList) {
       problemId: item.problemId,
       comments: item.comments,
       isProblem: true,
+      impact: item.impact,
     );
     containerItems.add(container);
   }

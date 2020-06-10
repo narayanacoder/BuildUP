@@ -44,14 +44,16 @@ class CommonContainer {
   int problemId;
   List<CommentItem> comments;
   bool isProblem;
+  List<UploadItem> impact;
   //TODO: add deadline field
 
-  CommonContainer({this.id,this.name, this.description, this.numLikes, this.country, this.author, this.keywords, this.uploads, this.problemId, this.comments, this.isProblem});
+  CommonContainer({this.id,this.name, this.description, this.numLikes, this.country, this.author, this.keywords, this.uploads, this.problemId, this.comments, this.isProblem, this.impact});
 
   factory CommonContainer.fromJson(Map<String, dynamic> json) {
     List<String> keywords = List<String>.from(json['keywords'].map((i) => i.toString().toLowerCase()));
     List<UploadItem> uploads = List<UploadItem>.from(json['uploads'].map((i) => UploadItem.fromJson(i)));
     List<CommentItem> comments = json['comments'] != null ? List<CommentItem>.from(json['comments'].map((i) => CommentItem.fromJson(i))) : [];
+    List<UploadItem> impact = json['impact'] != null ? List<UploadItem>.from(json['impact'].map((i) => UploadItem.fromJson(i))) : [];
     bool isProblem = false;
     return CommonContainer(
       id: json['id'],
@@ -65,6 +67,7 @@ class CommonContainer {
       problemId: json['problemId'],
       comments: comments,
       isProblem: isProblem,
+      impact: impact
     );
   }
 }

@@ -105,8 +105,9 @@ export class AddDataObserver implements LifeCycleObserver {
       numLikes: 4258,
       country: "America",
       author: "Charlie Gray",
-      uploads: [{type:"ImageUrl", imageUrl: "images/charlieShowerCurtains.png"}, 
-        {type: "text", text: "Your restaurant could use shower curtains as partitions between tables.\n\nThis way, they could be easily moved around if needed and would be easy to clean. Before putting a new party at a table, the curtains could be sprayed or wiped down.\n\nThe curtains would catch any droplets from talking, sneezing, etc. that might come from people eating at a restaurant."}],
+      uploads: [{type:"ImageUrl", imageUrl: "images/charlieSketchCover.jpg"}, 
+        {type: "text", text: "Your restaurant could use shower curtains as partitions between tables.\n\nThis way, they could be easily moved around if needed and would be easy to clean. Before putting a new party at a table, the curtains could be sprayed or wiped down.\n\nThe curtains would catch any droplets from talking, sneezing, etc. that might come from people eating at a restaurant."},
+        {type:"ImageUrl", imageUrl: "images/charlieSketch.jpg"}],
       comments: [
         {author: "Lily Jones", comment: "great idea!", numLikes: 132},
         {author: "Angela Fernando", comment: "Wow, wish I had thought of this.", numLikes: 67},
@@ -203,8 +204,11 @@ export class AddDataObserver implements LifeCycleObserver {
         numLikes: 2164,
         country: "America",
         author: "Jane Smith",
-        uploads: [{type:"ImageUrl", imageUrl: "images/janeRestaurant.jpg"}, {type: "text", text: "My restaurant has been struggling since covid hit and I want to make people feel safe to visit.\n\nI want to prevent the spread of the virus as much as possible!"}],
-        keywords: ["COVID", "restaurant", "cafe", "United States", "Social distancing", "America"]
+        uploads: [{type:"ImageUrl", imageUrl: "images/janeRestaurant.jpg"}, 
+        {type: "text", text: "My restaurant has been struggling since covid hit and I want to make people feel safe to visit.\n\nI want to prevent the spread of the virus as much as possible!"}],
+        keywords: ["COVID", "restaurant", "cafe", "United States", "Social distancing", "America"],
+        impact: [{type:"ImageUrl", imageUrl: "images/charlieShowerCurtains.png"}, 
+        {type: "text", text: "This solution has had such a positive impact on my restaurant!!! Sales are up and I was even able to rehire some employees!\n\nThank you Charlie for your help!\n\nHighly recommend other restaurants try this."}]
       }));
 
       for(var problemItem of problemsArr){
