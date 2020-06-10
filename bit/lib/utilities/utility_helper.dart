@@ -4,7 +4,7 @@ List<UploadItem> getUploadImages(List<UploadItem> uploads) {
   List<UploadItem> returnList = [];
   for (UploadItem item in uploads) {
     if (item.type.toLowerCase() == "imageurl") {
-      returnList.add(item);
+        returnList.add(item);
     }
   }
   return returnList;
