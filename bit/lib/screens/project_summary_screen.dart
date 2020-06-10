@@ -326,6 +326,8 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                       }
                     }
                 ),
+//              if(!widget.container.isProblem &&widget.container.problemId != null && widget.container.problemId != 0)
+//                buildProblemPreviewWidget(),
               SizedBox(height: 26,),
               Align(
                 alignment: Alignment.centerLeft,
@@ -548,6 +550,60 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
           ],
         )
     );
+  }
+
+
+  Container buildProblemPreviewWidget() {
+    return
+      Container(
+        child: FutureBuilder(
+          future: fetchProblemByProblemId(widget.container.problemId),
+          builder: (BuildContext context, AsyncSnapshot<ProblemItem> response) {
+            if (!response.hasData){
+              return new Container();
+            } else {
+              return Align(
+                alignment: Alignment.centerLeft,
+                child: (
+                    Container(
+                        transform: Matrix4.translationValues(0.0, 20.0, 0.0),
+                        height: 90,
+                        padding: EdgeInsets.only(bottom: 20, top: 0, left: 0),
+                        child: Container(
+                            padding: EdgeInsets.symmetric(vertical: 1),
+                            height: 90,
+                            child: Container(
+                                width: 82,
+                                margin: EdgeInsets.only(right: 16, top: 4, bottom: 12),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: Container(
+                                            width: double.infinity,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(5),
+                                              child: Image(
+                                                image: AssetImage(getCoverImage(response.data.uploads)),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            )
+                                        )
+                                    ),
+                                  ],
+                                )
+                            )
+                        )
+                    )
+                ),
+              );
+            }
+          }
+        ),
+      );
   }
 
   Container buildImpactWidget() {
