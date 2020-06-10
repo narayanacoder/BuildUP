@@ -506,42 +506,54 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
             ],
           ),
         ),
+        if(widget.container.isProblem == true && widget.container.winningSolution != null && widget.container.winningSolution.length >= 1)
+          buildWinningTitle("Winning Solution:", linearGradient, FontAwesomeIcons.trophy),
+        if(widget.container.isProblem == true && widget.container.winningSolution != null && widget.container.winningSolution.length >= 1)
+          buildWinnerPreviewWidget(),
         if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              child:
-              Padding(
-                padding: const EdgeInsets.only(left:24),
-                child: Row(
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.medal,
-                      size: 14,
-                      color: Color(0xff0062ff),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left:6),
-                      child: Text(
-                        "Solution Impact:",
-                        style: TextStyle(
-                          letterSpacing: 1,
-                          fontFamily: 'roboto',
-                          foreground: Paint()..shader = linearGradient,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                      ),
-                  ),
-                    )],
-                ),
-              ),
-            ),
-          ),
+          buildViewAllSolutions(),
+        if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
+          buildWinningTitle("Solution Impact:", linearGradient, FontAwesomeIcons.medal),
         if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
           buildImpactTextWidget(),
         if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
           buildImpactWidget(),
       ],
+    );
+  }
+
+  Container buildWinningTitle(String title, linearGradient, IconData icon) {
+    return Container(
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Container(
+            child:
+            Padding(
+              padding: const EdgeInsets.only(left:24),
+              child: Row(
+                children: [
+                  Icon(
+                    icon,
+                    size: 14,
+                    color: Color(0xff0062ff),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left:8),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        letterSpacing: 1,
+                        fontFamily: 'roboto',
+                        foreground: Paint()..shader = linearGradient,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  )],
+              ),
+            ),
+          ),
+        ),
     );
   }
 
@@ -595,6 +607,110 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
     );
   }
 
+  Container buildWinnerPreviewWidget() {
+    return
+      Container(
+        child: FutureBuilder(
+            future: fetchSolutionByName(widget.container.winningSolution[0]),
+            builder: (BuildContext context, AsyncSnapshot<CommonContainer> response) {
+              if (!response.hasData){
+                return new Container();
+              } else {
+                return Column(
+                  children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 24, top: 12),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            child: Text(
+                                "Winning innovator: " + response.data.author,
+                                style: TextStyle(
+                                  color: Color(0xff171717),
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                )
+                            ),
+                          ),
+                        ),
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24, top: 8),
+                      child: (
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              child: Text(
+                                  (response.data.name),
+                                  style: TextStyle(
+                                    color: Color(0xff0062ff),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                    decoration: TextDecoration.underline,
+                                  )
+                              ),
+                            ),
+                          )
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24, top: 12, bottom: 12),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          child: Text(
+                              response.data.description,
+                              style: TextStyle(
+                                color: Color(0xff171717),
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400,
+                              )
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: (
+                          Container(
+                              transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                              height: 140,
+                              margin: EdgeInsets.only(top:16),
+                              padding: EdgeInsets.only(bottom: 15, top: 0, left: 24),
+                              child: Container(
+                                  width: 82,
+                                  margin: EdgeInsets.only(right: 16, top: 4, bottom: 12),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Expanded(
+                                          child: Container(
+                                              width: double.infinity,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(5),
+                                                child: Image(
+                                                  image: AssetImage(getCoverImage(response.data.uploads)),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              )
+                                          )
+                                      ),
+                                    ],
+                                  )
+                              )
+                          )
+                      ),
+                    ),
+                  ],
+                );
+              }
+            }
+        ),
+      );
+  }
 
   Container buildProblemPreviewWidget() {
     return
@@ -720,6 +836,38 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                 ]
             ),
         ],
+      ),
+    );
+  }
+
+  Container buildViewAllSolutions() {
+    return new Container(
+      width: MediaQuery.of(context).size.width,
+      margin: const EdgeInsets.symmetric(horizontal:24.0, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 18),
+      decoration: BoxDecoration(//(color: Color(0xff171717).withOpacity(0.1))
+          border: Border.symmetric(
+            vertical: BorderSide(width: 1.0, color:  Color(0xff171717).withOpacity(0.1)),
+          ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            "View all submissions",
+            style: TextStyle(
+              letterSpacing: 1,
+              color: Color(0xff0062ff).withOpacity(0.8),
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            )
+          ),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: 20,
+            color: Color(0xff0062ff).withOpacity(0.8),
+          )
+        ]
       ),
     );
   }

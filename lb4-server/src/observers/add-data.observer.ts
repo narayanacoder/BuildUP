@@ -208,7 +208,8 @@ export class AddDataObserver implements LifeCycleObserver {
         {type: "text", text: "My restaurant has been struggling since covid hit and I want to make people feel safe to visit.\n\nI want to prevent the spread of the virus as much as possible!"}],
         keywords: ["COVID", "restaurant", "cafe", "United States", "Social distancing", "America"],
         impact: [{type:"ImageUrl", imageUrl: "images/charlieShowerCurtains.png"}, 
-        {type: "text", text: "This solution has had such a positive impact on my restaurant!!! Sales are up and I was even able to rehire some employees!\n\nThank you Charlie for your help!\n\nHighly recommend other restaurants try this."}]
+        {type: "text", text: "This solution has had such a positive impact on my restaurant!!! Sales are up and I was even able to rehire some employees!\n\nThank you Charlie for your help!\n\nHighly recommend other restaurants try this."}],
+        winningSolution: ["Restaurant Curtain Partitions"]
       }));
 
       for(var problemItem of problemsArr){

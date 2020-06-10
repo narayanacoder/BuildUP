@@ -195,4 +195,25 @@ export class SubmissionsController {
     const res = await this.submissionRepository.find(filter.filter);
     return res;
   }
+
+  @get('/submissions/name/{name}', {
+    responses: {
+      '200': {
+        description: 'Submission model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Submission, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async getSubmissionByName(
+    @param.path.string('name') name: string,
+  ): Promise<Submission> {
+    let filter: FilterBuilder<Submission> = new FilterBuilder<Submission>({where:{"name": {eq: name}}});
+      
+    const res = await this.submissionRepository.find(filter.filter);
+      return res[0];
+  }
 }

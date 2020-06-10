@@ -13,6 +13,12 @@ export class Problem extends Submission {
     itemType: 'any',
   })
   impact?: any[];
+  
+  @property({
+    type: 'array',
+    itemType: 'string',
+  })
+  winningSolution?: String[];
 
   constructor(data?: Partial<Problem>) {
     super(data);

@@ -99,6 +99,22 @@ Future<SubmissionsList> fetchTopSubmissionsPost(int count) async {
   }
 }
 
+Future<CommonContainer> fetchSolutionByName(String name) async {
+  final response =  await http.get('http://10.0.2.2:3000/submissions/name/' + name);
+  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+//  print("response");
+//  String prettyprint = encoder.convert(response.body);
+//   print(prettyprint);
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    CommonContainer item = CommonContainer.fromJson((json.decode(response.body)));
+    return item;  //returning JSON array not JSON object.
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load solution by name');
+  }
+}
+
 CommonContainerList submissionToContainerList(SubmissionsList submissionsList) {
   List<dynamic> containers = submissionsList.submissions;
   List<CommonContainer> containerItems = [];
