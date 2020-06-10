@@ -548,7 +548,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
   Container buildUploadImagesWidget() {
     return Container(
         height: 300,
-        padding: EdgeInsets.only(bottom: 0, top: 0, left: 24),
+        padding: EdgeInsets.only(bottom: 20, top: 0, left: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
