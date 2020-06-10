@@ -7,6 +7,7 @@ import 'package:bit/utilities/common_objects.dart';
 import 'package:bit/utilities/constants.dart';
 import 'package:bit/utilities/utility_helper.dart';
 import 'package:bit/components/StackedHorizontalBarChart.dart';
+import 'package:bit/components/SolutionSummary.dart';
 
 class ProjectSummaryPage extends StatefulWidget {
   const ProjectSummaryPage({
@@ -170,7 +171,6 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                               ),
                             ),
                           )
-
                         ],
                       ),
                     )
@@ -384,6 +384,26 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                 ),
               ),
               SizedBox(height: 25.0),
+              if(isSelected[2] == true)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child:
+                    Text(
+                      "Summary of solution and reviews:",
+                      style: TextStyle(
+                        letterSpacing: 1,
+                        color: Color(0xff171717).withOpacity(0.6),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              if(isSelected[2] == true)
+                SizedBox(height: 16.0),
+              if(isSelected[2] == true)
+                SolutionSummary.withSampleData(),
               if(isSelected[1] == true)
                 Align(
                   alignment: Alignment.centerLeft,
@@ -431,7 +451,9 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
               ,SizedBox(height: 60.0),
             ],
           ),
-        )
+        ),
+//        if(widget.container.isProblem == true && widget.container.impact != null && widget.container.impact.length >= 1)
+//          buildImpactWidget()
       ],
     );
   }
@@ -452,7 +474,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                         itemCount: getUploadImages(widget.container.uploads).length,
                         itemBuilder: (BuildContext context, int index){
                           UploadItem uploadImg = getUploadImages(widget.container.uploads)[index];
-                          return index == 0 ? Container() : Container(
+                          return (index == 0) ? Container() : Container(
                               width: 160,
                               margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 12) : EdgeInsets.only(right: 16, top: 4, bottom: 12),
                               decoration: BoxDecoration(
@@ -466,7 +488,57 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                                       child: Container(
                                           width: double.infinity,
                                           child: ClipRRect(
-                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: Image(
+                                              image: AssetImage(uploadImg.imageUrl),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          )
+                                      )
+                                  ),
+                                ],
+                              )
+                          );
+                        }
+                    )
+                )
+            ),
+          ],
+        )
+    );
+  }
+
+  Container buildImpactWidget() {
+    return Container(
+        height: 220,
+        padding: EdgeInsets.only(bottom: 30, top: 0, left: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    height: double.infinity,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: getUploadImages(widget.container.impact).length,
+                        itemBuilder: (BuildContext context, int index){
+                          UploadItem uploadImg = getUploadImages(widget.container.impact)[index];
+                          return Container(
+                              width: 300,
+                              margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 12) : EdgeInsets.only(right: 16, top: 4, bottom: 12),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.grey[850],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Container(
+                                          width: double.infinity,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(5),
                                             child: Image(
                                               image: AssetImage(uploadImg.imageUrl),
                                               fit: BoxFit.cover,
