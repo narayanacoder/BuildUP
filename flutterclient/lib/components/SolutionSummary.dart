@@ -39,10 +39,11 @@ class SolutionSummary extends StatelessWidget {
   }
 
   static List<String> _createSampleData() {
-    final summary = ['She is also worried that even if her restaurant opens for dining in, will customers come by?',
-      'Charlie idea reassures customers that it is safe to dine in this restaurant.',
-      'The waiter is also responsible for cleaning the table, chair well before next customer comes in.',
-      'Life has to get normal again! This is a great idea for people to get back to work!'];
+    final summary = ['It is cheap and affordable way to achieve social distancing while ensuring safety I could use this in my hair salon!',
+      'It can achieve high safety in an affordable way while being creative Love the creativity of this idea, how did you come up with it??',
+      'It is cheap and affordable This is a great creative idea so we can go back to restaurants!',
+      'However, it does achieve social distancing while ensuring safety in an affordable way The idea is creative and affordable.',
+      'It is creative but Will restaurants clean these shower curtains often?'];
 
     return summary;
   }

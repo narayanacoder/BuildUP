@@ -33,7 +33,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
   @override
   void initState() {
     //TODO: implement initState
-    isSelected = [true, false, false];
+    isSelected = [true, false, false, false];
     super.initState();
   }
 
@@ -422,6 +422,13 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                         style: TextStyle(fontSize: 14),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 6, right: 6),
+                      child: Text(
+                        'Popular Topics',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
                   ],
                   onPressed: (int index) {
                     setState(() {
@@ -438,13 +445,46 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                 ),
               ),
               SizedBox(height: 25.0),
+              if(isSelected[3] == true)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child:
+                    Text(
+                      "Review Popular Topics:",
+                      style: TextStyle(
+                        letterSpacing: 1,
+                        color: Color(0xff171717).withOpacity(0.6),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              if(isSelected[3] == true)
+                SizedBox(height: 16.0),
+              if(isSelected[3] == true)
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin:EdgeInsets.only(right: 0, top: 4, bottom: 0),
+                child: Container(
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image(
+                        image: AssetImage("images/wordCloud.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                )
+              ),
               if(isSelected[2] == true)
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
                     child:
                     Text(
-                      "Summary of solution and reviews:",
+                      "Review Summary:",
                       style: TextStyle(
                         letterSpacing: 1,
                         color: Color(0xff171717).withOpacity(0.6),
