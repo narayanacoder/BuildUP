@@ -599,14 +599,14 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
 
   Container buildUploadImagesWidget() {
     return Container(
-        height: 300,
-        padding: EdgeInsets.only(bottom: 20, top: 0, left: 24),
+        height: 200,
+        margin: EdgeInsets.only(bottom: 24, top: 0, left: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
                 child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 2),
+                    padding: EdgeInsets.symmetric(vertical: 1),
                     height: double.infinity,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -614,7 +614,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                         itemBuilder: (BuildContext context, int index){
                           UploadItem uploadImg = getUploadImages(widget.container.uploads)[index];
                           return (index == 0) ? Container() : Container(
-                              width: 160,
+                              width: 240,
                               margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 12) : EdgeInsets.only(right: 16, top: 4, bottom: 12),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
@@ -714,11 +714,11 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                       child: (
                           Container(
                               transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                              height: 140,
-                              margin: EdgeInsets.only(top:16),
-                              padding: EdgeInsets.only(bottom: 15, top: 0, left: 24),
+                              height: 200,
+                              margin: EdgeInsets.only(top:16, left: 24, bottom: 4),
+                              padding: EdgeInsets.only(bottom: 0, top: 0, left: 0),
                               child: Container(
-                                  width: 82,
+                                  width: 240,
                                   margin: EdgeInsets.only(right: 16, top: 4, bottom: 12),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
@@ -732,7 +732,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
                                               child: ClipRRect(
                                                 borderRadius: BorderRadius.circular(5),
                                                 child: Image(
-                                                  image: AssetImage(getCoverImage(response.data.uploads)),
+                                                  image: AssetImage(getUploadImages(response.data.uploads)[1] != null ? getUploadImages(response.data.uploads)[1].imageUrl : getCoverImage(response.data.uploads)),
                                                   fit: BoxFit.cover,
                                                 ),
                                               )
