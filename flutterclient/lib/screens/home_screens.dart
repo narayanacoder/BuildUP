@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutterclient/screens/explore_screen.dart';
+import 'package:flutterclient/screens/collection_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           children: <Widget>[
             SingleChildScrollView(child: ExploreScreen()),
             Container(),
-            Container(),
+            SingleChildScrollView(child: CollectionScreen()),
             Container(),
           ]
         ),

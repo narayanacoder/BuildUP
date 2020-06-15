@@ -4,9 +4,9 @@ import {
 } from '@loopback/core';
 //import the repository decorator
 import {repository} from '@loopback/repository';
-import {Problem, Submission} from '../models';
+import {Problem, Submission, User} from '../models';
 //import from LB app
-import {ProblemRepository, SubmissionRepository} from '../repositories';
+import {ProblemRepository, SubmissionRepository, UserRepository} from '../repositories';
 
 
 /**
@@ -23,6 +23,7 @@ export class AddDataObserver implements LifeCycleObserver {
   constructor(
     @repository('SubmissionRepository') private submissionRepo: SubmissionRepository,
     @repository('ProblemRepository') private problemRepo: ProblemRepository,
+    @repository('UserRepository') private userRepo: UserRepository,
   ) {}
 
   /**
@@ -31,11 +32,11 @@ export class AddDataObserver implements LifeCycleObserver {
   async start(): Promise<void> {
     // Add your logic for start
     //seed the repository
-    let count: number = (await this.submissionRepo.count()).count;
+    const count: number = (await this.submissionRepo.count()).count;
     if (count !== 0) return;
 
     //submissions --------------------
-    let submissionsArr = [];
+    const submissionsArr = [];
     submissionsArr.push(new Submission({
       name: "Cafe Space Organizer",
       description: "New age Covid solution to modernize cafe space organization to enforce social distancing.",
@@ -245,7 +246,8 @@ export class AddDataObserver implements LifeCycleObserver {
       keywords: ["COVID", "Corona", "America", "US", "North America", "Canada", "restaurant", "crowded", "Social Distancing", "cafe", "cube", "plastic"],
     }));
 
-    for (var submissionItem of submissionsArr) {
+    for (const submissionItem of submissionsArr) {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
       this.submissionRepo.create(submissionItem);
     };
 
@@ -253,7 +255,7 @@ export class AddDataObserver implements LifeCycleObserver {
 
     setTimeout(() => {
       //problems ------------------
-      let problemsArr = [];
+      const problemsArr = [];
       problemsArr.push(new Problem({
         problemId: 111,
         name: "Small Restaurant Engagement",
@@ -316,8 +318,32 @@ export class AddDataObserver implements LifeCycleObserver {
         winningSolution: ["Restaurant Curtain Partitions"]
       }));
 
-      for (var problemItem of problemsArr) {
+      for (const problemItem of problemsArr) {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         this.problemRepo.create(problemItem);
+      };
+    }, 10000);
+
+
+    setTimeout(() => {
+      //problems ------------------
+      const usersArr = [];
+      usersArr.push(new User({
+        firstName: "Charlie",
+        lastName: "Gray",
+        description: "Hobbyist photographer who lost her job due to covid",
+        phoneNumber: 6137771234,
+        country: "America",
+        email: "charlieGray@emailaddress.com",
+        favorites: ["Eating Cubes for restaurants", "Movies Distancing", "Online Queue System"],
+        submitted: ["Restaurant Curtain Partitions"],
+        saved: ["Eating Cubes for restaurants", "Movies Distancing", "Cafe Space Organizer"],
+        profilePic: "images/userIcon.png"
+      }));
+
+      for (const userItem of usersArr) {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        this.userRepo.create(userItem);
       };
     }, 10000);
 
