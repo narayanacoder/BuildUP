@@ -894,7 +894,7 @@ class _ProjectSummaryPage extends State<ProjectSummaryPage> with SingleTickerPro
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "View all submissions",
+            "View all solutions",
             style: TextStyle(
               letterSpacing: 1,
               color: Color(0xff0062ff).withOpacity(0.8),

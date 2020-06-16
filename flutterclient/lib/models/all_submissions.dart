@@ -18,16 +18,16 @@ List<Submission> submissions = [
       country: "Canada",
       description: "New age Covid solution to modernize cafe space organization to enforce social distancing.",
       author: "Lisa Simmons",
-      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Cafe", "Restaurant", "local business", "Space", "Social Distancing"]
+      keywords: ["COVID", "Corona", "Canada", "US", "United States", "United States", "Cafe", "Restaurant", "local business", "Space", "Social Distancing"]
   ),
   Submission(
       imageUrl: "images/mobile.jpg",
       submissionName: "Online Queue System",
       numLikes: "7832",
-      country: "America",
+      country: "United States",
       description: "Queue up for any business in your local community, and attend at your allotted timeslot, minimize wait times and exposure.",
       author: "John White",
-      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Global", "Community", "businesses", "Queue"]
+      keywords: ["COVID", "Corona", "Canada", "US", "United States", "United States", "Global", "Community", "businesses", "Queue"]
   ),
   Submission(
       imageUrl: "images/cinema.jpg",

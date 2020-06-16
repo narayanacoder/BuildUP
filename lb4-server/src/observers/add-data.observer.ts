@@ -44,7 +44,7 @@ export class AddDataObserver implements LifeCycleObserver {
       country: "Canada",
       author: "Lisa Simmons",
       uploads: [{type: "ImageUrl", imageUrl: "images/cafe.jpg"}],
-      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Cafe", "Restaurant", "local business", "Space", "Social Distancing"],
+      keywords: ["COVID", "Corona", "Canada", "US", "United States", "United States", "Cafe", "Restaurant", "local business", "Space", "Social Distancing"],
       comments: [{author: "Ben Grady", comment: "Love this idea!"}, {author: "Jill Lane", comment: "Every cafe should implement this."}],
       problemId: 111,
     }));
@@ -52,10 +52,10 @@ export class AddDataObserver implements LifeCycleObserver {
       name: "Online Queue System",
       description: "Queue up for any business in your local community, and attend at your allotted timeslot, minimize wait times and exposure.",
       numLikes: 15277,
-      country: "America",
+      country: "United States",
       author: "John White",
       uploads: [{type: "ImageUrl", imageUrl: "images/mobile.jpg"}],
-      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Global", "Community", "businesses", "Queue"]
+      keywords: ["COVID", "Corona", "Canada", "US", "United States", "United States", "Global", "Community", "businesses", "Queue"]
     }));
     submissionsArr.push(new Submission({
       name: "Movies Distancing",
@@ -82,13 +82,13 @@ export class AddDataObserver implements LifeCycleObserver {
       country: "Canada",
       author: "Jake Collins",
       uploads: [{type: "ImageUrl", imageUrl: "images/parksCategory.jpg"}],
-      keywords: ["COVID", "Corona", "Canada", "US", "America", "North America", "Park", "Space", "Social Distancing"]
+      keywords: ["COVID", "Corona", "Canada", "US", "United States", "United States", "Park", "Space", "Social Distancing"]
     }));
     submissionsArr.push(new Submission({
       name: "Mall Capacity Monitor",
       description: "Idea to allow the malls to function safely at reduced capacity.",
       numLikes: 2312,
-      country: "America",
+      country: "United States",
       author: "Dave OReilley",
       uploads: [{type: "ImageUrl", imageUrl: "images/mobileMall.jpg"},
       {type: "text", text: "John has come up with an idea of managing the crowds going to the indoor mall where he works - the idea will allow the mall to function safely at reduced capacity. People enter the mall typically via indoor parking lot. His idea is to limit the number of cars (with at least 2 passengers) entering the parking lot - as soon as the parking lot enters 1/4 capacity, mark lot as full.  A small fraction of the lot is probably already taken by mall employees. Parking lot capacity is defined by number of people entering the lot and not just cars. The lot is marked full when number passengers in the parking lot is at full capacity. \nEvery car entering this indoor mall needs to have the app that allows them to tag number of passengers. The 'lot capacity' indicator will show at a particular time, the capacity available. If a car has 6 passengers and lot has 4 available, it can not enter. However, if a car has 4 passengers, it can. Each car (and all its passengers) can only stay in the mall for a fixed duration - at most 2 hrs - for which they pay. Once the car exceeds it time capacity, security will be notified and the car can be 'towed' out.\nIn addition, image recognition AI techniques in the lot will detect if people entering the mall (at each entrance) have mask and gloves on. If not, the system will beep, bringing security in. Each person has to pay to purchase gloves and masks before they enter."}],
@@ -96,14 +96,14 @@ export class AddDataObserver implements LifeCycleObserver {
       {author: "Diego Simmons", comment: "Malls are a big source of income for our economy. I am so game with this approach, even if it means I have a chance of not getting into the mall. I just hope we have good security personnel to ensure mall customers follow the rules. As a furloughed employee of a store in a mall, I would love for this to happen, and I get back to work! I like that employees don't have to go through this app and we are guaranteed parking spots for our duration of work.", numLikes: 32},
       {author: "Karen Night", comment: "I am not sure if this idea will pan out for me. I don't to drive all the way to the mall to find out I can't get in!", numLikes: 2},
       {author: "Nick Miller", comment: "I need more than 2 hours in a mall. It's an experience, and 2hrs is too little time! But, I do like the idea of having a way of getting to the mall and bringing normal life back. Just extent the 2hrs to longer please!", numLikes: 6}],
-      keywords: ["COVID", "Corona", "America", "US", "North America", "Mall", "crowded", "Social Distancing"],
+      keywords: ["COVID", "Corona", "United States", "US", "United States", "Mall", "crowded", "Social Distancing"],
       problemId: 222,
     }));
     submissionsArr.push(new Submission({
       name: "Restaurant Curtain Partitions",
       description: "Shower curtains as partitions between restaurant tables to help maintain social distancing and prevent the spread of the virus.",
       numLikes: 4258,
-      country: "America",
+      country: "United States",
       author: "Charlie Gray",
       uploads: [{type: "ImageUrl", imageUrl: "images/charlieSketchCover.jpg"},
       {type: "text", text: "Your restaurant could use shower curtains as partitions between tables.\n\nThis way, they could be easily moved around if needed and would be easy to clean. Before putting a new party at a table, the curtains could be sprayed or wiped down.\n\nThe curtains would catch any droplets from talking, sneezing, etc. that might come from people eating at a restaurant."},
@@ -225,7 +225,7 @@ export class AddDataObserver implements LifeCycleObserver {
           "numLikes": 23
         }
       ],
-      keywords: ["COVID", "Corona", "America", "US", "North America", "restaurant", "crowded", "Social Distancing", "cafe", "shower curtain", "curtain"],
+      keywords: ["COVID", "Corona", "United States", "US", "United States", "restaurant", "crowded", "Social Distancing", "cafe", "shower curtain", "curtain"],
       problemId: 333,
     }));
     submissionsArr.push(new Submission({
@@ -243,7 +243,7 @@ export class AddDataObserver implements LifeCycleObserver {
         {author: "Kesha Ahmed", comment: "I like it! I would feel really safe from catching the virus inside this.", numLikes: 41},
         {author: "Rose Stevenson", comment: "This would be good for people who are on dates.", numLikes: 72}],
       problemId: 333,
-      keywords: ["COVID", "Corona", "America", "US", "North America", "Canada", "restaurant", "crowded", "Social Distancing", "cafe", "cube", "plastic"],
+      keywords: ["COVID", "Corona", "United States", "US", "United States", "Canada", "restaurant", "crowded", "Social Distancing", "cafe", "cube", "plastic"],
     }));
 
     for (const submissionItem of submissionsArr) {
@@ -298,21 +298,21 @@ export class AddDataObserver implements LifeCycleObserver {
         problemId: 222,
         description: "Malls are closed because of crowds and high propensity for spread of Covid-19.",
         numLikes: 7883,
-        country: "America",
+        country: "United States",
         author: "John Baggins",
         uploads: [{type: "ImageUrl", imageUrl: "images/crowdedMallProblem.jpg"}, {type: "text", text: "Many people who work in the mall lost their jobs, or were furloughed. There is no indication of when they'll go back to work."}],
-        keywords: ["COVID", "Mall", "Crowd", "Social distancing", "America"]
+        keywords: ["COVID", "Mall", "Crowd", "Social distancing", "United States"]
       }));
       problemsArr.push(new Problem({
         name: "Social distancing for small restaurant",
         problemId: 333,
         description: "My restaurant needs some way to allow people to eat inside while maintaining social distancing practices.",
         numLikes: 2164,
-        country: "America",
+        country: "United States",
         author: "Jane Smith",
         uploads: [{type: "ImageUrl", imageUrl: "images/janeRestaurant.jpg"},
         {type: "text", text: "My restaurant has been struggling since covid hit and I want to make people feel safe to visit.\n\nI want to prevent the spread of the virus as much as possible!"}],
-        keywords: ["COVID", "restaurant", "cafe", "United States", "Social distancing", "America"],
+        keywords: ["COVID", "restaurant", "cafe", "United States", "Social distancing", "United States"],
         impact: [{type: "ImageUrl", imageUrl: "images/charlieShowerCurtains.png"},
         {type: "text", text: "This solution has had such a positive impact on my restaurant!!! Sales are up and I was even able to rehire some employees!\n\nThank you Charlie for your help!\n\nHighly recommend other restaurants try this."}],
         winningSolution: ["Restaurant Curtain Partitions"]
@@ -333,7 +333,7 @@ export class AddDataObserver implements LifeCycleObserver {
         lastName: "Gray",
         description: "Hobbyist photographer who lost her job due to covid",
         phoneNumber: 6137771234,
-        country: "America",
+        country: "United States",
         email: "charlieGray@emailaddress.com",
         favorites: ["Eating Cubes for restaurants", "Movies Distancing", "Online Queue System"],
         submitted: ["Restaurant Curtain Partitions"],

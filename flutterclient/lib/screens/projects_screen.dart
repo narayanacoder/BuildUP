@@ -76,7 +76,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
               initialValue: widget.searchInit,
               onChanged: (text) { setState(() { searchText = text; }); },
               decoration: InputDecoration(
-                  hintText: "Browse " + (widget.snapshot.data.isProblem ? "problems" : "submissions"),
+                  hintText: "Browse " + (widget.snapshot.data.isProblem ? "problems" : "solutions"),
                   alignLabelWithHint: true,
                 border: InputBorder.none,
                 hintStyle: TextStyle(
@@ -98,7 +98,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
                     padding: EdgeInsets.only(top: 24, left: 16),
                     child:
                     Text(
-                      "Found " + (searchText == "" ? widget.snapshot.data.containerCount.toString() : ((widget.snapshot.data.containerItems.where((i) => i.keywords.contains(searchText.toLowerCase()) || i.name.toLowerCase().contains(searchText.toLowerCase())))).length.toString()) + (widget.isSolutions ? " submissions" : " problems"), //submissions.length.toString()
+                      "Found " + (searchText == "" ? widget.snapshot.data.containerCount.toString() : ((widget.snapshot.data.containerItems.where((i) => i.keywords.contains(searchText.toLowerCase()) || i.name.toLowerCase().contains(searchText.toLowerCase())))).length.toString()) + (widget.isSolutions ? " solutions" : " problems"), //submissions.length.toString()
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.normal,

@@ -102,7 +102,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                   child: TextField(
                     onChanged: (text) { setSearchAndToggle(text); },
                     decoration: InputDecoration(
-                        hintText: "Browse submissions",
+                        hintText: "Browse solutions",
                         alignLabelWithHint: true,
                         border: InputBorder.none,
                         hintStyle: TextStyle(
@@ -218,7 +218,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              "Top-rated submissions",
+              "Top-rated solutions",
               style: TextStyle(
                 fontSize: 26,
                 color: Colors.white,
@@ -339,7 +339,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Browse COVID submissions",
+                      "Browse COVID solutions",
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w600,

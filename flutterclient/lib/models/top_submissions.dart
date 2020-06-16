@@ -18,7 +18,7 @@ List<Submission> submissions = [
       imageUrl: "images/mobile.jpg",
       submissionName: "Online Queue System",
       numLikes: "7832",
-      country: "America",
+      country: "United States",
   ),
   Submission(
       imageUrl: "images/cinema.jpg",
