@@ -25,6 +25,36 @@ class _CollectionScreenState extends State<CollectionScreen> with SingleTickerPr
         mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
         children: <Widget>[
           SizedBox(height: 15,),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              padding: EdgeInsets.only(left: 24, bottom: 5),
+              child: Text(
+                  "Your solutions",
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Color(0xff171717),
+                    fontWeight: FontWeight.w600,
+                ),
+              ),
+            )
+          ),
+          ProjectsListContainerWidget(context: context),
+          SizedBox(height: 10,),
+          Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.only(left: 24, bottom: 5),
+                child: Text(
+                  "Saved",
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Color(0xff171717),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              )
+          ),
           ProjectsListContainerWidget(context: context),
          ],
       )
@@ -87,13 +117,25 @@ class ProjectItem extends StatelessWidget {
             return new Container();
           } else {
             return Container(
-            height: 310,
+            height: 220,
             width: MediaQuery
                 .of(context)
                 .size
                 .width - 40,
-            margin: EdgeInsets.only(right: 16, left: 16, top: 8, bottom: 36),
-            child: Column(
+            margin: EdgeInsets.only(right: 16, left: 16, top: 8, bottom: 0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 3,
+                      blurRadius: 4,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
@@ -101,9 +143,7 @@ class ProjectItem extends StatelessWidget {
                       width: double.infinity,
                       child: ClipRRect(
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
-                            topRight: Radius.circular(5),
-                            bottomRight: Radius.circular(5),
-                            bottomLeft: Radius.circular(5)),
+                            topRight: Radius.circular(5)),
                         child: Image(
                           image: AssetImage(getCoverImage(response.data.uploads)),
                           fit: BoxFit.cover,
