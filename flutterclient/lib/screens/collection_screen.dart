@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterclient/utilities/common_objects.dart';
 import 'package:flutterclient/utilities/utility_helper.dart';
 import 'package:flutterclient/api/api_users.dart';
+import 'package:flutterclient/api/api_system.dart';
 import 'package:flutterclient/api/api_submissions.dart';
 
 class CollectionScreen extends StatefulWidget {
@@ -47,7 +48,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
         .size
         .width;
 //    return ProjectItem(width: width);
-      return new FutureBuilder<User>(future: fetchUser(), builder: (context, snapshot){
+      return new FutureBuilder<User>(future: fetchCurrentUser(), builder: (context, snapshot){
         if(snapshot.hasData) {
           return ProjectItem(context: context, user: snapshot.data);
         } else if (snapshot.hasError){
