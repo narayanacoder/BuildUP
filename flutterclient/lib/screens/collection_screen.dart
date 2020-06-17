@@ -20,45 +20,7 @@ class _CollectionScreenState extends State<CollectionScreen> with SingleTickerPr
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
-        children: <Widget>[
-          SizedBox(height: 15,),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.only(left: 24, bottom: 5),
-              child: Text(
-                  "Your solutions",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Color(0xff171717),
-                    fontWeight: FontWeight.w600,
-                ),
-              ),
-            )
-          ),
-          ProjectsListContainerWidget(context: context),
-          SizedBox(height: 10,),
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                padding: EdgeInsets.only(left: 24, bottom: 5),
-                child: Text(
-                  "Saved",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Color(0xff171717),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              )
-          ),
-          ProjectsListContainerWidget(context: context),
-         ],
-      )
-    );
+    return ProjectsListContainerWidget(context: context);
   }
 }
 
@@ -77,10 +39,47 @@ class ProjectsListContainerWidget extends StatelessWidget {
         .of(context)
         .size
         .width;
-//    return ProjectItem(width: width);
       return new FutureBuilder<User>(future: fetchCurrentUser(), builder: (context, snapshot){
         if(snapshot.hasData) {
-          return ProjectItem(context: context, user: snapshot.data);
+          return Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
+                children: <Widget>[
+                  SizedBox(height: 15,),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        padding: EdgeInsets.only(left: 24, bottom: 5),
+                        child: Text(
+                          "Your solutions",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Color(0xff171717),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      )
+                  ),
+                  ProjectItem(context: context, user: snapshot.data),
+                  SizedBox(height: 10,),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        padding: EdgeInsets.only(left: 24, bottom: 5),
+                        child: Text(
+                          "Saved",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Color(0xff171717),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      )
+                  ),
+                  ProjectItem(context: context, user: snapshot.data),
+                ],
+              )
+          );
         } else if (snapshot.hasError){
           print(snapshot.error);
           return new Container();
