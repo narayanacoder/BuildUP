@@ -4,9 +4,9 @@ import {
 } from '@loopback/core';
 //import the repository decorator
 import {repository} from '@loopback/repository';
-import {Problem, Submission, User} from '../models';
+import {Problem, Submission, System, User} from '../models';
 //import from LB app
-import {ProblemRepository, SubmissionRepository, UserRepository} from '../repositories';
+import {ProblemRepository, SubmissionRepository, SystemRepository, UserRepository} from '../repositories';
 
 
 /**
@@ -24,6 +24,7 @@ export class AddDataObserver implements LifeCycleObserver {
     @repository('SubmissionRepository') private submissionRepo: SubmissionRepository,
     @repository('ProblemRepository') private problemRepo: ProblemRepository,
     @repository('UserRepository') private userRepo: UserRepository,
+    @repository('SystemRepository') private systemRepo: SystemRepository,
   ) {}
 
   /**
@@ -326,11 +327,12 @@ export class AddDataObserver implements LifeCycleObserver {
 
 
     setTimeout(() => {
-      //problems ------------------
+      //user ------------------
       const usersArr = [];
       usersArr.push(new User({
         firstName: "Charlie",
         lastName: "Gray",
+        username: "charlie.g9",
         description: "Hobbyist photographer who lost her job due to covid",
         phoneNumber: 6137771234,
         country: "United States",
@@ -345,7 +347,13 @@ export class AddDataObserver implements LifeCycleObserver {
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
         this.userRepo.create(userItem);
       };
-    }, 10000);
+
+      //system ------------------
+      const currentSession = new System({
+        currentUser: usersArr[0],
+      });
+      this.systemRepo.create(currentSession);
+    }, 5000);
 
   }
 

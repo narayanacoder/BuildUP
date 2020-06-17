@@ -2,20 +2,26 @@ import {
   Count,
   CountSchema,
   Filter,
-  FilterExcludingWhere,
+
+
+
+  FilterBuilder, FilterExcludingWhere,
   repository,
-  Where,
-  FilterBuilder,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
+  del, get,
+  getModelSchemaRef, param,
+
+
+  patch, post,
+
+
+
+
   put,
-  del,
-  requestBody,
+
+  requestBody
 } from '@loopback/rest';
 import {Submission} from '../models';
 import {SubmissionRepository} from '../repositories';
@@ -23,7 +29,7 @@ import {SubmissionRepository} from '../repositories';
 export class SubmissionsController {
   constructor(
     @repository(SubmissionRepository)
-    public submissionRepository : SubmissionRepository,
+    public submissionRepository: SubmissionRepository,
   ) {}
 
   @post('/submissions', {
@@ -190,8 +196,8 @@ export class SubmissionsController {
   async findSubmissionsHighestNumLikes(
     @param.path.number('limit') limit: number,
   ): Promise<Submission[]> {
-    let filter: FilterBuilder<Submission> = new FilterBuilder<Submission>({order: ['numLikes DESC'], where:{"numLikes": {gt: 0}}, limit: limit});
-      
+    const filter: FilterBuilder<Submission> = new FilterBuilder<Submission>({order: ['numLikes DESC'], where: {"numLikes": {gt: 0}}, limit: limit});
+
     const res = await this.submissionRepository.find(filter.filter);
     return res;
   }
@@ -211,9 +217,9 @@ export class SubmissionsController {
   async getSubmissionByName(
     @param.path.string('name') name: string,
   ): Promise<Submission> {
-    let filter: FilterBuilder<Submission> = new FilterBuilder<Submission>({where:{"name": {eq: name}}});
-      
+    const filter: FilterBuilder<Submission> = new FilterBuilder<Submission>({where: {"name": {eq: name}}});
+
     const res = await this.submissionRepository.find(filter.filter);
-      return res[0];
+    return res[0];
   }
 }

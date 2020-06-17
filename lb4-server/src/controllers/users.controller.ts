@@ -193,7 +193,7 @@ export class UsersController {
       },
     },
   })
-  async getProblemsWithProblemId(
+  async getUserByFirstLastName(
     @param.path.string('firstName') firstName: string,
     @param.path.string('lastName') lastName: string,
   ): Promise<User[]> {
