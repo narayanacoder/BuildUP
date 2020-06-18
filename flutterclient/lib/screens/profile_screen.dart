@@ -162,7 +162,7 @@ class UserProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 margin: const EdgeInsets.only(top: 15.0),
                 decoration: BoxDecoration(
-                  color: Color(0xfff4f4f4),
+                  color: Colors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(34),),
                 ),
                 child: Column(
