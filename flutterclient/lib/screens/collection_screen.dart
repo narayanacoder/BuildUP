@@ -161,8 +161,8 @@ class ProjectItem extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             FadeAnimation(1, Container(
-                              width: 90,
-                              margin: EdgeInsets.only(bottom: 20),
+                              width: 150,
+                              margin: EdgeInsets.only(bottom: 15),
                               child: Row(
                                 children: _buildIndicator(response.data.containerItems.length),
                               ),
@@ -234,8 +234,8 @@ class ProjectItem extends StatelessWidget {
 Widget _indicator(bool isActive) {
   return Expanded(
     child: Container(
-      height: 6,
-      margin: EdgeInsets.only(right: 5),
+      height: 7,
+      margin: EdgeInsets.only(right: 6),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: isActive ? Color(0xff0062ff) : Colors.black
