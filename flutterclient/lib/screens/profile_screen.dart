@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterclient/api/api_users.dart';
 import 'package:flutterclient/api/api_system.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UserProfileScreen extends StatelessWidget {
 
@@ -172,39 +173,131 @@ class UserProfileScreen extends StatelessWidget {
                     //   padding: const EdgeInsets.fromLTRB(30, 20, 0, 0),
                     //   child: Text("Portfolio", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
                     // ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(40, 30, 5, 10),
-                      child: Text(
-                        "Username : " + snapshot.data.username,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xff171717),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+
+                    SizedBox(
+                      height: 20.0,
                     ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(40, 10, 5, 10),
-                      child: Text(
-                        "Phone number : " + snapshot.data.phoneNumber.toString(),
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xff171717),
-                          fontWeight: FontWeight.w400,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Column(
+                              children: <Widget>[
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Username',
+                                      style: TextStyle(
+                                          color: Colors.blueGrey, fontSize: 18.0)),
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(snapshot.data.username,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            child: Icon(
+                              FontAwesomeIcons.pen,
+                              color: Color(0xff0062ff),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(40, 10, 5, 0),
-                      child: Text(
-                        "Email : " + snapshot.data.email,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xff171717),
-                          fontWeight: FontWeight.w400,
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            child: Column(
+                              children: <Widget>[
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Phone number',
+                                      style: TextStyle(
+                                          color: Colors.blueGrey, fontSize: 18.0)),
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(snapshot.data.phoneNumber.toString(),
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    )
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            child: Icon(
+                              FontAwesomeIcons.pen,
+                              color: Color(0xff0062ff),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            child: Column(
+                              children: <Widget>[
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Location',
+                                      style: TextStyle(
+                                          color: Colors.blueGrey, fontSize: 18.0)),
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(snapshot.data.country,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            child: Icon(
+                              FontAwesomeIcons.pen,
+                              color: Color(0xff0062ff),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                   ],
                 ),
               ),
