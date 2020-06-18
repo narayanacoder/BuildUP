@@ -5,6 +5,7 @@ import 'package:flutterclient/api/api_users.dart';
 import 'package:flutterclient/api/api_system.dart';
 import 'package:flutterclient/api/api_submissions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutterclient/animations/fade_animation.dart';
 
 class CollectionScreen extends StatefulWidget {
   @override
@@ -141,16 +142,34 @@ class ProjectItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
-                  child: Container(
-                      width: double.infinity,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
-                            topRight: Radius.circular(5)),
-                        child: Image(
-                          image: AssetImage(getCoverImage(response.data.containerItems[0].uploads)),
-                          fit: BoxFit.cover,
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
+                              topRight: Radius.circular(5)),
+                          child: Image(
+                            image: AssetImage(getCoverImage(response.data.containerItems[0].uploads)),
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                    ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            FadeAnimation(1, Container(
+                              width: 90,
+                              margin: EdgeInsets.only(bottom: 20),
+                              child: Row(
+                                children: _buildIndicator(response.data.containerItems.length),
+                              ),
+                            ))
+                          ],
                         ),
-                      )
+                      )],
                   ),
                 ),
                 Container(
@@ -171,7 +190,7 @@ class ProjectItem extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                     )
                                 ),
-                                Row(
+                                !isSubmitted ? Row(
                                   children: <Widget>[
                                     Text(
                                         "4 more",
@@ -188,7 +207,7 @@ class ProjectItem extends StatelessWidget {
                                       color: Color(0xff0062ff),
                                     ),
                                   ],
-                                )
+                                ) : Container()
                               ]),
                           Text(
                               response.data.containerItems[0].name,
@@ -209,4 +228,35 @@ class ProjectItem extends StatelessWidget {
       )
     );
   }
+}
+
+
+Widget _indicator(bool isActive) {
+  return Expanded(
+    child: Container(
+      height: 6,
+      margin: EdgeInsets.only(right: 5),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: isActive ? Color(0xff0062ff) : Colors.black
+      ),
+    ),
+  );
+}
+
+List<Widget> _buildIndicator(int length) {
+  if(length == 0 || length == 1){
+    return [];
+  }
+
+  List<Widget> indicators = [];
+  for(int i = 0; i < length; i++) {
+    if (0 == i) {
+      indicators.add(_indicator(true));
+    } else {
+      indicators.add(_indicator(false));
+    }
+  }
+
+  return indicators;
 }
