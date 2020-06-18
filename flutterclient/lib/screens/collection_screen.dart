@@ -94,8 +94,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
 }
 
 
-
-class ProjectItem extends StatelessWidget {
+class ProjectItem extends StatefulWidget {
   const ProjectItem({
     Key key,
     @required this.context,
@@ -108,10 +107,35 @@ class ProjectItem extends StatelessWidget {
   final bool isSubmitted;
 
   @override
+  _ProjectItem createState() => _ProjectItem();
+}
+
+class _ProjectItem extends State<ProjectItem> with SingleTickerProviderStateMixin{
+
+  int currentIndex = 0;
+
+  @override
+  void initState() {
+    //TODO: implement initState
+    currentIndex = 0;
+    super.initState();
+  }
+
+  void changeIndex(int length) {
+    //TODO: implement initState
+    setState(() {
+      currentIndex = currentIndex + 1;
+      if(currentIndex >= length){
+        currentIndex = 0;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
         child: FutureBuilder(
-        future: isSubmitted ? fetchCurrentUserSubmitted() : fetchCurrentUserSaved(), //fetchSolutionByName(user.submitted[0]),
+        future: widget.isSubmitted ? fetchCurrentUserSubmitted() : fetchCurrentUserSaved(), //fetchSolutionByName(user.submitted[0]),
         builder: (BuildContext context, AsyncSnapshot<CommonContainerList> response) {
           if (!response.hasData){
             return new Container();
@@ -144,18 +168,24 @@ class ProjectItem extends StatelessWidget {
                 Expanded(
                   child: Stack(
                     children: [
-                      Container(
-                        width: double.infinity,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
-                              topRight: Radius.circular(5)),
-                          child: Image(
-                            image: AssetImage(getCoverImage(response.data.containerItems[0].uploads)),
-                            fit: BoxFit.cover,
-                          ),
-                        )
+                    GestureDetector(
+                      onTap: () {
+                        changeIndex(response.data.containerItems.length);
+                      },
+                      // The custom button
+                      child: Container(
+                          width: double.infinity,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
+                                topRight: Radius.circular(5)),
+                            child: Image(
+                              image: AssetImage(getCoverImage(response.data.containerItems[currentIndex].uploads)),
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                      ),
                     ),
-                      Align(
+                    Align(
                         alignment: Alignment.center,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -164,7 +194,7 @@ class ProjectItem extends StatelessWidget {
                               width: 150,
                               margin: EdgeInsets.only(bottom: 15),
                               child: Row(
-                                children: _buildIndicator(response.data.containerItems.length),
+                                children: _buildIndicator(response.data.containerItems.length, currentIndex),
                               ),
                             ))
                           ],
@@ -182,7 +212,7 @@ class ProjectItem extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                    response.data.containerItems[0].country, // response.data.country,
+                                    response.data.containerItems[currentIndex].country, // response.data.country,
                                     style: TextStyle(
                                       letterSpacing: 1,
                                       color: Color(0xff171717).withOpacity(0.6),
@@ -190,7 +220,7 @@ class ProjectItem extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                     )
                                 ),
-                                !isSubmitted ? Row(
+                                !widget.isSubmitted ? Row(
                                   children: <Widget>[
                                     Text(
                                         "4 more",
@@ -210,7 +240,7 @@ class ProjectItem extends StatelessWidget {
                                 ) : Container()
                               ]),
                           Text(
-                              response.data.containerItems[0].name,
+                              response.data.containerItems[currentIndex].name,
                               style: TextStyle( //response.data.name,
                                   fontSize: 16,
                                   fontWeight: FontWeight.normal,
@@ -244,14 +274,14 @@ Widget _indicator(bool isActive) {
   );
 }
 
-List<Widget> _buildIndicator(int length) {
+List<Widget> _buildIndicator(int length, activeIndex) {
   if(length == 0 || length == 1){
     return [];
   }
 
   List<Widget> indicators = [];
   for(int i = 0; i < length; i++) {
-    if (0 == i) {
+    if (activeIndex == i) {
       indicators.add(_indicator(true));
     } else {
       indicators.add(_indicator(false));
