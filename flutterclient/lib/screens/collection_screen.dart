@@ -4,6 +4,7 @@ import 'package:flutterclient/utilities/utility_helper.dart';
 import 'package:flutterclient/api/api_users.dart';
 import 'package:flutterclient/api/api_system.dart';
 import 'package:flutterclient/api/api_submissions.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CollectionScreen extends StatefulWidget {
   @override
@@ -60,12 +61,12 @@ class ProjectsListContainerWidget extends StatelessWidget {
                         ),
                       )
                   ),
-                  ProjectItem(context: context, user: snapshot.data),
+                  ProjectItem(context: context, user: snapshot.data, isSubmitted: true),
                   SizedBox(height: 10,),
                   Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
-                        padding: EdgeInsets.only(left: 24, bottom: 5),
+                        padding: EdgeInsets.only(left: 24, bottom: 5, top: 5),
                         child: Text(
                           "Saved",
                           style: TextStyle(
@@ -76,7 +77,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                         ),
                       )
                   ),
-                  ProjectItem(context: context, user: snapshot.data),
+                  ProjectItem(context: context, user: snapshot.data, isSubmitted: false),
                 ],
               )
           );
@@ -98,17 +99,19 @@ class ProjectItem extends StatelessWidget {
     Key key,
     @required this.context,
     @required this.user,
+    @required this.isSubmitted
   }) : super(key: key);
 
   final BuildContext context;
   final User user;
+  final bool isSubmitted;
 
   @override
   Widget build(BuildContext context) {
     return Container(
         child: FutureBuilder(
-        future: fetchSolutionByName(user.submitted[0]),
-        builder: (BuildContext context, AsyncSnapshot<CommonContainer> response) {
+        future: isSubmitted ? fetchCurrentUserSubmitted() : fetchCurrentUserSaved(), //fetchSolutionByName(user.submitted[0]),
+        builder: (BuildContext context, AsyncSnapshot<CommonContainerList> response) {
           if (!response.hasData){
             return new Container();
           } else if (response.hasError){
@@ -144,14 +147,14 @@ class ProjectItem extends StatelessWidget {
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
                             topRight: Radius.circular(5)),
                         child: Image(
-                          image: AssetImage(getCoverImage(response.data.uploads)),
+                          image: AssetImage(getCoverImage(response.data.containerItems[0].uploads)),
                           fit: BoxFit.cover,
                         ),
                       )
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+                    padding: EdgeInsets.symmetric(horizontal: 14, vertical: 14),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -160,7 +163,7 @@ class ProjectItem extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                    response.data.country,
+                                    response.data.containerItems[0].country, // response.data.country,
                                     style: TextStyle(
                                       letterSpacing: 1,
                                       color: Color(0xff171717).withOpacity(0.6),
@@ -168,20 +171,29 @@ class ProjectItem extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                     )
                                 ),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                        "4 more",
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xff0062ff)
+                                        )
+                                    ),
+                                    SizedBox(width: 4,),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 11,
+                                      color: Color(0xff0062ff),
+                                    ),
+                                  ],
+                                )
                               ]),
                           Text(
-                              response.data.name,
-                              style: TextStyle(
+                              response.data.containerItems[0].name,
+                              style: TextStyle( //response.data.name,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.normal,
-                                  color: Color(0xff171717)
-                              )
-                          ),
-                          SizedBox(height: 2,),
-                          Text(
-                              "4 more",
-                              style: TextStyle(
-                                  fontSize: 13,
                                   fontWeight: FontWeight.normal,
                                   color: Color(0xff171717)
                               )

@@ -22,13 +22,15 @@ import {
 
   requestBody
 } from '@loopback/rest';
-import {System, User} from '../models';
-import {SystemRepository} from '../repositories';
+import {Submission, System, User} from '../models';
+import {SubmissionRepository, SystemRepository} from '../repositories';
 
 export class SystemsController {
   constructor(
     @repository(SystemRepository)
     public systemRepository: SystemRepository,
+    @repository(SubmissionRepository)
+    public submissionRepository: SubmissionRepository
   ) {}
 
   @post('/systems', {
@@ -190,11 +192,73 @@ export class SystemsController {
     },
   })
   async getCurrentUser(
-  ): Promise<object> {
+  ): Promise<User | {}> {
     const filter: FilterBuilder<System> = new FilterBuilder<System>({limit: 1});
 
     const res = await this.systemRepository.find(filter.filter);
-    return res[0] ? (res[0].currentUser ? res[0].currentUser : {}) : {};
+    return res[0] ? (res[0].currentUser ? res[0].currentUser : new User()) : new User;
+  }
+
+
+  @get('/system/currentUser/saved', {
+    responses: {
+      '200': {
+        description: 'get current logged in users saved submissions',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Submission, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async getCurrentUserSaved(
+  ): Promise<Submission[]> {
+    const user = await this.getCurrentUser()
+    const curUser = new User(user);
+    if (curUser?.saved) {
+      const filterList = [];
+      for (const savedItem of curUser.saved) {
+        filterList.push({name: savedItem});
+      }
+      return (this.submissionRepository.find({
+        where: {
+          or: filterList
+        }
+      }));
+    }
+    return [];
+  }
+
+
+  @get('/system/currentUser/submitted', {
+    responses: {
+      '200': {
+        description: 'get current logged in users submitted solutions',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Submission, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async getCurrentUserSubmitted(
+  ): Promise<Submission[]> {
+    const user = await this.getCurrentUser()
+    const curUser = new User(user);
+    if (curUser?.submitted) {
+      const filterList = [];
+      for (const submittedItem of curUser.submitted) {
+        filterList.push({name: submittedItem});
+      }
+      return (this.submissionRepository.find({
+        where: {
+          or: filterList
+        }
+      }));
+    }
+    return [];
   }
 
 }

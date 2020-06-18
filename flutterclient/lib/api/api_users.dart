@@ -8,6 +8,7 @@ class User {
   final int id;
   String firstName;
   String lastName;
+  String username;
   String description;
   String country;
   String email;
@@ -18,7 +19,7 @@ class User {
   String profilePic;
   //TODO: add deadline field.
 
-  User({this.id, this.firstName, this.lastName, this.description, this.country, this.email, this.phoneNumber, this.saved, this.submitted, this.favorites, this.profilePic});
+  User({this.id, this.firstName, this.lastName, this.username, this.description, this.country, this.email, this.phoneNumber, this.saved, this.submitted, this.favorites, this.profilePic});
 
   factory User.fromJson(Map<String, dynamic> json) {
     List<String> saved = json['saved'] != null ? List<String>.from(json['saved'].map((i) => i.toString())) : [];
@@ -28,6 +29,7 @@ class User {
       id: json['id'],
       firstName: json['firstName'],
       lastName: json['lastName'],
+      username: json['username'],
       description: json['description'],
       country: json['country'],
       email: json['email'],
