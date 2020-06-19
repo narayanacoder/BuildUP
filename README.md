@@ -71,7 +71,7 @@ The problem poster(small local business owner) can choose the best solution, imp
 
 ## Diagrams
 
-![Cooperation architecture diagram](/images/architecture-diagram.png)
+![BuildUP architecture diagram](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/Architecturev3.jpg)
 
 
 BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to hold the profiles, problems, solutions and review comments to get users the information they need.
