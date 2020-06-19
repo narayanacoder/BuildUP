@@ -127,16 +127,16 @@ Trusted sources for COVID-19 Information:
 
 Log in to IBM Cloud and provision a Watson Studio instance.
 
-1. Provision an instance of **Watson Studio** from the [IBM Cloud catalog](https://cloud.ibm.com/catalog).
+1. Select **Watson Studio** from the [IBM Cloud catalog](https://cloud.ibm.com/catalog).
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/WatsonStudioInstance.png)
-1. Create the Watson Studio project.
+1. Provision an instance of **Watson Studio**
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/StudioGetStarted.png)
 1. Create Project
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/CreateAProject.png)
-1. Select Create Empty Project
+1. Select Create an Empty Project
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/CreateAnEmptyProject.png)
-1. Create WatsonStudioInstance
-![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/CreateWatsonStuddioInstance.png)
+1. Create WatsonStudio Instance
+![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/CreateWatsonStudioInstance.png)
 1. Add project details
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/GiveProjectDetails.png)
 1. Add notebook
@@ -145,15 +145,11 @@ Log in to IBM Cloud and provision a Watson Studio instance.
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/NotebookDetails.png)
 1. Add JSON File
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/AddJsonFile.png)
+1. You can see the json file
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/JsonFileInDataAssets.png)
 1. Run notebook
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/RunNotebook.png)
-1. [Create an **Assistant**](https://cloud.ibm.com/docs/assistant?topic=assistant-assistant-add).
-1. [Add a dialog skill](https://cloud.ibm.com/docs/assistant?topic=assistant-skill-dialog-add) to the **Assistant** by importing the [`starter-kit-cooperation-dialog-skill.json`](./starter-kit/assistant/starter-kit-cooperation-dialog-skill.json) file.
-1. Go back to All Assistants page, open **Settings** from the action menu ( **`⋮`** ) and click on **API Details**.
-1. Note the **Assistant ID**, **API Key**, and **Assistant URL**. For **Assistant URL**, make note of the base URL/domain (e.g., `https://api.us-south.assistant.watson.cloud.ibm.com` or `https://api.eu-gb.assistant.watson.cloud.ibm.com`) and not the full directory/path. You will need all three of these values in Step 4 below.
 
-1. Go to **Preview Link** to get a link to test and verify the dialog skill.
 
 ### 2: Provision a CouchDB instance using Cloudant
 
