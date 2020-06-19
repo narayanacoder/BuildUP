@@ -85,12 +85,6 @@ BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to h
 
 ## Documents
 
-Trusted sources for COVID-19 Information:
-- [CDC COVID-19 FAQ](https://www.cdc.gov/coronavirus/2019-ncov/faq.html)
-- [WHO COVID-19 page](https://www.who.int/health-topics/coronavirus)
-- [Johns Hopkins University Coronavirus (includes tracking map)](https://coronavirus.jhu.edu)
-- [National Foundation for Infectious Diseases](https://www.nfid.org/infectious-diseases/frequently-asked-questions-about-novel-coronavirus-2019-ncov/)
-
 ## Technology
 
 ### IBM Cloud Services
@@ -140,7 +134,7 @@ Log in to IBM Cloud and provision a Watson Studio instance.
 1. Add project details
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/GiveProjectDetails.png)
 1. Add notebook
-![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/AssetAddNotebook.png)
+![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/AssetsAddNotebook.png)
 1. Add notebook details and URL
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/NotebookDetails.png)
 1. Add JSON File
@@ -158,19 +152,28 @@ Log into the IBM Cloud and provision a [CouchDB instance using Cloudant](https:/
 1. From the catalog, select Databases and then the Cloudant panel.
 1. Once selected, you can choose your Cloudant plan -- there is a free tier for simple testing that is sufficient to run this CIR example. You should choose an appropriate region, give the service a name, and it is recommended you choose **Use only IAM** under **Available authentication methods**. You can leave the other settings with their defaults. Click the blue **Create** button when ready.
 1. Once your Cloudant instance has been created, you need to create a service credential that the CIR API Server can use to communicate with it. By selecting your running Cloudant instance, you can choose **Service credentials** from the left-hand menu. Create a new service credential and give it a name (it doesn't matter what you call it).
-1. Once created, you can display the credentials by selecting **view service credentials**, and then copy the credential, so you are ready to paste it into the code of the API server in Step 4.
+1. Once created, you can display the credentials by selecting **view service credentials**, and then copy the credential, so you are ready to paste it into the code of the API server in Step 3.
 
 
 ### 3. Run the server
 
 To set up and launch the server application:
 
-1. Go to the `starter-kit/server-app` directory of the cloned repo.
-1. Copy the `.env.example` file in the `starter-kit/server-app` directory, and create a new file named `.env`.
-1. Edit the newly created `.env` file and update the `ASSISTANT_URL`, `ASSISTANT_ID`, and `ASSISTANT_IAM_APIKEY` with the values from the dialog skill's API Detail page in Watson Assistant, from Step 1. Also, update the `CLOUDANT_ID` and `CLOUDANT_IAM_APIKEY` with the values from the service credential you created in Step 2. (Note that the `username` from the credential is what should be used for the `CLOUDANT_ID`.)
+1. Go to the `BuildUP/lb4-server` directory of the cloned repo.
+1. Update the fields in BuildUP/lb4-server/src/datasources/cloudant.datasource.config.json with the values created in step 2.
+{
+  "name": "Cloudant-cfc-2020",
+  "connector": "cloudant",
+  "url": "xxx",
+  "database": "cloudantcfc2020db",
+  "username": "xxx",
+  "password": "xxx",
+  "modelIndex": "loopback__model__cloudantcfc2020",
+  "globalLimit": 1000
+}
 1. Edit the **name** value in the `manifest.yml` file to your application name (for example, _my-app-name_).
 1. From a terminal:
-    1. Go to the `starter-kit/server-app` directory of the cloned repo.
+    1. Go to the `BuildUP/lb4-server` directory of the cloned repo.
     1. Install the dependencies: `npm install`.
     1. Launch the server application locally or deploy to IBM Cloud:
         - To run locally:
@@ -183,8 +186,6 @@ To set up and launch the server application:
             1. The server can be accessed at a URL using the **name** given in the `manifest.yml` file (for example,  <https://my-app-name.bluemix.net>).
 
 ### 4. Run the mobile application
-
-2. Set up your Flutter environment
 
 To run the mobile application (using the Xcode iOS Simulator or Android Studio Emulator):
 1. Install [Flutter SDK](https://flutter.io/get-started/install/)
