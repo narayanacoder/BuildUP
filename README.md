@@ -26,15 +26,11 @@ This solution was created by technologists from IBM.
 
 ### What's the problem?
 
-```diff
-- _4 out of 5 workers are affected by COVID-19 worldwide - United Nations_
-- _1.6 billion people are at risk of losing livelihoods - International Labor Organization_
-- _100,000 US small businesses have closed forever - Washington Post_
-``` 
+[4 out of 5 workers are affected by COVID-19 worldwide - United Nations] (#https://www.npr.org/sections/coronavirus-live-updates/2020/04/07/828778490/4-of-5-workers-are-affected-by-covid-19-worldwide-u-n-agency-says)
 
-_1.6 billion people are at risk of losing livelihoods - International Labor Organization_
+[1.6 billion people are at risk of losing livelihoods - International Labor Organization] (#https://news.un.org/en/story/2020/04/1062792)
 
-_100,000 US small businesses have closed forever - Washington Post_
+[100,000 US small businesses have closed forever - Washington Post] (#https://www.washingtonpost.com/business/2020/05/12/small-business-used-define-americas-economy-pandemic-could-end-that-forever/)
 
 Covid-19 has created new challenges and has impacted many lives and small businesses.
 
