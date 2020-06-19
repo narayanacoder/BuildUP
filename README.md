@@ -202,7 +202,11 @@ To run the mobile application (using the Xcode iOS Simulator or Android Studio E
 
 With the application running in the simulator/emulator, you should be able to navigate through the various screens:
 
-TODO : ADD SCREENSHOTS
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+    <source src="https://github.com/narayanacoder/BuildUP/blob/master/doc/demos/CollectionsPage.webm" type="video/webm">
+  </video>
+</figure>
 
 ## Resources
 
