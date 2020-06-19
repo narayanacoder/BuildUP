@@ -26,11 +26,11 @@ This solution was created by technologists from IBM.
 
 ### What's the problem?
 
-**4 out of 5 workers are affected by COVID-19 worldwide - United Nations**
+_<span style="color:red">4 out of 5 workers</span> are affected by COVID-19 worldwide - United Nations_
 
-**1.6 billion people are at risk of losing livelihoods - International Labor Organization**
+_1.6 billion people are at risk of losing livelihoods - International Labor Organization_
 
-**100,000 US small businesses have closed forever - Washington Post**
+_100,000 US small businesses have closed forever - Washington Post_
 
 Covid-19 has created new challenges and has impacted many lives and small businesses.
 
