@@ -4,11 +4,11 @@ This solution was created by technologists from IBM.
 
 ## Authors
 
-- Carla Aravena
-- Narayana Madineni
-- Jessica Nahulan
-- Harini Srinivasan
-- Jessika Welch
+- [Carla Aravena](https://www.linkedin.com/in/carla-aravena/)
+- [Narayana Madineni](https://www.linkedin.com/in/narayana-m-696b6230/)
+- [Jessica Nahulan](https://www.linkedin.com/in/jessicanahulan/)
+- [Harini Srinivasan](https://www.linkedin.com/in/harini-srinivasan-47b63b/)
+- [Jessika Welch](https://www.linkedin.com/in/jessika-welch/)
 
 ## Contents
 
@@ -139,7 +139,7 @@ Log in to IBM Cloud and provision a Watson Studio instance.
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/NotebookDetails.png)
 1. Add JSON File
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/AddJsonFile.png)
-1. You can see the json file
+1. JSON file will appear under Data Assets
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/JsonFileInDataAssets.png)
 1. Run notebook
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/RunNotebook.png)
