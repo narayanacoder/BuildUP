@@ -26,11 +26,11 @@ This solution was created by technologists from IBM.
 
 ### What's the problem?
 
-4 out of 5 workers are affected by COVID-19 worldwide - United Nations
+**4 out of 5 workers are affected by COVID-19 worldwide - United Nations**
 
-1.6 billion people are at risk of losing livelihoods - International Labor Organization
+**1.6 billion people are at risk of losing livelihoods - International Labor Organization**
 
-100,000 US small businesses have closed forever - Washington Post
+**100,000 US small businesses have closed forever - Washington Post**
 
 Covid-19 has created new challenges and has impacted many lives and small businesses.
 
@@ -202,8 +202,9 @@ To run the mobile application (using the Xcode iOS Simulator or Android Studio E
 
 With the application running in the simulator/emulator, you should be able to navigate through the various screens:
 
+TODO ADD SCREENSHOTS, DEMO VIDEOS
 <figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+  <video controls="true" allowfullscreen="true">
     <source src="https://github.com/narayanacoder/BuildUP/blob/master/doc/demos/CollectionsPage.webm" type="video/webm">
   </video>
 </figure>
