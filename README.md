@@ -19,8 +19,9 @@ This solution was created by technologists from IBM.
 5. [Documents](#documents)
 6. [Technology](#technology)
 7. [Getting started](#getting-started)
-8. [Resources](#resources)
-9. [License](#license)
+8. [Roadmap](#roadmap)
+9. [Resources](#resources)
+10. [License](#license)
 
 ## Overview
 
@@ -210,7 +211,7 @@ TODO ADD SCREENSHOTS, DEMO VIDEOS
 </figure>
 
 ## Roadmap
-TODO FILL DETAILS ABOUT ROADMAP
+The roadmap is to use IBM blockchain platform to implement a rewards program for community members who solve problems.
 
 ## Resources
 
