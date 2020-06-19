@@ -135,7 +135,7 @@ Log in to IBM Cloud and provision a Watson Studio instance.
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/GiveProjectDetails.png)
 1. Add notebook
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/AssetsAddNotebook.png)
-1. Add notebook details and URL
+1. Select new notebook from URL. Give a name and select URL as https://github.com/narayanacoder/BuildUP/blob/master/comments-analytics/notebook/CommentAnalytics.ipynb
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/NotebookDetails.png)
 1. Add JSON File
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/AddJsonFile.png)
