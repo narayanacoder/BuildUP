@@ -209,6 +209,9 @@ TODO ADD SCREENSHOTS, DEMO VIDEOS
   </video>
 </figure>
 
+## Roadmap
+TODO FILL DETAILS ABOUT ROADMAP
+
 ## Resources
 
 - [IBM Cloud](https://www.ibm.com/cloud)
