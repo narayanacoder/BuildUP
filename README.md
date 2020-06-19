@@ -143,7 +143,7 @@ Log in to IBM Cloud and provision a Watson Studio instance.
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/JsonFileInDataAssets.png)
 1. Run notebook
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/RunNotebook.png)
-
+![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/WordCloud.png)
 
 ### 2: Provision a CouchDB instance using Cloudant
 
