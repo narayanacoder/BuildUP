@@ -161,6 +161,7 @@ class UserProfileScreen extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 margin: const EdgeInsets.only(top: 15.0),
+                padding: EdgeInsets.only(left: 24, right: 24),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(34),),
@@ -175,129 +176,80 @@ class UserProfileScreen extends StatelessWidget {
                     // ),
 
                     SizedBox(
-                      height: 20.0,
+                      height: 25,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Column(
-                              children: <Widget>[
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Username',
-                                      style: TextStyle(
-                                          color: Colors.blueGrey, fontSize: 18.0)),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(snapshot.data.username,
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ],
-                            ),
-                          ),
+                        Text("Username",
+                            style: TextStyle(
+                                fontFamily: "Poppins-Medium",
+                                fontSize: 16)),
+                        SizedBox(
+                          width: 8,
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Container(
-                            child: Icon(
-                              FontAwesomeIcons.pen,
-                              color: Color(0xff0062ff),
-                            ),
-                          ),
+                        Icon(
+                          FontAwesomeIcons.pen,
+                          color: Color(0xff0062ff),
+                          size: 16,
                         ),
                       ],
                     ),
+                    TextField(
+                      decoration: InputDecoration(
+                          hintText: snapshot.data.username,
+                          hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
+                    ),
                     SizedBox(
-                      height: 20.0,
+                      height: 25,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            child: Column(
-                              children: <Widget>[
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Phone number',
-                                      style: TextStyle(
-                                          color: Colors.blueGrey, fontSize: 18.0)),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(snapshot.data.phoneNumber.toString(),
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ],
-                            ),
-                          ),
+                        Text("Phone number",
+                            style: TextStyle(
+                                fontFamily: "Poppins-Medium",
+                                fontSize: 16)),
+                        SizedBox(
+                          width: 8,
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Container(
-                            child: Icon(
-                              FontAwesomeIcons.pen,
-                              color: Color(0xff0062ff),
-                            ),
-                          ),
+                        Icon(
+                          FontAwesomeIcons.pen,
+                          color: Color(0xff0062ff),
+                          size: 16,
                         ),
                       ],
                     ),
+                    TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          hintText: snapshot.data.phoneNumber.toString(),
+                          hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
+                    ),
                     SizedBox(
-                      height: 20.0,
+                      height: 25,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            child: Column(
-                              children: <Widget>[
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Location',
-                                      style: TextStyle(
-                                          color: Colors.blueGrey, fontSize: 18.0)),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(snapshot.data.country,
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ],
-                            ),
-                          ),
+                        Text("Email",
+                            style: TextStyle(
+                                fontFamily: "Poppins-Medium",
+                                fontSize: 16)),
+                        SizedBox(
+                          width: 8,
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Container(
-                            child: Icon(
-                              FontAwesomeIcons.pen,
-                              color: Color(0xff0062ff),
-                            ),
-                          ),
+                        Icon(
+                          FontAwesomeIcons.pen,
+                          color: Color(0xff0062ff),
+                          size: 16,
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 20.0,
+                    TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          hintText: snapshot.data.email,
+                          hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
                     ),
+
                   ],
                 ),
               ),
