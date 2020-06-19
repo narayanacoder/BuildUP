@@ -48,12 +48,12 @@ Creating a cloudant database to store application data can help you address the 
 
  [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio/) is used to simplify and scale data science across any cloud. It can be used to build and train Artificial Intellgence models. With its open, flexible multicloud architecture, Watson Studio provides capabilities that empower applications to simplify enterprise data science and AI.
  
-Creating a Watson Studio to perform summarization, topic modelling/theme identification, word cloud generation, top reviews identification and sentiment analysis on review comments can help applications with thousands of comments to quickly get useful insights.
+Creating a Watson Studio instance to perform summarization, topic modelling/theme identification, word cloud generation, top reviews identification and sentiment analysis on review comments can help applications with thousands of comments to quickly get useful insights.
 
 
 [IBM Blockchain Platform](https://www.ibm.com/cloud/blockchain-platform/) is used to allow build networks that leverage blockchain technology faster using Hyperledger Fabric. Web applications can leverage the platform to use the benefits of a blockchain.
 
-Creating a rewards program network on a local Fabric network, installing an instantiating a smart contract through IBM Blockchain extension for VS Code can help applications reward points for community who help solve business problems through innovative solutions. Small businesses may reward community members who solve their problems. Community members are encouraged to solve more problems and work towards redeeming rewards by partner small businesses.
+Creating a rewards program network on a local Fabric network, installing and instantiating a smart contract through IBM Blockchain extension for VS Code can help applications reward points for community who help solve business problems through innovative solutions. Small businesses may reward community members who solve their problems. Community members are encouraged to solve more problems and work towards redeeming rewards by partner small businesses.
 
 
 ## The idea
