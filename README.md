@@ -34,18 +34,30 @@
 - [Jessika Welch](https://www.linkedin.com/in/jessika-welch/)
 
 
-## Contents
-
-1. [Overview](#overview)
-2. [The idea](#the-idea)
-3. [How it works](#how-it-works)
-4. [Diagrams](#diagrams)
-5. [Documents](#documents)
-6. [Technology](#technology)
-7. [Getting started](#getting-started)
-8. [Roadmap](#roadmap)
-9. [Resources](#resources)
-10. [License](#license)
+<!-- omit in toc -->
+## Table of Contents
+- [Authors](#authors)
+- [Overview](#overview)
+  - [What's the problem?](#whats-the-problem)
+  - [How can technology help?](#how-can-technology-help)
+- [The Solution](#the-solution)
+- [How it works](#how-it-works)
+- [Architecture](#architecture)
+- [App Interaction Preview](#app-interaction-preview)
+- [Documents](#documents)
+- [Technology](#technology)
+  - [IBM Cloud Services](#ibm-cloud-services)
+  - [Flutter](#flutter)
+- [Getting started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Steps](#steps)
+  - [1. Set up an instance of Watson Studio](#1-set-up-an-instance-of-watson-studio)
+  - [2: Provision a CouchDB instance using Cloudant](#2-provision-a-couchdb-instance-using-cloudant)
+  - [3. Run the server](#3-run-the-server)
+  - [4. Run the mobile application](#4-run-the-mobile-application)
+- [Roadmap](#roadmap)
+- [Resources](#resources)
+- [License](#license)
 
 ----
 
