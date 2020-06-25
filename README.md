@@ -1,6 +1,29 @@
-# BuildUP
+<!-- Header -->
+<a href="https://github.com/narayanacoder/BuildUP">
+    <img src="doc/images/buildUpIconBlueBlackSquareSmallGitHub.png">
+</a>
 
-This solution was created by technologists from IBM.
+<!-- omit in toc -->
+<h1 align="center" style="font-size:42px">
+  BuildUP
+</h1>
+
+> This package was implemented using [Flutter](https://flutter.dev/) and [LoopBack 4](https://loopback.io/doc/en/lb4/)
+> and applies design standards and color themes based on the [Carbon Design System](https://www.carbondesignsystem.com/).
+> The database used for all data storage is [IBM Cloudant](https://www.ibm.com/cloud/cloudant).
+> Additionally, [Watson Studio](https://www.ibm.com/ca-en/cloud/watson-studio) and [Jupyter Notebook](https://jupyter.org/) on the [IBM Cloud](https://cloud.ibm.com) are utilised for review insights.
+> The solution's reward system also makes use of [IBM Blockchain Platform](https://www.ibm.com/cloud/blockchain-platform/).
+
+<!-- Quick Links -->
+<div align="center">
+<a href="">View Demo</a>
+·
+<a href="https://github.com/narayanacoder/BuildUP/issues">Report Bug</a>
+</div>
+
+----
+
+
 
 ## Authors
 
@@ -9,6 +32,7 @@ This solution was created by technologists from IBM.
 - [Jessica Nahulan](https://www.linkedin.com/in/jessicanahulan/)
 - [Harini Srinivasan](https://www.linkedin.com/in/harini-srinivasan-47b63b/)
 - [Jessika Welch](https://www.linkedin.com/in/jessika-welch/)
+
 
 ## Contents
 
@@ -60,7 +84,11 @@ Creating a rewards program network on a local Fabric network, installing and ins
 
 The goal is to provide a mobile application, along with server-side components, that serves as the basis for developers to build out a community cooperation application that addresses real-time problems posed by small and local businesses in their struggle to fight against the challenges posed by COVID-19. 
 
-It would allow both "Small businesses" (such as a store or a business which is facing challenges due to Covid-10) to post their problems in anticipation of innovative solutions;and community members ("Students/Unemployed/Anyone") to think of solutions to the posted problems, sketch solutions and submit the solutions. The innovator can share the solution through social media. Innovators can also submit their solutions as well as comment on the solutions of other innovators. Watson studio performs sentiment analysis, identifies themes, top strong comments and generates word clouds on review comments The best solution is identified and rewarded by the local business. Local businesses can implement the solution and submit the impact created. 
+It would allow both "Small businesses" (such as a store or a business which is facing challenges due to Covid-10) to post their problems in anticipation of innovative solutions;and community members ("Students/Unemployed/Anyone") to think of solutions to the posted problems, sketch solutions and submit the solutions. The innovator can share the solution through social media. Innovators can also submit their solutions as well as comment on the solutions of other innovators. Watson studio performs sentiment analysis, identifies themes, top strong comments and generates word clouds on review comments The best solution is identified and rewarded by the local business. Local businesses can implement the solution and submit the impact created.
+
+The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
+
+![BuildUP architecture diagram](doc/images/ScrollThroughPages_gif.gif)
 
 ## How it works
 
@@ -72,7 +100,7 @@ The problem poster(small local business owner) can choose the best solution, imp
 
 ## Diagrams
 
-![BuildUP architecture diagram](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/Architecturev3.jpg)
+![BuildUP architecture diagram](doc/images/ScrollThroughPages_gif.gif)
 
 
 BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to hold the profiles, problems, solutions and review comments to get users the information they need.
