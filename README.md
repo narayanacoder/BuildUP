@@ -280,14 +280,7 @@ To run the mobile application (using the Xcode iOS Simulator or Android Studio E
     - flutter upgrade
     - flutter config --enable-web
 
-With the application running in the simulator/emulator, you should be able to navigate through the various screens:
-
-TODO ADD SCREENSHOTS, DEMO VIDEOS
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true">
-    <source src="https://github.com/narayanacoder/BuildUP/blob/master/doc/demos/CollectionsPage.webm" type="video/webm">
-  </video>
-</figure>
+With the application running in the simulator/emulator, you should be able to navigate through the various screens
 
 ## Roadmap
 The roadmap is to use IBM blockchain platform to implement a rewards program for community members who solve problems.
