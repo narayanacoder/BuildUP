@@ -144,11 +144,11 @@ BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to h
 <img src="doc/demos/Showing_all_posted_solutions_gif.gif" width="240">
 </p>
 
-1. The individual who posted the problem can choose the best solution, implement it and post the impact outcome.
+2. The individual who posted the problem can choose the best solution, implement it and post the impact outcome.
    
 <img src="doc/demos/v3_solution_impact_gif.gif" width="240">
    
-1. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
+3. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
    
 <p>
 <img src="doc/demos/v2_solution_and_comments_gif.gif" width="240">
@@ -156,7 +156,7 @@ BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to h
 <img src="doc/demos/ContributePage_gif.gif" width="240">
 </p>
 
-1. The Innovator or problem poster can save solutions and problems for later viewing, and easily browse through a collection of their own submissions.
+4. The Innovator or problem poster can save solutions and problems for later viewing, and easily browse through a collection of their own submissions.
    
 <img src="doc/demos/CollectionsPage_gif.gif" width="240">
 
