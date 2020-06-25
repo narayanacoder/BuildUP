@@ -47,6 +47,8 @@
 9. [Resources](#resources)
 10. [License](#license)
 
+----
+
 ## Overview
 
 ### What's the problem?
@@ -79,8 +81,9 @@ Creating a Watson Studio instance to perform summarization, topic modelling/them
 
 Creating a rewards program network on a local Fabric network, installing and instantiating a smart contract through IBM Blockchain extension for VS Code can help applications reward points for community who help solve business problems through innovative solutions. Small businesses may reward community members who solve their problems. Community members are encouraged to solve more problems and work towards redeeming rewards by partner small businesses.
 
+----
 
-## The idea
+## The Solution
 
 The goal is to provide a mobile application, along with server-side components, that serves as the basis for developers to build out a community cooperation application that addresses real-time problems posed by small and local businesses in their struggle to fight against the challenges posed by COVID-19. 
 
@@ -89,28 +92,56 @@ It would allow both "Small businesses" (such as a store or a business which is f
 The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
 
 ![BuildUP Tabs](/doc/demos/ScrollThroughPages_gif.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/v2_solution_and_comments_gif.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/v3_solution_impact_gif.gif)
+
+
+----
 
 ## How it works
 
-A problem poster (who may be a normal individual, a small business owner or a large business) that is facing challenges due to COVID-19 posts the problem title, description and images/video of the problem using the mobile application or web application. He/she typically fills out a brief form that describes the problem. This information is then stored in a cloudant database in the IBM Cloud.
+A problem poster (who may be a normal individual, a small business owner or a large business) that is facing challenges due to COVID-19 (or any other global or community issue) posts the problem title, description and images/video of the problem using the mobile application or web application. He/she typically fills out a brief form that describes the problem. This information is then stored in a cloudant database in the IBM Cloud.
 
 A problem solver/innovator, who believes in community cooperation and solving problems together, opens the mobile application and can browse/search the problems posted based on the individual's preferences. He/she picks a problem, draws sketches or takes a video and uploads the title, description and images/videos about the solution. Multiple innovators can submit solutions using the user interface as well as comment on other solutions. They can share solutions through social networks to encourage collaboration and attract feedback. The application also displays identified themes, top strong comments and word cloud for the review comments. 
 
 The problem poster(small local business owner) can choose the best solution, implement the solution and post the outcomes. The business owner rewards the innovator who posted the best solution. Using Watson AI, other similar business owners will be notified about the problem, best solution and impact based on the similarities in the profile so that they can implement the same solution for their business.
 
-## Diagrams
+----
+
+## Architecture
 
 ![BuildUP architecture diagram](/doc/images/Architecturev3.jpg)
 
 
 BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to hold the profiles, problems, solutions and review comments to get users the information they need.
 
-1. The Business Owner launches the mobile app and can access information across multiple services.
-2. The Business Owner can post problems and get innovative solutions from innovators to solve those problems.
-3. The Business Owner can choose the best solution, implement it and post the impact outcome.
-4. Other business owners may get notifications of problems and solutions that are applicable to their businesses based on similarity between profiles of business owners.
-5. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
-6. The Innovator can be rewarded by the business owner for posting the best solution.
+
+## App Interaction Preview
+
+1. Users or business owners can post problems and get innovative solutions from innovators to solve those problems.
+   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ![BuildUP Tabs](/doc/demos/v1_findingProblem_gif.gif)
+
+3. The individual who posted the problem can choose the best solution, implement it and post the impact outcome.
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/v3_solution_impact_gif.gif)
+   
+4. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/v2_solution_and_comments_gif.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/ContributePage_gif.gif)
+
+5. The Innovator or problem poster can save solutions and problems for later viewing, and easily browse through a collection of their own submissions.
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/CollectionsPage_gif.gif)
+
 
 ## Documents
 
