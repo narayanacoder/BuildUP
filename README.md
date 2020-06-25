@@ -91,11 +91,9 @@ It would allow both "Small businesses" (such as a store or a business which is f
 
 The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
 
-![BuildUP Tabs](/doc/demos/ScrollThroughPages_gif.gif)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![BuildUP Tabs](/doc/demos/v2_solution_and_comments_gif.gif)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![BuildUP Tabs](/doc/demos/v3_solution_impact_gif.gif)
+<img src="doc/demos/ScrollThroughPages_gif.gif" width="230">
+<img src="doc/demos/v2_solution_and_comments_gif.gif" width="230">
+<img src="doc/demos/v3_solution_impact_gif.gif" width="230">
 
 
 ----
@@ -121,27 +119,32 @@ BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to h
 ## App Interaction Preview
 
 1. Users or business owners can post problems and get innovative solutions from innovators to solve those problems.
-   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  ![BuildUP Tabs](/doc/demos/v1_findingProblem_gif.gif)
 
-3. The individual who posted the problem can choose the best solution, implement it and post the impact outcome.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/v1_findingProblem_gif.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/Showing_all_posted_problems_gif.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![BuildUP Tabs](/doc/demos/Showing_all_posted_solutions_gif.gif)
+
+1. The individual who posted the problem can choose the best solution, implement it and post the impact outcome.
    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![BuildUP Tabs](/doc/demos/v3_solution_impact_gif.gif)
    
-4. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
+1. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![BuildUP Tabs](/doc/demos/v2_solution_and_comments_gif.gif)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![BuildUP Tabs](/doc/demos/ContributePage_gif.gif)
 
 5. The Innovator or problem poster can save solutions and problems for later viewing, and easily browse through a collection of their own submissions.
    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![BuildUP Tabs](/doc/demos/CollectionsPage_gif.gif)
 
+----
 
 ## Documents
 
