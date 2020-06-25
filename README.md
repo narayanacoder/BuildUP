@@ -39,11 +39,11 @@
 - [Authors](#authors)
 - [Overview](#overview)
   - [What's the problem?](#whats-the-problem)
-  - [How can technology help?](#how-can-technology-help)
 - [The Solution](#the-solution)
+  - [How can technology help?](#how-can-technology-help)
 - [How it works](#how-it-works)
 - [Architecture](#architecture)
-- [App Interaction Preview](#app-interaction-preview)
+- [Implemented App interaction preview](#implemented-app-interaction-preview)
 - [Documents](#documents)
 - [Technology](#technology)
   - [IBM Cloud Services](#ibm-cloud-services)
@@ -78,6 +78,26 @@ One person cannot find all the answers, but together we can. 
 
 What is needed is a solution that empowers communities and small businesses to easily connect and solve problems for each other.
 
+----
+
+## The Solution
+
+The goal is to provide a cross-platform application, along with server-side components, that serves as the basis for developers to build out a community cooperation application that addresses real-time problems posed by small and local businesses in their struggle to fight against the challenges posed by COVID-19. 
+
+It would allow both "Small businesses" (such as a store or a business which is facing challenges due to Covid-10) to post their problems in anticipation of innovative solutions;and community members ("Students/Unemployed/Anyone") to think of solutions to the posted problems, sketch solutions and submit the solutions. The innovator can share the solution through social media. Innovators can also submit their solutions as well as comment on the solutions of other innovators. Watson studio performs sentiment analysis, identifies themes, top strong comments and generates word clouds on review comments The best solution is identified and rewarded by the local business. Local businesses can implement the solution and submit the impact created.
+
+The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
+
+<p>
+<img src="doc/demos/ScrollThroughPages_gif.gif" width="240">
+&nbsp;&nbsp;
+<img src="doc/demos/v2_solution_and_comments_gif.gif" width="240">
+&nbsp;&nbsp;
+<img src="doc/demos/v3_solution_impact_gif.gif" width="240">
+</p>
+
+----
+
 ### How can technology help?
 
 Mobile, web, and cloud services enable rapid deployment of applications that can empower cooperation in the community. [IBM Cloudant](https://www.ibm.com/cloud/cloudant/) is a fully managed scalable distributed database service for hybrid multicloud applications on [IBM Cloud](https://cloud.ibm.com) that allows you to store data for web and mobile applications.
@@ -95,32 +115,13 @@ Creating a rewards program network on a local Fabric network, installing and ins
 
 ----
 
-## The Solution
-
-The goal is to provide a mobile application, along with server-side components, that serves as the basis for developers to build out a community cooperation application that addresses real-time problems posed by small and local businesses in their struggle to fight against the challenges posed by COVID-19. 
-
-It would allow both "Small businesses" (such as a store or a business which is facing challenges due to Covid-10) to post their problems in anticipation of innovative solutions;and community members ("Students/Unemployed/Anyone") to think of solutions to the posted problems, sketch solutions and submit the solutions. The innovator can share the solution through social media. Innovators can also submit their solutions as well as comment on the solutions of other innovators. Watson studio performs sentiment analysis, identifies themes, top strong comments and generates word clouds on review comments The best solution is identified and rewarded by the local business. Local businesses can implement the solution and submit the impact created.
-
-The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
-
-<p>
-<img src="doc/demos/ScrollThroughPages_gif.gif" width="240">
-&nbsp;&nbsp;
-<img src="doc/demos/v2_solution_and_comments_gif.gif" width="240">
-&nbsp;&nbsp;
-<img src="doc/demos/v3_solution_impact_gif.gif" width="240">
-</p>
-
-
-----
-
 ## How it works
 
 A problem poster (who may be a normal individual, a small business owner or a large business) that is facing challenges due to COVID-19 (or any other global or community issue) posts the problem title, description and images/video of the problem using the mobile application or web application. He/she typically fills out a brief form that describes the problem. This information is then stored in a cloudant database in the IBM Cloud.
 
 A problem solver/innovator, who believes in community cooperation and solving problems together, opens the mobile application and can browse/search the problems posted based on the individual's preferences. He/she picks a problem, draws sketches or takes a video and uploads the title, description and images/videos about the solution. Multiple innovators can submit solutions using the user interface as well as comment on other solutions. They can share solutions through social networks to encourage collaboration and attract feedback. The application also displays identified themes, top strong comments and word cloud for the review comments. 
 
-The problem poster(small local business owner) can choose the best solution, implement the solution and post the outcomes. The business owner rewards the innovator who posted the best solution. Using Watson AI, other similar business owners will be notified about the problem, best solution and impact based on the similarities in the profile so that they can implement the same solution for their business.
+The problem poster(small local business owner/any individual) can choose the best solution, implement the solution and post the outcomes. The business owner rewards the innovator who posted the best solution. Using Watson AI, other similar business owners will be notified about the problem, best solution and impact based on the similarities in the profile so that they can implement the same solution for their business.
 
 ----
 
@@ -129,28 +130,30 @@ The problem poster(small local business owner) can choose the best solution, imp
 ![BuildUP architecture diagram](/doc/images/Architecturev3.jpg)
 
 
-BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to hold the profiles, problems, solutions and review comments to get users the information they need.
+BuildUP combines sentiment analysis (Watson Studio), Cloudant data storage to hold the profiles, problems, solutions and review comments to get users the information they need.
 
+----
 
-## App Interaction Preview
+## Implemented App interaction preview
 
-1. Users or business owners can post problems and get innovative solutions from innovators to solve those problems.
+1. Users can browse posted problems and solutions.
 
 <p>
-<img src="doc/demos/v1_findingProblem_gif.gif" width="240">
-&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="doc/demos/Showing_all_posted_problems_gif.gif" width="240">
 &nbsp;&nbsp;
 <img src="doc/demos/Showing_all_posted_solutions_gif.gif" width="240">
 </p>
 
-2. The individual who posted the problem can choose the best solution, implement it and post the impact outcome.
+2. The individual who posted the problem can choose the best solution, implement it and optionally post the impact outcome.
    
+&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="doc/demos/v3_solution_impact_gif.gif" width="240">
    
 3. The Innovator can pick a problem and post solutions to solve the problem, as well as receive feedback from everyone, summarized review comments to improve the solution by implementing the comments.
    
 <p>
+&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="doc/demos/v2_solution_and_comments_gif.gif" width="240">
 &nbsp;&nbsp;
 <img src="doc/demos/ContributePage_gif.gif" width="240">
@@ -158,6 +161,7 @@ BuildApp combines sentiment analysis (Watson Studio), Cloudant data storage to h
 
 4. The Innovator or problem poster can save solutions and problems for later viewing, and easily browse through a collection of their own submissions.
    
+&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="doc/demos/CollectionsPage_gif.gif" width="240">
 
 
@@ -282,8 +286,12 @@ To run the mobile application (using the Xcode iOS Simulator or Android Studio E
 
 With the application running in the simulator/emulator, you should be able to navigate through the various screens
 
+----
+
 ## Roadmap
-The roadmap is to use IBM blockchain platform to implement a rewards program for community members who solve problems.
+The roadmap is to use IBM blockchain platform to implement a rewards and badge certification program for community members who solve problems. These badges will be shareable on platforms such as Linkedin.
+
+----
 
 ## Resources
 
@@ -292,7 +300,10 @@ The roadmap is to use IBM blockchain platform to implement a rewards program for
 - [IBM Cloudant](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-overview)
 - [Node.js](https://nodejs.org)
 - [Flutter](https://flutter.dev/)
+- [LoopBack 4](https://loopback.io/doc/en/lb4/)
 - [IBM Blockchain for Developers](https://developer.ibm.com/technologies/blockchain/)
+
+----
 
 ## License
 
