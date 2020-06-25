@@ -92,7 +92,9 @@ It would allow both "Small businesses" (such as a store or a business which is f
 The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
 
 <p>
-<img src="doc/demos/ScrollThroughPages_gif.gif" width="230"><img src="doc/demos/v2_solution_and_comments_gif.gif" width="230"><img src="doc/demos/v3_solution_impact_gif.gif" width="230"></p>
+<img src="doc/demos/ScrollThroughPages_gif.gif" width="240" style="margin:10px">
+<img src="doc/demos/v2_solution_and_comments_gif.gif" width="240" style="margin:10px">
+<img src="doc/demos/v3_solution_impact_gif.gif" width="240" style="margin:10px"></p>
 
 
 ----
