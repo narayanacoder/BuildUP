@@ -88,7 +88,7 @@ It would allow both "Small businesses" (such as a store or a business which is f
 
 The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
 
-![BuildUP architecture diagram](doc/images/ScrollThroughPages_gif.gif)
+![BuildUP architecture diagram](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/Architecturev3.jpg)
 
 ## How it works
 
