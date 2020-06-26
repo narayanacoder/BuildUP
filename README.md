@@ -16,7 +16,7 @@
 
 <!-- Quick Links -->
 <div align="center">
-<a href="">View Demo</a>
+<a href="https://youtu.be/Tf7JL9LKUZc">View Demo</a>
 ·
 <a href="https://github.com/narayanacoder/BuildUP/issues">Report Bug</a>
 </div>
