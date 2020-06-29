@@ -313,6 +313,7 @@ By registering into our secure AI backed experience sharing forum, a business ow
 Today, a user can register and enter preferences, business guidelines and geolocation. 
 
 Our solution will be expanded to  include the following features:
+
     - Enhance the security of the user authentication process by using IBM Cloud App ID.
     - Use IBM Personality Insights to add additional attributes to user profiles.
     - Use a Recommender Engine that takes inputs from user profiles (locations, interests, demographics, personality insights, business specific attributes) to recommend problems and solutions to users.
@@ -329,6 +330,7 @@ Technologies to be used: IBM App ID, IBM Watson, IBM Personality Insights, IBM E
 A corporate employee can collaborate to solve societal problems while gaming at home, receiving employer incentives for building social good.
 
 Our solution will be expanded to include the following features:
+
     - Connect with corporations to encourage their employees to compete to solve problems.
     - Add gamification and ranking for doing good to promote healthy competition within the organization.
     - Corporations can improve employee engagement and retention. 
