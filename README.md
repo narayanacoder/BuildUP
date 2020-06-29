@@ -36,6 +36,7 @@
 
 <!-- omit in toc -->
 ## Table of Contents
+- [Authors](#authors)
 - [Overview](#overview)
   - [What's the problem?](#whats-the-problem)
 - [The Solution](#the-solution)
@@ -50,11 +51,14 @@
 - [Getting started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Steps](#steps)
-  - [1. Set up an instance of Watson Studio](#1-set-up-an-instance-of-watson-studio)
-  - [2: Provision a CouchDB instance using Cloudant](#2-provision-a-couchdb-instance-using-cloudant)
-  - [3. Run the server](#3-run-the-server)
-  - [4. Run the mobile application](#4-run-the-mobile-application)
+    - [1. Set up an instance of Watson Studio](#1-set-up-an-instance-of-watson-studio)
+    - [2: Provision a CouchDB instance using Cloudant](#2-provision-a-couchdb-instance-using-cloudant)
+    - [3. Run the server](#3-run-the-server)
+    - [4. Run the mobile application](#4-run-the-mobile-application)
 - [Roadmap](#roadmap)
+  - [Current(Cup Cake):](#currentcup-cake)
+  - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
+  - [Long-term(Wedding Cake):](#long-termwedding-cake)
 - [Resources](#resources)
 - [License](#license)
 
@@ -195,12 +199,11 @@ BuildUP combines sentiment analysis (Watson Studio), Cloudant data storage to ho
 ### Steps
 
 1. [Set up an instance of Watson Studio](#1-set-up-an-instance-of-watson-studio).
-1. [Provision a CouchDB instance using Cloudant](#2-Provision-a-CouchDB-instance-using-Cloudant).
-1. [Generate an API Key from the HERE Developer Portal](#3-generate-an-api-key-from-the-here-developer-portal).
-1. [Run the server](#4-run-the-server).
-1. [Run the mobile application](#5-run-the-mobile-application).
+2. [Provision a CouchDB instance using Cloudant](#2-Provision-a-CouchDB-instance-using-Cloudant).
+3. [Run the server](#4-run-the-server).
+4. [Run the mobile application](#5-run-the-mobile-application).
 
-### 1. Set up an instance of Watson Studio
+#### 1. Set up an instance of Watson Studio
 
 Log in to IBM Cloud and provision a Watson Studio instance.
 
@@ -228,7 +231,7 @@ Log in to IBM Cloud and provision a Watson Studio instance.
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/RunNotebook.png)
 ![](https://github.com/narayanacoder/BuildUP/blob/master/doc/images/WordCloud.png)
 
-### 2: Provision a CouchDB instance using Cloudant
+#### 2: Provision a CouchDB instance using Cloudant
 
 Log into the IBM Cloud and provision a [CouchDB instance using Cloudant](https://www.ibm.com/cloud/cloudant).
 
@@ -238,7 +241,7 @@ Log into the IBM Cloud and provision a [CouchDB instance using Cloudant](https:/
 1. Once created, you can display the credentials by selecting **view service credentials**, and then copy the credential, so you are ready to paste it into the code of the API server in Step 3.
 
 
-### 3. Run the server
+#### 3. Run the server
 
 To set up and launch the server application:
 
@@ -268,7 +271,7 @@ To set up and launch the server application:
             1. Push the app to IBM Cloud: `ibmcloud app push`.
             1. The server can be accessed at a URL using the **name** given in the `manifest.yml` file (for example,  <https://my-app-name.bluemix.net>).
 
-### 4. Run the mobile application
+#### 4. Run the mobile application
 
 To run the mobile application (using the Xcode iOS Simulator or Android Studio Emulator):
 1. Install [Flutter SDK](https://flutter.io/get-started/install/)
@@ -288,6 +291,8 @@ With the application running in the simulator/emulator, you should be able to na
 ----
 
 ## Roadmap
+
+<img src="doc/images/roadmap.png">
 
 ### Current(Cup Cake):
 
