@@ -7,9 +7,9 @@
 <h1 align="center" style="font-size:42px;border-bottom:none;">
   BuildUP
 </h1>
-<h2 align="center" style="border-bottom: 1px solid #eaecef;">
+<h3 align="center" style="border-bottom: 1px solid #eaecef;">
   Empower individuals to Innovate and BuildUP a resilient society together
-</h2>
+</h3>
 
 
 > This package was implemented using [Flutter](https://flutter.dev/) and [LoopBack 4](https://loopback.io/doc/en/lb4/)
@@ -27,6 +27,7 @@
 
 ----
 
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
 ## Authors
@@ -44,6 +45,7 @@
 - [Overview](#overview)
   - [Problem Background](#problem-background)
 - [The Solution](#the-solution)
+  - [BuildUP](#buildup)
   - [How can technology help?](#how-can-technology-help)
 - [How it works](#how-it-works)
 - [Architecture](#architecture)
@@ -86,6 +88,10 @@ With over 50% of the world’s workforce – 1.6 billion - at risk of losing the
 
 ## The Solution
 
+[![Watch the video](doc/images/buildup-video-image.png)](https://youtu.be/Tf7JL9LKUZc)
+
+### BuildUP
+
 BuildUP is an app that provides a way for anyone in the world to help solve local or large-scale challenges like the COVID-19 pandemic while staying safe. Users can act in several ways – posting a challenge, solving a challenge, providing feedback on solutions, tracking and sharing – simply through a smart phone. Regardless of the way a user acts, each user benefits from a sense of purpose greater than themselves, a benefit that is in especially great demand during this time of social isolation.
  
 
@@ -110,6 +116,7 @@ In addition, the BuildUP roadmap describes opportunities for private, secure are
 &nbsp;&nbsp;
 <img src="doc/demos/v3_solution_impact_gif.gif" width="240">
 </p>
+
 
 ----
 
