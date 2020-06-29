@@ -60,6 +60,7 @@
   - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
   - [Long-term(Wedding Cake):](#long-termwedding-cake)
 - [Resources](#resources)
+- [Contributing](#contributing)
 - [License](#license)
 
 ----
@@ -363,6 +364,12 @@ Technologies to be used : IBM Blockchain Platform, Twilio
 - [Flutter](https://flutter.dev/)
 - [LoopBack 4](https://loopback.io/doc/en/lb4/)
 - [IBM Blockchain for Developers](https://developer.ibm.com/technologies/blockchain/)
+
+----
+
+## Contributing
+
+Check out our [Contributing Guide](doc/CONTRIBUTING.md)
 
 ----
 
