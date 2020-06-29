@@ -59,7 +59,7 @@
     - [3. Run the server](#3-run-the-server)
     - [4. Run the mobile application](#4-run-the-mobile-application)
 - [Roadmap](#roadmap)
-  - [Current(Cupcake):](#currentcup-cake)
+  - [Current(Cupcake):](#currentcupcake)
   - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
   - [Long-term(Wedding Cake):](#long-termwedding-cake)
 - [Resources and documents](#resources-and-documents)
@@ -335,14 +335,14 @@ Today, a user can register and enter preferences, business guidelines and geoloc
 
 Our solution will be expanded to  include the following features:
 
-    - Enhance the security of the user authentication process by using IBM Cloud App ID.
-    - Use IBM Personality Insights to add additional attributes to user profiles.
-    - Use a Recommender Engine that takes inputs from user profiles (locations, interests, demographics, personality insights, business specific attributes) to recommend problems and solutions to users.
-    - Allow registered innovators to opt-in for notifications to receive recommended real-world problems relevant to them in real-time.
-    - Allow users to get recommendations based on specific dimensions (example: location, business). Use user's location data to pull in local content to show to the user. This feature will make the application more personal and user-friendly by always showing them content more relevant to them.
-    - Improve the UI for browsing/searching problems and solutions via the use of a map. So that users have another way to explore problems and solutions being implemented near to them to really see the impact others are making or the impact that they themselves can make.
-    - Create private chats and group conversations to share content securely.
-    - Strategize at a glance with content smartly prioritized to the user's needs.
+* Enhance the security of the user authentication process by using IBM Cloud App ID.
+* Use IBM Personality Insights to add additional attributes to user profiles.
+* Use a Recommender Engine that takes inputs from user profiles (locations, interests, demographics, personality insights, business specific attributes) to recommend problems and solutions to users.
+* Allow registered innovators to opt-in for notifications to receive recommended real-world problems relevant to them in real-time.
+* Allow users to get recommendations based on specific dimensions (example: location, business). Use user's location data to pull in local content to show to the user. This feature will make the application more personal and user-friendly by always showing them content more relevant to them.
+* Improve the UI for browsing/searching problems and solutions via the use of a map. So that users have another way to explore problems and solutions being implemented near to them to really see the impact others are making or the impact that they themselves can make.
+* Create private chats and group conversations to share content securely.
+* Strategize at a glance with content smartly prioritized to the user's needs.
 
 Technologies to be used: IBM App ID, IBM Watson, IBM Personality Insights, IBM ESRI
 
@@ -353,15 +353,15 @@ A corporate employee can collaborate to solve societal problems while gaming at 
 
 Our solution will be expanded to include the following features:
 
-    - Connect with corporations to encourage their employees to compete to solve problems.
-    - Add gamification and ranking for doing good to promote healthy competition within the organization.
-    - Corporations can improve employee engagement and retention. 
-    - Employees have direct access and first hand knowledge to real world problems. This can spark innovation and can help with employer's research and development programs.
-    - Corporations can encourage their employees to participate in solving societal problems as part of their Corporate Social Responsibility (CSR) initiatives.
-    - Corporations can reward innovators with badges and certifications that can be shared in user's social media applications.
-    - Use IBM Blockchain Platform to reward innovators with reward points that can be redeemed at partner locations. 
-    - Corporations can sponsor and advertise content within the application for public relations.
-    - Use Twilio for communication between users.
+* Connect with corporations to encourage their employees to compete to solve problems.
+* Add gamification and ranking for doing good to promote healthy competition within the organization.
+* Corporations can improve employee engagement and retention. 
+* Employees have direct access and first hand knowledge to real world problems. This can spark innovation and can help with employer's research and development programs.
+* Corporations can encourage their employees to participate in solving societal problems as part of their Corporate Social Responsibility (CSR) initiatives.
+* Corporations can reward innovators with badges and certifications that can be shared in user's social media applications.
+* Use IBM Blockchain Platform to reward innovators with reward points that can be redeemed at partner locations. 
+* Corporations can sponsor and advertise content within the application for public relations.
+* Use Twilio for communication between users.
 
 
 Technologies to be used : IBM Blockchain Platform, Twilio
