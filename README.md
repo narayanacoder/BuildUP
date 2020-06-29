@@ -290,6 +290,7 @@ With the application running in the simulator/emulator, you should be able to na
 ## Roadmap
 
 ### Current(Cup Cake):
+
 Our submission allows an individual to post and solve any challenge together with others anywhere in the world while in lockdown.
 
     - Cross-platform application (iOS, Android, Web) along with server-side components. 
@@ -307,6 +308,7 @@ Our submission allows an individual to post and solve any challenge together wit
 Technologies Used: IBM Watson Studio, IBM Cloudant, Loopback, Flutter, Jupyter Notebook
 
 ### Mid-term(Birthday Cake):
+
 By registering into our secure AI backed experience sharing forum, a business owner can receive creative and practical solutions to sustain the business, unique to their situation.
 
 
@@ -327,6 +329,7 @@ Technologies to be used: IBM App ID, IBM Watson, IBM Personality Insights, IBM E
 
 
 ### Long-term(Wedding Cake):
+
 A corporate employee can collaborate to solve societal problems while gaming at home, receiving employer incentives for building social good.
 
 Our solution will be expanded to include the following features:
