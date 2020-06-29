@@ -51,6 +51,10 @@
 - [Architecture](#architecture)
 - [Implemented App interaction preview](#implemented-app-interaction-preview)
 - [Technology](#technology)
+- [Roadmap](#roadmap)
+  - [Current(Cupcake):](#currentcupcake)
+  - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
+  - [Long-term(Wedding Cake):](#long-termwedding-cake)
 - [Getting started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Steps](#steps)
@@ -58,10 +62,6 @@
     - [2: Provision a CouchDB instance using Cloudant](#2-provision-a-couchdb-instance-using-cloudant)
     - [3. Run the server](#3-run-the-server)
     - [4. Run the mobile application](#4-run-the-mobile-application)
-- [Roadmap](#roadmap)
-  - [Current(Cupcake):](#currentcupcake)
-  - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
-  - [Long-term(Wedding Cake):](#long-termwedding-cake)
 - [Resources and documents](#resources-and-documents)
   - [IBM Cloud Services](#ibm-cloud-services)
   - [Flutter](#flutter)
@@ -199,7 +199,75 @@ BuildUP combines sentiment analysis (Watson Studio), Cloudant data storage to ho
 - [LoopBack 4](https://loopback.io/doc/en/lb4/)
 - [IBM Blockchain for Developers](https://developer.ibm.com/technologies/blockchain/)
   
+  
 ----
+
+
+## Roadmap
+
+<img src="doc/images/roadmap.png">
+
+### Current(Cupcake):
+
+Our submission allows an individual to post and solve any challenge together with others anywhere in the world while in lockdown.
+
+* Cross-platform application (iOS, Android, Web) along with server-side components. 
+* Problem poster can post challenges for others to solve.
+* Problem solver can post solutions to challenges along with uploading images/videos/attachments.
+* Problem poster picks a winner, rewards and posts the solution's impact.
+* Users can like and review solutions.
+* Backend server :
+* Summarises and picks top most relevant and important reviews.
+* Provides context-aware themes and associated sentiments from reviews.
+* Discovers topics from the reviews using topic modelling. 
+* Users can share solutions on social media.
+* Users can save solutions for viewing later.
+
+Technologies Used: IBM Watson Studio, IBM Cloudant, Loopback, Flutter, Jupyter Notebook
+
+### Mid-term(Birthday Cake):
+
+By registering into our secure AI backed experience sharing forum, a business owner can receive creative and practical solutions to sustain the business, unique to their situation.
+
+
+Today, a user can register and enter preferences, business guidelines and geolocation. 
+
+Our solution will be expanded to  include the following features:
+
+* Enhance the security of the user authentication process by using IBM Cloud App ID.
+* Use IBM Personality Insights to add additional attributes to user profiles.
+* Use a Recommender Engine that takes inputs from user profiles (locations, interests, demographics, personality insights, business specific attributes) to recommend problems and solutions to users.
+* Allow registered innovators to opt-in for notifications to receive recommended real-world problems relevant to them in real-time.
+* Allow users to get recommendations based on specific dimensions (example: location, business). Use user's location data to pull in local content to show to the user. This feature will make the application more personal and user-friendly by always showing them content more relevant to them.
+* Improve the UI for browsing/searching problems and solutions via the use of a map. So that users have another way to explore problems and solutions being implemented near to them to really see the impact others are making or the impact that they themselves can make.
+* Create private chats and group conversations to share content securely.
+* Strategize at a glance with content smartly prioritized to the user's needs.
+
+Technologies to be used: IBM App ID, IBM Watson, IBM Personality Insights, IBM ESRI
+
+
+### Long-term(Wedding Cake):
+
+A corporate employee can collaborate to solve societal problems while gaming at home, receiving employer incentives for building social good.
+
+Our solution will be expanded to include the following features:
+
+* Connect with corporations to encourage their employees to compete to solve problems.
+* Add gamification and ranking for doing good to promote healthy competition within the organization.
+* Corporations can improve employee engagement and retention. 
+* Employees have direct access and first hand knowledge to real world problems. This can spark innovation and can help with employer's research and development programs.
+* Corporations can encourage their employees to participate in solving societal problems as part of their Corporate Social Responsibility (CSR) initiatives.
+* Corporations can reward innovators with badges and certifications that can be shared in user's social media applications.
+* Use IBM Blockchain Platform to reward innovators with reward points that can be redeemed at partner locations. 
+* Corporations can sponsor and advertise content within the application for public relations.
+* Use Twilio for communication between users.
+
+
+Technologies to be used : IBM Blockchain Platform, Twilio
+
+
+----
+
 
 ## Getting started
 
@@ -301,70 +369,6 @@ To run the mobile application (using the Xcode iOS Simulator or Android Studio E
     - flutter config --enable-web
 
 With the application running in the simulator/emulator, you should be able to navigate through the various screens
-
-----
-
-## Roadmap
-
-<img src="doc/images/roadmap.png">
-
-### Current(Cupcake):
-
-Our submission allows an individual to post and solve any challenge together with others anywhere in the world while in lockdown.
-
-* Cross-platform application (iOS, Android, Web) along with server-side components. 
-* Problem poster can post challenges for others to solve.
-* Problem solver can post solutions to challenges along with uploading images/videos/attachments.
-* Problem poster picks a winner, rewards and posts the solution's impact.
-* Users can like and review solutions.
-* Backend server :
-* Summarises and picks top most relevant and important reviews.
-* Provides context-aware themes and associated sentiments from reviews.
-* Discovers topics from the reviews using topic modelling. 
-* Users can share solutions on social media.
-* Users can save solutions for viewing later.
-
-Technologies Used: IBM Watson Studio, IBM Cloudant, Loopback, Flutter, Jupyter Notebook
-
-### Mid-term(Birthday Cake):
-
-By registering into our secure AI backed experience sharing forum, a business owner can receive creative and practical solutions to sustain the business, unique to their situation.
-
-
-Today, a user can register and enter preferences, business guidelines and geolocation. 
-
-Our solution will be expanded to  include the following features:
-
-* Enhance the security of the user authentication process by using IBM Cloud App ID.
-* Use IBM Personality Insights to add additional attributes to user profiles.
-* Use a Recommender Engine that takes inputs from user profiles (locations, interests, demographics, personality insights, business specific attributes) to recommend problems and solutions to users.
-* Allow registered innovators to opt-in for notifications to receive recommended real-world problems relevant to them in real-time.
-* Allow users to get recommendations based on specific dimensions (example: location, business). Use user's location data to pull in local content to show to the user. This feature will make the application more personal and user-friendly by always showing them content more relevant to them.
-* Improve the UI for browsing/searching problems and solutions via the use of a map. So that users have another way to explore problems and solutions being implemented near to them to really see the impact others are making or the impact that they themselves can make.
-* Create private chats and group conversations to share content securely.
-* Strategize at a glance with content smartly prioritized to the user's needs.
-
-Technologies to be used: IBM App ID, IBM Watson, IBM Personality Insights, IBM ESRI
-
-
-### Long-term(Wedding Cake):
-
-A corporate employee can collaborate to solve societal problems while gaming at home, receiving employer incentives for building social good.
-
-Our solution will be expanded to include the following features:
-
-* Connect with corporations to encourage their employees to compete to solve problems.
-* Add gamification and ranking for doing good to promote healthy competition within the organization.
-* Corporations can improve employee engagement and retention. 
-* Employees have direct access and first hand knowledge to real world problems. This can spark innovation and can help with employer's research and development programs.
-* Corporations can encourage their employees to participate in solving societal problems as part of their Corporate Social Responsibility (CSR) initiatives.
-* Corporations can reward innovators with badges and certifications that can be shared in user's social media applications.
-* Use IBM Blockchain Platform to reward innovators with reward points that can be redeemed at partner locations. 
-* Corporations can sponsor and advertise content within the application for public relations.
-* Use Twilio for communication between users.
-
-
-Technologies to be used : IBM Blockchain Platform, Twilio
 
 ----
 
