@@ -4,9 +4,13 @@
 </a>
 
 <!-- omit in toc -->
-<h1 align="center" style="font-size:42px">
+<h1 align="center" style="font-size:42px;border-bottom:none;">
   BuildUP
 </h1>
+<h2 align="center" style="border-bottom: 1px solid #eaecef;">
+  Empower individuals to Innovate and BuildUP a resilient society together
+</h2>
+
 
 > This package was implemented using [Flutter](https://flutter.dev/) and [LoopBack 4](https://loopback.io/doc/en/lb4/)
 > and applies design standards and color themes based on the [Carbon Design System](https://www.carbondesignsystem.com/).
@@ -38,7 +42,7 @@
 ## Table of Contents
 - [Authors](#authors)
 - [Overview](#overview)
-  - [What's the problem?](#whats-the-problem)
+  - [Problem Background](#problem-background)
 - [The Solution](#the-solution)
   - [How can technology help?](#how-can-technology-help)
 - [How it works](#how-it-works)
@@ -67,7 +71,7 @@
 
 ## Overview
 
-### What's the problem?
+### Problem Background
 
 [4 out of 5 workers are affected by COVID-19 worldwide - United Nations](https://www.npr.org/sections/coronavirus-live-updates/2020/04/07/828778490/4-of-5-workers-are-affected-by-covid-19-worldwide-u-n-agency-says)
 
@@ -77,20 +81,28 @@
 
 Covid-19 has created new challenges and has impacted many lives and small businesses.
 
-Due to the covid-19 pandemic, all of us are hearing about the new normal. But what does that mean? 
-One person cannot find all the answers, but together we can. 
-
-What is needed is a solution that empowers communities and small businesses to easily connect and solve problems for each other.
+With over 50% of the world’s workforce – 1.6 billion - at risk of losing their livelihoods (International Labor Organization, Apr 29), there is a need to act NOW, not only to right the ship, but to reinforce it, so this suffering will not endure and will be less likely to occur again in a future disaster or pandemic. Businesses and communities need help finding ways to adapt to the new normal before they fall victim to it.
 
 ----
 
 ## The Solution
 
-The goal is to provide a cross-platform application, along with server-side components, that serves as the basis for developers to build out a community cooperation application that addresses real-time problems posed by small and local businesses in their struggle to fight against the challenges posed by COVID-19. 
+BuildUP is an app that provides a way for anyone in the world to help solve local or large-scale challenges like the COVID-19 pandemic while staying safe. Users can act in several ways – posting a challenge, solving a challenge, providing feedback on solutions, tracking and sharing – simply through a smart phone. Regardless of the way a user acts, each user benefits from a sense of purpose greater than themselves, a benefit that is in especially great demand during this time of social isolation.
+ 
 
-It would allow both "Small businesses" (such as a store or a business which is facing challenges due to Covid-10) to post their problems in anticipation of innovative solutions;and community members ("Students/Unemployed/Anyone") to think of solutions to the posted problems, sketch solutions and submit the solutions. The innovator can share the solution through social media. Innovators can also submit their solutions as well as comment on the solutions of other innovators. Watson studio performs sentiment analysis, identifies themes, top strong comments and generates word clouds on review comments The best solution is identified and rewarded by the local business. Local businesses can implement the solution and submit the impact created.
+ Using AI, individuals’ posts of challenges and solutions are matched and ranked for relevance, associated with others’ posts, turned into insights and auto-suggested to users in need of solutions. AI increases the expediency and impact of individuals’ crowdsourced contributions. Ideas and insights on how to adapt for success in their unique situation of local guidelines can be pushed to a user based on their profile and preferences.
 
-The implemented solution went beyond our initial goals and now allows not just businesses to post problems, but anyone, and in addition to this, the problems aren't limited to just COVID-related but any issue. This makes the solution a great starting point for addressing problems, related to Global Warming, as well as any emergency which we may face in the future.
+
+Because the app is a venue for collaboration across communities, countries, and continents, it provides a wealth of inspiration right at the user's fingertips. The product's core content is built through the kindness, creativity, resourcefulness and collaboration of individuals connecting around the world. 
+
+ 
+The power of this app is three-fold; it builds up the individual, builds up the economy and builds up society all at once… a win, win, win. As the system becomes smarter leveraging AI and the growing number of user contributions, it builds protection against future societal threats to our economic livelihood and can be used as a framework for the new challenges that arise, whatever they may be. 
+
+
+By using IBM techniques to tame bias in data and methodologies used in our AI solutions, BuildUp provides more relevant solutions leading to faster successes in greater number; it increases public trust and confidence in artificial intelligence.
+
+ 
+In addition, the BuildUP roadmap describes opportunities for private, secure areas of collaboration and innovation that can be built to benefit larger organisations in research and development, customer relationships, employee recruitment, engagement, wellness and retention, and corporate social responsibility. Sometimes a wake-up call of disaster can provide an exclusive opportunity to adapt on an astronomical scale and become stronger and better than before.
 
 <p>
 <img src="doc/demos/ScrollThroughPages_gif.gif" width="240">
