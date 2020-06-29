@@ -59,7 +59,7 @@
     - [3. Run the server](#3-run-the-server)
     - [4. Run the mobile application](#4-run-the-mobile-application)
 - [Roadmap](#roadmap)
-  - [Current(Cup Cake):](#currentcup-cake)
+  - [Current(Cupcake):](#currentcup-cake)
   - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
   - [Long-term(Wedding Cake):](#long-termwedding-cake)
 - [Resources and documents](#resources-and-documents)
@@ -308,21 +308,21 @@ With the application running in the simulator/emulator, you should be able to na
 
 <img src="doc/images/roadmap.png">
 
-### Current(Cup Cake):
+### Current(Cupcake):
 
 Our submission allows an individual to post and solve any challenge together with others anywhere in the world while in lockdown.
 
-    - Cross-platform application (iOS, Android, Web) along with server-side components. 
-    - Problem poster can post challenges for others to solve.
-    - Problem solver can post solutions to challenges along with uploading images/videos/attachments.
-    - Problem poster picks a winner, rewards and posts the solution's impact.
-    - Users can like and review solutions.
-    - Backend server :
-    - Summarises and picks top most relevant and important reviews.
-    - Provides context-aware themes and associated sentiments from reviews.
-    - Discovers topics from the reviews using topic modelling. 
-    - Users can share solutions on social media.
-    - Users can save solutions for viewing later.
+* Cross-platform application (iOS, Android, Web) along with server-side components. 
+* Problem poster can post challenges for others to solve.
+* Problem solver can post solutions to challenges along with uploading images/videos/attachments.
+* Problem poster picks a winner, rewards and posts the solution's impact.
+* Users can like and review solutions.
+* Backend server :
+* Summarises and picks top most relevant and important reviews.
+* Provides context-aware themes and associated sentiments from reviews.
+* Discovers topics from the reviews using topic modelling. 
+* Users can share solutions on social media.
+* Users can save solutions for viewing later.
 
 Technologies Used: IBM Watson Studio, IBM Cloudant, Loopback, Flutter, Jupyter Notebook
 
