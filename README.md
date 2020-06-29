@@ -48,10 +48,7 @@
 - [How it works](#how-it-works)
 - [Architecture](#architecture)
 - [Implemented App interaction preview](#implemented-app-interaction-preview)
-- [Documents](#documents)
 - [Technology](#technology)
-  - [IBM Cloud Services](#ibm-cloud-services)
-  - [Flutter](#flutter)
 - [Getting started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Steps](#steps)
@@ -63,7 +60,9 @@
   - [Current(Cup Cake):](#currentcup-cake)
   - [Mid-term(Birthday Cake):](#mid-termbirthday-cake)
   - [Long-term(Wedding Cake):](#long-termwedding-cake)
-- [Resources](#resources)
+- [Resources and documents](#resources-and-documents)
+  - [IBM Cloud Services](#ibm-cloud-services)
+  - [Flutter](#flutter)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -183,22 +182,17 @@ BuildUP combines sentiment analysis (Watson Studio), Cloudant data storage to ho
 
 ----
 
-## Documents
-
 ## Technology
 
-### IBM Cloud Services
-
-- [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/)
-- [Create a machine learning powered web app to answer questions](https://developer.ibm.com/patterns/create-a-machine-learning-powered-web-app-to-answer-questions-from-a-book/)
-- [Learning path: Getting started with Watson Studio](https://developer.ibm.com/series/learning-path-watson-studio/)
-- [Deciding between native and cross-platform mobile frontend programming frameworks](https://developer.ibm.com/articles/deciding-between-native-and-cross-platform-mobile-frontend-programming-frameworks/)
-- [Building successful mobile apps article series](https://developer.ibm.com/series/building-successful-mobile-apps/)
-
-
-### Flutter
-
-- [Building beautiful UIs with Flutter](https://codelabs.developers.google.com/codelabs/flutter/#0)
+- [IBM Cloud](https://www.ibm.com/cloud)
+- [Watson Studio](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html)
+- [IBM Cloudant](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-overview)
+- [Node.js](https://nodejs.org)
+- [Flutter](https://flutter.dev/)
+- [LoopBack 4](https://loopback.io/doc/en/lb4/)
+- [IBM Blockchain for Developers](https://developer.ibm.com/technologies/blockchain/)
+  
+----
 
 ## Getting started
 
@@ -367,15 +361,23 @@ Technologies to be used : IBM Blockchain Platform, Twilio
 
 ----
 
-## Resources
 
-- [IBM Cloud](https://www.ibm.com/cloud)
-- [Watson Studio](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html)
-- [IBM Cloudant](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-overview)
-- [Node.js](https://nodejs.org)
-- [Flutter](https://flutter.dev/)
-- [LoopBack 4](https://loopback.io/doc/en/lb4/)
-- [IBM Blockchain for Developers](https://developer.ibm.com/technologies/blockchain/)
+## Resources and documents
+
+
+### IBM Cloud Services
+
+- [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/)
+- [Create a machine learning powered web app to answer questions](https://developer.ibm.com/patterns/create-a-machine-learning-powered-web-app-to-answer-questions-from-a-book/)
+- [Learning path: Getting started with Watson Studio](https://developer.ibm.com/series/learning-path-watson-studio/)
+- [Deciding between native and cross-platform mobile frontend programming frameworks](https://developer.ibm.com/articles/deciding-between-native-and-cross-platform-mobile-frontend-programming-frameworks/)
+- [Building successful mobile apps article series](https://developer.ibm.com/series/building-successful-mobile-apps/)
+
+
+### Flutter
+
+- [Building beautiful UIs with Flutter](https://codelabs.developers.google.com/codelabs/flutter/#0)
+
 
 ----
 
