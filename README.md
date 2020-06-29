@@ -36,7 +36,6 @@
 
 <!-- omit in toc -->
 ## Table of Contents
-- [Authors](#authors)
 - [Overview](#overview)
   - [What's the problem?](#whats-the-problem)
 - [The Solution](#the-solution)
