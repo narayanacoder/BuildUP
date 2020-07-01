@@ -92,7 +92,7 @@ With over 50% of the world’s workforce – 1.6 billion - at risk of losing the
 
 ### BuildUP
 
-BuildUP is an app that provides a way for anyone in the world to help solve local or large-scale challenges like the COVID-19 pandemic while staying safe. Users can act in several ways – posting a challenge, solving a challenge, providing feedback on solutions, tracking and sharing – simply through a smart phone. Regardless of the way a user acts, each user benefits from a sense of purpose greater than themselves, a benefit that is in especially great demand during this time of social isolation.
+BuildUP is an app that provides a way for anyone in the world to help solve local or large-scale challenges like the COVID-19 pandemic while staying safe. Users can act in several ways – posting a challenge, solving a challenge, providing feedback on solutions, tracking and sharing – simply through a smart phone. Regardless of the way a user acts, each user benefits from a sense of purpose greater than themselves, a benefit that is in especially great demand during this time of social isolation. BuildUP was designed to make an impact both during Covid and post-Covid.
  
 
  Using AI, individuals’ posts of challenges and solutions are matched and ranked for relevance, associated with others’ posts, turned into insights and auto-suggested to users in need of solutions. AI increases the expediency and impact of individuals’ crowdsourced contributions. Ideas and insights on how to adapt for success in their unique situation of local guidelines can be pushed to a user based on their profile and preferences.
