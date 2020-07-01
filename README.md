@@ -98,7 +98,7 @@ BuildUP is an app that provides a way for anyone in the world to help solve loca
  Using AI, individuals’ posts of challenges and solutions are matched and ranked for relevance, associated with others’ posts, turned into insights and auto-suggested to users in need of solutions. AI increases the expediency and impact of individuals’ crowdsourced contributions. Ideas and insights on how to adapt for success in their unique situation of local guidelines can be pushed to a user based on their profile and preferences.
 
 
-Because the app is a venue for collaboration across communities, countries, and continents, it provides a wealth of inspiration right at the user's fingertips. The product's core content is built through the kindness, creativity, resourcefulness and collaboration of individuals connecting around the world. 
+Because the app is a cross-platform venue for collaboration across communities, countries, and continents, it provides a wealth of inspiration right at the user's fingertips. The product's core content is built through the kindness, creativity, resourcefulness and collaboration of individuals connecting around the world. 
 
  
 The power of this app is three-fold; it builds up the individual, builds up the economy and builds up society all at once… a win, win, win. As the system becomes smarter leveraging AI and the growing number of user contributions, it builds protection against future societal threats to our economic livelihood and can be used as a framework for the new challenges that arise, whatever they may be. 
